@@ -3,7 +3,7 @@
  @page{margin:14mm}
  *,*::before,*::after{color:#000!important;background:transparent!important;box-shadow:none!important;text-shadow:none!important;filter:none!important;outline:0!important;border-color:#000!important;animation:none!important;transition:none!important}
  body{font-size:10.5pt;line-height:1.4}
- .dock,.rail,#prog,.board canvas,.hint,.tlc,.cmd,.cform,.ctas,#how,.skimnote,.mini,#rhythm,.pf,#pfsum,#decisions,#lab,#negative,.match,.quant,.links,.slip,.top nav,.pulse,#cp,.sih,.more{display:none!important}
+ .dock,.rail,#prog,.board canvas,.hint,.tlc,.cmd,.cform,#how,.skimnote,.mini,#rhythm,.pf,#pfsum,#decisions,#lab,#negative,.match,.quant,.links,.slip,.top nav,.pulse,#cp,.sih,.more{display:none!important}
  .board{height:auto!important;min-height:0!important}
  .over{height:auto!important;padding-top:0!important}
  .intro{margin:6mm 0!important}
