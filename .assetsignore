@@ -1,0 +1,11 @@
+worker/
+analysis/
+.git/
+.gitignore
+.assetsignore
+.wrangler/
+node_modules/
+wrangler.jsonc
+DEPLOY.md
+index.v*.html
+Sriram_Kolli_Resume (1).pdf

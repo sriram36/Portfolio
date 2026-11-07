@@ -470,7 +470,7 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
 </div>
 </section>
 <section id="live" class="deep"><h2>Live right now</h2>
-<p class="lede">Each card pings the real deployment from your browser and keeps the last ten results. Free hosts go to sleep, so the first ping can be slow.</p>
+<p class="lede" id="wlead">Each card pings the real deployment from your browser and keeps the last ten results. Free hosts go to sleep, so the first ping can be slow.</p>
 <div class="wall" id="wall"></div>
 <h3 class="cert-h">Latest public pushes</h3>
 <ul class="pl" id="pulse"><li>Loading…</li></ul>
@@ -808,9 +808,11 @@ addEventListener('scroll',()=>{const h=document.documentElement,m=h.scrollHeight
 $('#last').textContent='Latest public push: '+repos[0].d+'. Outcomes are my labels; the dates come from GitHub.';
 sel=repos.find(r=>r.n==='stock-ai')||repos[0];show(sel);
 setup();draw();if(!rm)go();
-(async()=>{try{const c=new AbortController();setTimeout(()=>c.abort(),2500);
- const j=await(await fetch('https://api.github.com/users/sriram36/repos?per_page=100',{signal:c.signal})).json();
- if(Array.isArray(j)){j.forEach(g=>{const r=repos.find(x=>x.n===g.name);if(r)r.d=g.pushed_at.slice(0,10)});$('#last').textContent='Latest public push: '+repos.map(r=>r.d).sort().pop()+'. Outcomes are my labels; the dates come from GitHub.'}}catch(e){}})();
+const GH=(async()=>{
+ try{const r=await fetch('/api/github');if(r.ok){const j=await r.json();if(j&&Array.isArray(j.repos))return{repos:j.repos,events:j.events||null,edge:true}}}catch(e){}
+ try{const c=new AbortController();setTimeout(()=>c.abort(),2500);const j=await(await fetch('https://api.github.com/users/sriram36/repos?per_page=100',{signal:c.signal})).json();if(Array.isArray(j))return{repos:j.map(g=>({name:g.name,pushed_at:g.pushed_at})),events:null,edge:false}}catch(e){}
+ return null})();
+GH.then(g=>{if(!g)return;g.repos.forEach(x=>{const r=repos.find(y=>y.n===x.name);if(r)r.d=x.pushed_at.slice(0,10)});$('#last').textContent='Latest public push: '+repos.map(r=>r.d).sort().pop()+'. Outcomes are my labels; the dates come from GitHub'+(g.edge?', through a cached copy at the edge.':'.')});
 </script>
 <script>
 (()=>{
@@ -929,17 +931,28 @@ async function ping1(u){const c=new AbortController(),to=setTimeout(()=>c.abort(
 function paint(i){
  const h=hist[i],ms=h[h.length-1],el=$('#wc-'+i),good=ms>=0,slow=ms>1500;
  el.querySelector('.ms').textContent=good?ms+' ms':'down';el.querySelector('.ms').style.color=good?(slow?'var(--learned)':'var(--live)'):'var(--killed)';
- el.querySelector('.st').textContent=good?(slow?'reachable, slow (probably waking up)':'reachable'):'not reachable from your browser right now';
+ el.querySelector('.st').textContent=good?(slow?'reachable, slow (probably waking up)':'reachable'):(psrc==='edge'?'not reachable from the edge right now':'not reachable from your browser right now');
  const ok=h.filter(v=>v>=0),mx=Math.max(1,...ok),n=h.length;
  el.querySelector('svg').innerHTML=(ok.length>1?'<polyline fill="none" stroke="currentColor" stroke-width="1.6" vector-effect="non-scaling-stroke" points="'+h.map((v,k)=>v>=0?((n<2?0:k/(n-1))*100).toFixed(1)+','+(28-(v/mx)*24).toFixed(1):'').filter(Boolean).join(' ')+'"/>':'')+h.map((v,k)=>v<0?'<circle cx="'+((n<2?0:k/(n-1))*100).toFixed(1)+'" cy="26" r="2" fill="var(--killed)"/>':'').join('');
 }
-async function pingAll(){await Promise.all(TG.map(async([n,u],i)=>{const ms=await ping1(u);(hist[i]=hist[i]||[]).push(ms);if(hist[i].length>10)hist[i].shift();paint(i)}))}
+let psrc='browser',pcolo=null;
+const note=(i,ms)=>{(hist[i]=hist[i]||[]).push(ms);if(hist[i].length>10)hist[i].shift();paint(i)};
+async function pingAll(){
+ try{const r=await fetch('/api/ping');if(r.ok){const j=await r.json();if(j&&Array.isArray(j.results)&&j.results.length===TG.length){psrc='edge';pcolo=j.colo;j.results.forEach((x,i)=>note(i,x.ok?x.ms:-1));$('#wlead').textContent="Each card shows the latency of the real deployment, measured from Cloudflare's edge"+(pcolo?' ('+pcolo+')':'')+' every 30 seconds, with the last ten results. Free hosts go to sleep, so a first check can be slow.';return}}}catch(e){}
+ psrc='browser';await Promise.all(TG.map(async([n,u],i)=>note(i,await ping1(u))));
+}
 async function pulse(){
  const el=$('#pulse');
- try{let j=JSON.parse(sessionStorage.getItem('ev')||'null');
-  if(!j||Date.now()-j.t>6e5){const r=await fetch('https://api.github.com/users/sriram36/events/public?per_page=40');const d=await r.json();if(!Array.isArray(d))throw 0;j={t:Date.now(),d};sessionStorage.setItem('ev',JSON.stringify(j))}
-  const ev=j.d.filter(e=>e.type==='PushEvent').slice(0,6);
-  el.innerHTML=ev.length?ev.map(e=>'<li><a href="https://github.com/'+e.repo.name+'">'+e.repo.name.split('/')[1]+'</a><span>'+(e.payload.size||1)+' commit'+((e.payload.size||1)===1?'':'s')+', '+ago(e.created_at)+'</span></li>').join(''):"<li>No public pushes in GitHub's recent feed.</li>";
+ try{
+  let ev=null;const g=await GH;
+  if(g&&g.events)ev=g.events;
+  else{
+   let j=JSON.parse(sessionStorage.getItem('ev')||'null');
+   if(!j||Date.now()-j.t>6e5){const r=await fetch('https://api.github.com/users/sriram36/events/public?per_page=40');const d=await r.json();if(!Array.isArray(d))throw 0;j={t:Date.now(),d};sessionStorage.setItem('ev',JSON.stringify(j))}
+   ev=j.d.filter(e=>e.type==='PushEvent').map(e=>({repo:e.repo.name,size:(e.payload&&e.payload.size)||1,created_at:e.created_at}));
+  }
+  ev=ev.slice(0,6);
+  el.innerHTML=ev.length?ev.map(e=>'<li><a href="https://github.com/'+e.repo+'">'+e.repo.split('/')[1]+'</a><span>'+e.size+' commit'+(e.size===1?'':'s')+', '+ago(e.created_at)+'</span></li>').join(''):"<li>No public pushes in GitHub's recent feed.</li>";
  }catch(x){el.innerHTML="<li>GitHub's public feed is unreachable right now.</li>"}
 }
 let wallOn=false,wallStarted=false;
