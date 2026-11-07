@@ -1,5 +1,6 @@
 worker/
-analysis/
+tools/
+resume/
 .git/
 .gitignore
 .assetsignore
@@ -7,5 +8,4 @@ analysis/
 node_modules/
 wrangler.jsonc
 DEPLOY.md
-index.v*.html
 Sriram_Kolli_Resume (1).pdf

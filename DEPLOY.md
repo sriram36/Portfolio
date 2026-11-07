@@ -34,7 +34,7 @@ To try the Worker locally: `npx wrangler dev`.
 
 ## Files that must be deployed
 
-`index.html`, `favicon.svg`, `og-image.png`, `Sriram_Kolli_Resume.pdf` and the `fonts/` folder.
+`index.html`, `favicon.svg`, `og-image.png` and the `fonts/` folder. The Resume links point to a Dropbox file, so update the resume there, not in this folder.
 
 ## Share image
 

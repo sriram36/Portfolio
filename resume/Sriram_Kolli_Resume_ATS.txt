@@ -1,0 +1,47 @@
+SRIRAM KOLLI
+Bengaluru, India | kollisriram6@gmail.com | linkedin.com/in/sriram-kolli-979723219 | github.com/sriram36 | portfolio.kollisriram6.workers.dev
+
+SUMMARY
+Backend-focused Full Stack Software Engineer and final-year B.Tech student (Computer Science and Information Technology, 2027) with internships at Accenture, Zennith AI and PixelTests. Builds FastAPI and PostgreSQL services, agentic AI pipelines with LangGraph and Azure OpenAI, and workflow automation. Cut manual support tickets by 80%, saving 15+ engineering hours per week. Seeking software engineering internships and entry-level roles.
+
+SKILLS
+Languages: Python, JavaScript, TypeScript, Java, SQL
+Backend: FastAPI, Django, Node.js, Express.js, REST APIs, WebSockets, SQLAlchemy, Alembic, JWT, CI/CD, Pytest
+Frontend: Next.js, React.js, Tailwind CSS, Streamlit
+Databases: PostgreSQL, Supabase, MongoDB, SQLite
+AI and LLM: LangGraph, Azure OpenAI, prompt engineering, RAG, LLM evaluation
+Automation and Tools: n8n, Playwright, BeautifulSoup, Twilio, WhatsApp Cloud API, Docker, Git, Linux CLI, Postman
+
+EXPERIENCE
+Full Stack Developer Intern | Zennith AI | Sep 2025 - Present (paused Jun - Jul 2026 for Accenture)
+- Built a document-extraction pipeline with custom parsing across 10+ FastAPI endpoints, returning structured data in under 3 seconds with sub-100 ms responses under concurrent load.
+- Shipped 5+ Next.js components for upload flows and result visualization, owning the frontend-to-backend integration independently.
+
+Associate Software Engineer Intern | Accenture | Jun 2026 - Jul 2026
+- Contributed to CI/CD pipelines and deployment workflows for enterprise-scale backend services (FastAPI, PostgreSQL) in a globally distributed team.
+- Independently designed and delivered an agentic Pharma MLR (Medical-Legal-Regulatory) compliance review system in about 2 months as a mentor-approved project (LangGraph, Azure OpenAI, FastAPI, Streamlit), presented in a live mentor demo.
+- Built a deterministic rule-based grader (16 compliance rules, one optionally LLM-assisted; 78% agreement with manual review in my own test) and a three-tier fallback (dictionary, disk cache, LLM) that removed non-determinism and silent failures.
+
+Software Development Intern | PixelTests | Dec 2024 - May 2025
+- Developed a WhatsApp support pipeline (FastAPI, Twilio, state-machine logic) that cut manual ticket volume by 80%, saving 15+ engineering hours per week.
+- Maintained 3+ production FastAPI services.
+
+PROJECTS
+LeaveFlow - Leave Management Platform (WhatsApp and web) | FastAPI, PostgreSQL, WebSockets, Next.js
+github.com/sriram36/LeaveFlow | Live demo: leave-flow-cyan.vercel.app
+- Designed a dual-interface leave system (WhatsApp and web dashboard) with role-based access control, multi-level approvals, real-time WebSocket updates and audit logging across 10+ REST endpoints, replacing email-chain approvals.
+- Handled concurrent requests with a normalized PostgreSQL schema and transactional writes; added JWT cookie authentication, webhook signature verification, rate limiting, Alembic migrations and a 29-test backend suite.
+
+FinSight - Evidence-Grounded Personal Finance Platform | FastAPI, Next.js, PostgreSQL
+github.com/sriram36/FinSight | Live: finsight-wine-tau.vercel.app
+- Built a finance decision-support platform that keeps arithmetic out of the LLM: totals and daily pace are computed deterministically in Python, and a claim verifier checks every number in generated advice against cited transactions within a 1% tolerance.
+- Added protected-category rules, SHA-256 de-duplication on statement import and a reproducible benchmark; 60 automated tests; deployed on Vercel and Render.
+
+EDUCATION
+B.Tech, Computer Science and Information Technology | SRKR Engineering College, Bhimavaram | 2023 - 2027 | CGPA 8.9/10
+
+CERTIFICATIONS
+Agentic AI Fluency, Udacity, Jun 2026; Generative AI Fluency, Udacity, Jun 2026; AWS Educate Machine Learning Foundations, AWS, Jun 2025; Introducing Generative AI with AWS, Udacity, Jun 2025; Java Full Stack Developer Virtual Internship, EduSkills, Dec 2024.
+
+ACHIEVEMENTS
+Smart India Hackathon 2024: 1st among 150+ teams (internal selection round). Innoverse Startup Pitch: 3rd prize. GDSC Solution Challenge 2025: submitted EduBridge, a digital-skills learning platform (SDG 4).
