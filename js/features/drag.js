@@ -18,7 +18,7 @@
   b.vx=Math.max(-500,Math.min(500,b.vx));b.vy=Math.max(-300,Math.min(300,b.vy));
   if(moved>6){
    just=true;const own=b.r.b*W/4;if(b.y>binTop-4&&(b.x<own||b.x>own+W/4))b.y=pegBot;
-   const nm=b.r.f?b.r.n:'That one';$('#panel').innerHTML='<p>'+nm+' belongs in <b>'+NAMES[b.r.s]+'</b>. It found its way back.</p>';
+   const nm=b.r.n;$('#panel').innerHTML='<p>'+nm+' belongs in <b>'+NAMES[b.r.s]+'</b>. It found its way back.</p>';
    clearTimeout(msgT);msgT=setTimeout(()=>{if(sel)show(sel)},2600);
   }
   window.go();

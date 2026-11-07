@@ -58,7 +58,7 @@ function draw(){
   cx.beginPath();cx.arc(b.x,b.y,R+(b.r===hov?3:0),0,7);cx.fillStyle=HC[TLM.on?B[b.tb]:b.r.s];cx.fill();cx.globalAlpha=1;
   if(HL&&!dim){cx.lineWidth=2.5;cx.strokeStyle='#fff';cx.stroke();cx.lineWidth=1.5;cx.strokeStyle='rgba(243,245,255,.5)'}
   if(b.r===sel){cx.lineWidth=3;cx.strokeStyle='#fff';cx.stroke();cx.lineWidth=1.5;cx.strokeStyle='rgba(243,245,255,.5)'}}
- const L=hov||sel;if(L){const b=balls.find(x=>x.r===L);if(b&&!b.hide&&(b.done||T>=b.delay)){cx.fillStyle='#fff';cx.textAlign=b.x<W/2?'left':'right';cx.fillText(L.f?L.n:'not named',b.x+(b.x<W/2?-R:R),Math.max(14,b.y-R-8));cx.textAlign='center'}}
+ const L=hov||sel;if(L){const b=balls.find(x=>x.r===L);if(b&&!b.hide&&(b.done||T>=b.delay)){cx.fillStyle='#fff';cx.textAlign=b.x<W/2?'left':'right';cx.fillText(L.n,b.x+(b.x<W/2?-R:R),Math.max(14,b.y-R-8));cx.textAlign='center'}}
 }
 function frame(t){
  const dt=Math.min(.033,(t-last)/1000||.016);last=t;
@@ -70,7 +70,6 @@ function go(){if(!run){run=true;last=performance.now();requestAnimationFrame(fra
 
 /* ---------- panel + interaction ---------- */
 function show(r){
- if(!r.f){$('#panel').innerHTML='<h3>Not named here <span class="pill" style="color:var(--'+r.s+')">'+NAMES[r.s]+'</span></h3><p>One of the '+(N-FEAT.size)+' projects I count in the numbers but don’t list. Where it started: '+ORI[r.o].toLowerCase()+'. Last push '+r.d.slice(0,7)+'.</p>';return}
  $('#panel').innerHTML='<h3>'+r.n+' <span class="pill" style="color:var(--'+r.s+')">'+NAMES[r.s]+'</span></h3><p>'+r.note+'</p><p class="m">'+ORI[r.o]+'. Last push '+r.d+'.</p><p>'+(r.priv?'Private repo, so there is no link.':'<a href="https://github.com/sriram36/'+r.n+'">Open the repo</a>')+(r.u?' &nbsp; <a href="'+r.u+'">Open the live app</a>':'')+'</p>';
 }
 function pick(e){
