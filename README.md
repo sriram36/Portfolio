@@ -21,7 +21,6 @@ Most portfolios show the projects that survived. This one starts with every proj
 | `fonts/` | Self-hosted Bricolage Grotesque |
 | `favicon.svg`, `og-image.png` | Icon and link preview image |
 | `worker/` | Cloudflare Worker that serves the files and caches GitHub data and edge pings |
-| `resume/` | Builds the ATS-friendly resume copy and compares it with a job description |
 | `tools/` | Regenerates the link preview image from the live counts |
 
 ## Run it
