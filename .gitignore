@@ -1,0 +1,7 @@
+# private analysis of repos, old manual backups, duplicate resume download, build scratch
+analysis/
+index.v*.html
+Sriram_Kolli_Resume (1).pdf
+_scratch/
+_*.py
+_*.png
