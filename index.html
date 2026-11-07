@@ -58,18 +58,7 @@ h2{margin:0 0 14px;font-size:clamp(30px,5.4vw,56px);line-height:1;letter-spacing
 .lede{max-width:62ch;margin:0 0 20px}
 .key{color:var(--mut);font-size:15px;max-width:62ch}
 
-/* stopped */
-.ph{display:grid;grid-template-columns:repeat(20,1fr);gap:4px;margin:26px 0 8px}
-.ph i{aspect-ratio:1;display:grid;place-items:center;font:700 clamp(8px,1.6vw,12px) var(--f);font-style:normal;border:1.5px solid var(--cobalt);color:var(--cobalt);border-radius:3px}
-.ph .ok{background:var(--cobalt);color:var(--paper)}
-.ph .bad{background:var(--killed);border-color:var(--killed);color:#fff;transform:scale(1.35);z-index:1;border-radius:4px}
-.ph .no{border-style:dashed;border-color:var(--rule);color:var(--rule);background:repeating-linear-gradient(135deg,transparent 0 4px,var(--rule) 4px 5px)}
-@media(max-width:620px){.ph{grid-template-columns:repeat(10,1fr)}}
-.sl{background:var(--cobalt);color:var(--paper);padding:24px 22px;border-radius:14px;margin-top:26px}
-.sl p{margin:0 0 10px;max-width:60ch}
-.sl output{font-weight:800}
 input[type=range]{width:100%;margin:10px 0;accent-color:var(--hr);height:28px}
-#mx{font-size:clamp(20px,3.4vw,30px);font-weight:700;line-height:1.2;letter-spacing:-.01em;margin:0;font-variation-settings:"wdth" 88}
 
 /* receipts */
 .rcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:26px;margin-top:26px}
@@ -116,13 +105,6 @@ footer button[aria-pressed=true]{background:var(--paper);color:var(--cobalt)}
 .links{display:flex;flex-wrap:wrap;gap:6px 24px;margin:18px 0}
 .fine{font-size:14px;opacity:.85}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
-#stopped{background:var(--ink);color:var(--paper);box-shadow:0 0 0 100vmax var(--ink);clip-path:inset(0 -100vmax);padding-bottom:clamp(56px,8vw,96px);margin-top:clamp(48px,8vw,92px)}
-#stopped .ph i{border-color:var(--hu);color:var(--hu)}
-#stopped .ph .ok{background:var(--hl);border-color:var(--hl);color:var(--ink)}
-#stopped .ph .bad{background:var(--hk);border-color:var(--hk);color:var(--ink)}
-#stopped .ph .no{border-color:#ffffff30;color:#ffffff40;background:repeating-linear-gradient(135deg,transparent 0 4px,#ffffff20 4px 5px)}
-#stopped .sl{background:var(--cobalt)}
-#stopped .rc{color:var(--ink)}
 
 .hero{padding:0}
 .board{position:relative;display:flex;flex-direction:column}
@@ -173,8 +155,6 @@ html.js .sih:not(.go) i{opacity:0}
 .sih.go .on{animation:dp .45s calc(var(--i)*7ms) both,pl 1.3s 1.3s 2}
 @keyframes dp{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}
 @keyframes pl{0%,100%{box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--cobalt)}50%{box-shadow:0 0 0 3px var(--paper),0 0 0 15px #2338ff30}}
-.ph i{transition:background .25s,color .25s,transform .25s,opacity .4s,border-color .25s}
-.ph i.pend{opacity:.28}
 .tl i{transition:transform .2s,background .3s}
 .tl i.hot{transform:scale(1.35);background:var(--hr)!important;border-color:var(--ink);color:var(--ink)}
 .xp{transition:background .25s}.xp.hot{background:#e4e9ff}
@@ -185,7 +165,6 @@ html.js .sih:not(.go) i{opacity:0}
 .sk span button:hover{border-color:var(--ink)}
 .sk span button[aria-pressed=true]{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
 .res{min-height:1.6em}.res a{font-weight:700;margin-left:12px}
-#sim{height:150px;margin-top:14px;border-radius:8px;background:#ffffff14}
 @media(prefers-reduced-motion:reduce){.pulse{animation:none}}
 .cert-h{margin:44px 0 6px;font:800 clamp(22px,2.6vw,30px)/1.1 var(--f);letter-spacing:-.015em}
 
@@ -198,7 +177,7 @@ footer .wrap{padding-bottom:70px}
 /* ---- skim ---- */
 .skimnote{display:none}
 html.skim .skimnote{display:block;color:var(--mut);margin:18px 0 0}
-html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.skim #about .lede + .lede,html.skim #about .key,html.skim .does,html.skim .tl,html.skim #experience .lede,html.skim .xp li:nth-child(n+2),html.skim .xp .tech,html.skim #rcs .rc:nth-child(n+4),html.skim #work .key,html.skim .say p:not(.role):not(.lead2):not(.try),html.skim #pfsum,html.skim .tlnote,html.skim .more,html.skim .match{display:none}
+html.skim .deep,html.skim #skills,html.skim #education,html.skim #about .lede + .lede,html.skim #about .key,html.skim .does,html.skim .tl,html.skim #experience .lede,html.skim .xp li:nth-child(n+2),html.skim .xp .tech,html.skim #rcs .rc:nth-child(n+4),html.skim #work .key,html.skim .say p:not(.role):not(.lead2):not(.try),html.skim #pfsum,html.skim .tlnote,html.skim .more,html.skim .match{display:none}
 /* ---- time-lapse controls ---- */
 .tlc{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:0 0 30px;color:var(--paper)}
 .tlc input[type=range]{flex:1;min-width:160px;margin:0;accent-color:var(--hr)}
@@ -283,6 +262,9 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
 .demo h3{margin:0 0 8px;font:800 clamp(22px,2.6vw,30px)/1.1 var(--f)}
 .demo p{max-width:64ch}
 .demo .qb button{border-color:var(--ink);color:var(--ink)}
+.demo.dark{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.demo.dark .quant{margin-top:0}
+.demo.dark .qb button{border-color:#f3f5ff;color:#f3f5ff}
 .chipsrow{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
 .chipsrow button{margin:0;text-align:left;border-radius:12px}
 /* ---- grader inspector ---- */
@@ -348,7 +330,7 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
  @page{margin:14mm}
  *,*::before,*::after{color:#000!important;background:transparent!important;box-shadow:none!important;text-shadow:none!important;filter:none!important;outline:0!important;border-color:#000!important;animation:none!important;transition:none!important}
  body{font-size:10.5pt;line-height:1.4}
- .dock,.rail,#prog,.board canvas,.hint,.tlc,.cmd,.cform,#how,#live,.skimnote,.mini,#rhythm,.pf,#pfsum,#decisions,#lab,#negative,.match,.sl,.quant,.slip,.top nav,.pulse,#cp,.sih,.more,#stopped .ph{display:none!important}
+ .dock,.rail,#prog,.board canvas,.hint,.tlc,.cmd,.cform,#how,#live,.skimnote,.mini,#rhythm,.pf,#pfsum,#decisions,#lab,#negative,.match,.quant,.slip,.top nav,.pulse,#cp,.sih,.more{display:none!important}
  .board{height:auto!important;min-height:0!important}
  .over{height:auto!important;padding-top:0!important}
  .intro{margin:6mm 0!important}
@@ -362,7 +344,6 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
  .rc,.xp{break-inside:avoid}
  .rc{border:1px solid #000!important;-webkit-mask:none!important;mask:none!important;transform:none!important;padding:3mm!important}
  .rc .ld{border-bottom:1px dotted #000!important}
- #stopped{padding-bottom:0!important;margin-top:0!important;clip-path:none!important;box-shadow:none!important}
  a{text-decoration:none}
  footer{margin-top:6mm!important;padding:4mm 0!important}
 }
@@ -433,7 +414,7 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
 </section>
 <section id="work">
 <h2>Selected work, with receipts</h2>
-<p class="key">“Check it” links to something you can verify. “My word” you can't, so weigh it that way. Test counts are functions I counted in the repo; I'm not claiming they pass. These six were picked for the idea, not for how finished they are. The stock-ai story is just below.</p>
+<p class="key">“Check it” links to something you can verify. “My word” you can't, so weigh it that way. Test counts are functions I counted in the repo; I'm not claiming they pass. These six were picked for the idea, not for how finished they are.</p>
 <div class="match" id="match"><p class="mq">Looking for a stack? Pick what you need.</p>
 <div class="chipsrow" id="mpills" role="group" aria-label="Stack filter"></div>
 <p class="mres" id="mres" aria-live="polite"></p></div>
@@ -468,6 +449,13 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
 <div class="qb"><button id="s-fire" type="button">Fire both requests</button></div>
 <p class="fine">A simulation of the behaviour described in the repo's notes: approve locks the transaction, then the match, then the line item, and a database check is the last backstop. It is not the live code.</p>
 </div>
+<div class="demo dark" id="qd">
+<div class="quant" id="quant"><h3>Be the quant</h3>
+<p id="qp">Forty strategies, all pure noise. Click the curve you would bet on, then see what happens next.</p>
+<canvas id="qc" aria-label="Forty random strategy curves. Click one to pick it and reveal what happened after the cut."></canvas>
+<p id="qres" aria-live="polite"></p>
+<div class="qb"><button id="q-best" type="button">Pick the best for me</button><button id="q-new" type="button">New run</button></div></div>
+</div>
 </section>
 <section id="live" class="deep"><h2>Live right now</h2>
 <p class="lede" id="wlead">Each card pings the real deployment from your browser and keeps the last ten results. Free hosts go to sleep, so the first ping can be slow.</p>
@@ -475,29 +463,8 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
 <h3 class="cert-h">Latest public pushes</h3>
 <ul class="pl" id="pulse"><li>Loading…</li></ul>
 </section>
-<section id="stopped">
-<h2>The one I stopped</h2>
-<p class="lede">stock-ai was a 20-phase NIFTY 50 research pipeline (LightGBM, purged cross-validation). My account is that I killed it at phase 11, when the deflated Sharpe check showed no edge, so I never built live trading. Here is which parts of that you can check.</p>
-<div class="ph" id="ph" role="img" aria-label="Twenty pipeline phases. Phases 1 to 10 passed, phase 11 failed, phases 12 to 20 were never built."></div>
-<div class="rcs" style="margin-top:6px"><article class="rc" style="transform:none;grid-column:1/-1;max-width:560px"><h3>stock-ai</h3><p class="sub">What the repo shows</p><ul>
-<li><span>Deflated Sharpe function, phases up to 11</span><i class="ld"></i><a class="k" href="https://github.com/sriram36/stock-ai/blob/main/src/backtest.py">Check it</a></li>
-<li><span>Live execution file is empty</span><i class="ld"></i><a class="k" href="https://github.com/sriram36/stock-ai/tree/main/src/live">Check it</a></li>
-<li><span>Phase 11 result: 0.0000, raw Sharpe −2.06</span><i class="ld"></i><span class="k w">My word</span></li>
-</ul></article></div>
-<div class="sl">
- <p>Why deflate at all? Drag to see how good the best of N strategies looks when none of them has any real skill.</p>
- <label>Strategies tried: <output id="nv"></output><input id="nn" type="range" min="1" max="1000" value="50" aria-label="Number of strategies tried"></label>
- <p id="mx" aria-live="polite"></p>
- <canvas id="sim" aria-label="Histogram of results from strategies with no skill. The best one is highlighted and always lands well above zero."></canvas>
-</div>
-<div class="quant" id="quant"><h3>Be the quant</h3>
-<p id="qp">Forty strategies, all pure noise. Click the curve you would bet on, then see what happens next.</p>
-<canvas id="qc" aria-label="Forty random strategy curves. Click one to pick it and reveal what happened after the cut."></canvas>
-<p id="qres" aria-live="polite"></p>
-<div class="qb"><button id="q-best" type="button">Pick the best for me</button><button id="q-new" type="button">New run</button></div></div>
-</section>
 <section id="negative" class="deep"><h2>What did not work, in numbers</h2>
-<p class="lede">Three results that went the wrong way, and what I took from each.</p>
+<p class="lede">Two results that went the wrong way, and what I took from each.</p>
 <div class="neg" id="neg"></div>
 </section>
 <section id="numbers" style="padding-top:clamp(40px,6vw,70px)">
@@ -713,28 +680,9 @@ function chips(){
  $('#den').textContent=N;$('#h1').textContent=(WORDS[LIVE]||LIVE)+' of the '+N+' projects I started are live.';
  document.title='Sriram Kolli: '+LIVE+' of '+N+' live, and the rest';
 }
-const phi=p=>{const x=2*p-1,l=Math.log(1-x*x),t=4.33+l/2;return Math.SQRT2*Math.sign(x)*Math.sqrt(Math.sqrt(t*t-l/.147)-t)};
-const emax=n=>n<2?0:.4228*phi(1-1/n)+.5772*phi(1-1/(n*Math.E));
 function onView(el,fn,th){if(!el)return;if(rm||!('IntersectionObserver' in window)){fn(true);return}const o=new IntersectionObserver(es=>{if(es[0].isIntersecting){o.disconnect();fn(false)}},{threshold:th||.3});o.observe(el)}
 const INST=rm||!('IntersectionObserver' in window);
 function mulberry(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
-const SAM=(()=>{const r=mulberry(20260612),a=[];for(let i=0;i<1000;i++){const u=Math.max(r(),1e-9),v=r();a.push(Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v))}return a})();
-function sim(){
- const c=$('#sim'),dpr=devicePixelRatio||1,w=c.clientWidth,h=150;if(!w)return;c.width=w*dpr;c.height=h*dpr;const g=c.getContext('2d');g.setTransform(dpr,0,0,dpr,0,0);g.clearRect(0,0,w,h);
- const n=+$('#nn').value,xs=SAM.slice(0,n),bins=44,lo=-4,hi=4,cnt=Array(bins).fill(0);
- let best=-9,bi=0;xs.forEach(v=>{const k=Math.min(bins-1,Math.max(0,Math.floor((v-lo)/(hi-lo)*bins)));cnt[k]++;if(v>best){best=v;bi=k}});
- const mxc=Math.max(...cnt),bw=w/bins,zx=(0-lo)/(hi-lo)*w;
- cnt.forEach((q,k)=>{const bh=q/mxc*(h-44);g.fillStyle=k===bi?'#ff5c7d':'rgba(243,245,255,.55)';g.fillRect(k*bw+1,h-18-bh,bw-2,Math.max(q?2:0,bh))});
- g.fillStyle='rgba(243,245,255,.7)';g.fillRect(zx-.5,24,1,h-42);
- g.font='700 12px "Bricolage Grotesque",system-ui,sans-serif';g.fillStyle='#fff';g.textAlign='center';g.fillText('0 = no skill',zx,h-3);
- g.fillStyle='#ff9db5';const bx=(best-lo)/(hi-lo)*w;g.textAlign=bx>w-90?'right':'center';g.fillText('this draw, best of '+n+': '+best.toFixed(2),Math.min(bx,w-4),16);
-}
-function nn(){const n=+$('#nn').value;$('#nv').textContent=' '+n;$('#mx').textContent='Best of '+n+' strategies with no real skill: it still looks about '+emax(n).toFixed(2)+' standard errors above zero.';sim()}
-function phases(){
- const el=$('#ph'),fin=i=>i<10?'ok':i===10?'bad':'no';
- el.innerHTML=Array.from({length:20},(_,i)=>'<i class="'+(INST?fin(i):'pend')+'">'+(i+1)+'</i>').join('');
- if(!INST)onView(el,()=>{[...el.children].forEach((c,i)=>setTimeout(()=>{c.className=fin(i);if(SND.on){if(i<10)SFX.chime(i);else if(i===10)SFX.fail()}},i<11?i*110:1500+(i-11)*45))},.6);
-}
 function nums(){
  const fm=(v,s)=>Math.round(v).toLocaleString('en-US')+s;
  $('#nf').textContent=WORDS[FEAT.size]||FEAT.size;
@@ -788,24 +736,23 @@ function lang(){const c={};repos.forEach(r=>{c[r.l]=(c[r.l]||0)+1});const e=Obje
 function rail(){
  const by={};repos.forEach(r=>by[r.n]=r);
  $('#rd').innerHTML=repos.slice().sort((a,b)=>a.b-b.b).map(r=>'<i data-n="'+r.n+'" style="background:var(--'+r.s+')"></i>').join('');
- const M={all:[()=>true,N+' projects'],stopped:[r=>r.s==='killed','1 stopped'],work:[r=>TOPK.has(r.n),'Six ideas'],people:[()=>false,'3 companies'],me:[()=>false,'Me, not repos']};
+ const M={all:[()=>true,N+' projects'],work:[r=>TOPK.has(r.n),'Six ideas'],people:[()=>false,'3 companies'],me:[()=>false,'Me, not repos']};
  const dots=[...document.querySelectorAll('#rd i')];
  const set=k=>{const [f,t]=M[k];$('#rcap').textContent=t;dots.forEach(d=>d.classList.toggle('off',!f(by[d.dataset.n])))};
- const map=[['header.hero','all'],['#about','me'],['#experience','people'],['#work','work'],['#how','work'],['#live','all'],['#stopped','stopped'],['#numbers','all'],['#skills','me'],['#education','me']];
+ const map=[['header.hero','all'],['#about','me'],['#experience','people'],['#work','work'],['#how','work'],['#live','all'],['#numbers','all'],['#skills','me'],['#education','me']];
  set('all');if(!('IntersectionObserver' in window))return;
  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)set(e.target.dataset.rail)}),{rootMargin:'-48% 0px -48% 0px'});
  map.forEach(([q,k])=>{const el=document.querySelector(q);if(el){el.dataset.rail=k;io.observe(el)}});
 }
 $('#again').onclick=()=>{setup();if(rm)draw();else go()};
-$('#nn').oninput=nn;
 $('#cp').onclick=async()=>{try{await navigator.clipboard.writeText('kollisriram6@gmail.com');$('#cp').textContent='Copied'}catch(e){$('#cp').textContent='Copy it from the link'}};
-let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{const keep=T;setup();T=rm?T:keep;balls.forEach(b=>{if(T>b.delay+4||rm){b.x=b.r.fx;b.y=b.r.fy;b.done=true}});count();draw();sim()},150)});
+let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{const keep=T;setup();T=rm?T:keep;balls.forEach(b=>{if(T>b.delay+4||rm){b.x=b.r.fx;b.y=b.r.fy;b.done=true}});count();draw()},150)});
 
-chips();phases();nn();rcs();tl();sih();lang();nums();rail();skills();clock();setInterval(clock,30000);
+chips();rcs();tl();sih();lang();nums();rail();skills();clock();setInterval(clock,30000);
 onView($('#rcs'),()=>$('#rcs').classList.add('go'),.12);onView($('#lang'),()=>$('#lang').classList.add('in'),.5);onView($('#sih'),()=>$('#sih').classList.add('go'),.4);
 addEventListener('scroll',()=>{const h=document.documentElement,m=h.scrollHeight-innerHeight;$('#prog').style.transform='scaleX('+(m>0?Math.min(1,scrollY/m):0)+')'},{passive:true});
 $('#last').textContent='Latest public push: '+repos[0].d+'. Outcomes are my labels; the dates come from GitHub.';
-sel=repos.find(r=>r.n==='stock-ai')||repos[0];show(sel);
+sel=repos.find(r=>r.n==='LeaveFlow')||repos[0];show(sel);
 setup();draw();if(!rm)go();
 const GH=(async()=>{
  try{const r=await fetch('/api/github');if(r.ok){const j=await r.json();if(j&&Array.isArray(j.repos))return{repos:j.repos,events:j.events||null,edge:true}}}catch(e){}
@@ -961,7 +908,7 @@ setInterval(()=>{if(wallOn&&!document.hidden)pingAll()},30000);
 
 /* ---- command palette ---- */
 const cmd=$('#cmd'),ci=$('#cmdi'),cl=$('#cmdl');let items=[],act=0,opener=null;
-const SEC=[['about','What I do'],['experience','Experience'],['work','Selected work'],['how','How they work'],['decisions','Decisions'],['lab','Try the demos'],['live','Live right now'],['stopped','The one I stopped'],['negative','What did not work'],['numbers','The numbers'],['rhythm','Commit rhythm'],['skills','Skills'],['education','Education and certificates'],['contact','Contact']];
+const SEC=[['about','What I do'],['experience','Experience'],['work','Selected work'],['how','How they work'],['decisions','Decisions'],['lab','Try the demos'],['live','Live right now'],['negative','What did not work'],['numbers','The numbers'],['rhythm','Commit rhythm'],['skills','Skills'],['education','Education and certificates'],['contact','Contact']];
 const WID={'pharma-mlr-compliance':'w-pharma-mlr-compliance'};
 function allItems(){
  const a=SEC.map(([id,l])=>({t:l,s:'Section',run:()=>go(id)}));
@@ -1071,7 +1018,6 @@ mrun();
 const bars=(rows,lead)=>rows.map((r,i)=>'<div class="bar'+(i===lead?' lead':'')+'"><span>'+r[0]+'</span><i style="--w:'+r[2]+'%"></i><b>'+r[1]+'</b></div>').join('');
 $('#neg').innerHTML=[
  '<article class="ng"><h3>knowledge-shift-rag</h3><p class="sub">Accuracy on 100 questions</p>'+bars([['Plain RAG','76',76],['Self-critique','72',72],['Repair','72',72]],0)+'<p>The extra passes cost 1.6 to 2 times the latency and scored lower, so I kept the result and stopped.</p><a class="tag" href="https://github.com/sriram36/knowledge-shift-rag">Check it</a></article>',
- '<article class="ng"><h3>stock-ai</h3><p class="sub">Phase 11 of 20</p><div class="big"><div>\u22122.06<small>raw Sharpe</small></div><div>0.0000<small>deflated Sharpe</small></div></div><p>The deflated check asks whether a result survives having tried many strategies. It did not, so live trading was never built.</p><span class="tag w">My word, not recorded in the repo</span></article>',
  '<article class="ng"><h3>ClaimLens</h3><p class="sub">F1 on the dev set (axis starts at 0.98)</p>'+bars([['Before','0.987',35],['After','1.000',100]],1)+'<p>That gain is about the size of run-to-run variance, so it is calibration, not generalization.</p><a class="tag" href="https://github.com/sriram36/ClaimLens">Check it</a></article>'
 ].join('');
 document.querySelectorAll('#neg .ng').forEach(n=>onView(n,()=>n.classList.add('in'),.4));
@@ -1186,7 +1132,7 @@ let rhr;addEventListener('resize',()=>{clearTimeout(rhr);rhr=setTimeout(rhdraw,1
 
 /* ---- section notes ---- */
 (()=>{
- const ids=['about','experience','work','how','decisions','lab','live','stopped','negative','numbers','rhythm','skills','education','contact'];
+ const ids=['about','experience','work','how','decisions','lab','live','negative','numbers','rhythm','skills','education','contact'];
  if(!('IntersectionObserver' in window))return;let last=-1;
  const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const i=ids.indexOf(e.target.id);if(i<0||i===last)return;last=i;if(SND.on)SFX.note(i)}),{rootMargin:'-45% 0px -50% 0px'});
  ids.forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el)});
