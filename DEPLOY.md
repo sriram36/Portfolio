@@ -6,7 +6,7 @@
 python -m http.server 3200 --bind 127.0.0.1
 ```
 
-Open http://127.0.0.1:3200. Without the Worker, the page calls GitHub and pings the demos from the visitor's browser.
+Open http://127.0.0.1:3200. `npm test` checks the data and the file wiring (Node 18 or newer, no packages to install). Without the Worker, the page calls GitHub and pings the demos from the visitor's browser.
 
 ## Deploy to Cloudflare
 
@@ -34,7 +34,7 @@ To try the Worker locally: `npx wrangler dev`.
 
 ## Files that must be deployed
 
-`index.html`, `favicon.svg`, `og-image.png` and the `fonts/` folder. The Resume links point to a Dropbox file, so update the resume there, not in this folder.
+`index.html`, `css/`, `js/`, `fonts/`, `favicon.svg` and `og-image.png`. The Resume links point to a Dropbox file, so update the resume there, not in this folder.
 
 ## Share image
 

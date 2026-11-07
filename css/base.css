@@ -1,0 +1,22 @@
+/* Design tokens, resets, typography, buttons and focus styles. */
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:300 800;font-stretch:75% 100%;font-display:swap;src:url(../fonts/bricolage-grotesque-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+ --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .08 0 0 0 0 .1 0 0 0 0 .28 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+ --ease:cubic-bezier(.2,.8,.2,1);
+ --cobalt:#2338ff;--deep:#1627c9;--paper:#f3f5ff;--ink:#0a0f33;--mut:#4a5385;--rule:#c9cffa;
+ --hl:#6dffb0;--hr:#ffd23f;--hk:#ff5c7d;--hu:#a9b3ff;
+ --live:#0a8f5a;--learned:#a87000;--killed:#c0123f;--unsorted:#5f6aa6;
+ --f:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--f);font-variation-settings:"wdth" 100;padding-bottom:env(safe-area-inset-bottom,0)}
+a{color:inherit;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible,canvas:focus-visible,input:focus-visible{outline:3px solid var(--hr);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+canvas{display:block;width:100%;touch-action:manipulation;cursor:default}
+.key{color:var(--mut);font-size:15px;max-width:62ch}
+button{font:600 14px var(--f);padding:6px 14px;border:1.5px solid var(--ink);background:none;color:inherit;cursor:pointer;border-radius:99px}
+button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.fine{font-size:14px;opacity:.85}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}

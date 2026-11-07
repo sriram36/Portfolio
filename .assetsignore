@@ -8,4 +8,6 @@ resume/
 node_modules/
 wrangler.jsonc
 DEPLOY.md
-Sriram_Kolli_Resume (1).pdf
+tests/
+package.json
+package-lock.json

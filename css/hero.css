@@ -1,0 +1,46 @@
+/* The hero: top bar, name and fraction, the ball board overlay, the receipt panel, the side tally and the time-lapse controls. */
+.hero{background:var(--cobalt);color:var(--paper);padding:max(22px,env(safe-area-inset-top)) 0 0;overflow:hidden}
+.top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;font-size:15px;font-weight:500}
+.top nav{display:flex;flex-wrap:wrap;gap:6px 20px}
+.top a{text-decoration:none;border-bottom:1px solid #fff6}
+.intro{display:grid;grid-template-columns:auto 1fr;gap:0 clamp(18px,4vw,56px);align-items:center;margin:clamp(20px,5vw,56px) 0 22px}
+.frac{display:grid;justify-items:stretch;text-align:center;font-weight:800;font-variation-settings:"wdth" 75;line-height:.82;font-size:clamp(96px,min(25vw,19vh),210px);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.frac i{display:block;height:clamp(7px,1.3vw,14px);background:var(--paper);margin:.07em 0 .09em;border-radius:99px}
+#num{color:var(--hl);display:inline-block;transition:transform .16s}
+#num.b{transform:scale(1.1)}
+.say h1{margin:0 0 12px;font-size:clamp(24px,4.4vw,46px);line-height:1.08;letter-spacing:-.02em;font-weight:700;font-variation-settings:"wdth" 88}
+.say p{margin:0 0 14px;max-width:44ch;opacity:.9}
+.chips{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.chips span{display:inline-flex;align-items:center;gap:7px}
+.chips b{width:12px;height:12px;border-radius:50%;display:inline-block}
+@media(max-width:640px){.intro{grid-template-columns:1fr;justify-items:start}.frac{font-size:clamp(100px,38vw,170px)}}
+.slip{margin:18px 0 0;background:var(--paper) var(--grain);color:var(--ink);padding:20px 22px 40px;font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+ -webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/14px 100%;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/14px 100%;min-height:150px}
+.slip h3{margin:0;font-size:18px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.slip p{margin:6px 0;max-width:70ch}
+.pill{font-weight:700}
+.slip .m{color:var(--mut)}
+.hint{padding:14px 0 30px;font-size:14px;opacity:.85;margin:0}
+.hero{padding:0}
+.board{position:relative;display:flex;flex-direction:column}
+.board canvas{order:2;position:relative;z-index:0;border-top:1px solid #fff4}
+.over{position:relative;z-index:1;pointer-events:none;padding-top:max(22px,env(safe-area-inset-top))}
+.over a{pointer-events:auto}
+@media(min-width:900px){
+ .board{height:min(calc(100svh - 120px),820px);min-height:640px}
+ .board canvas{position:absolute;inset:0;width:100%;height:100%;border:0}
+ .over{height:100%}
+ .intro{margin-top:clamp(14px,4vh,44px)}
+}
+.hint button{border-color:var(--paper);margin-left:12px;color:var(--paper)}
+.rail{display:none}
+.say h1.nm{font-size:clamp(42px,7.4vw,96px);line-height:.94;letter-spacing:-.015em;font-weight:800;font-variation-settings:"wdth" 78;margin:0 0 10px}
+.role{font-size:clamp(18px,2.1vw,26px);font-weight:600;margin:0 0 14px!important;max-width:30ch;line-height:1.18}
+.lead2{font-size:clamp(17px,1.9vw,24px);font-weight:700;margin:0 0 8px!important;max-width:none!important}
+.tlc{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:0 0 30px;color:var(--paper)}
+.tlc input[type=range]{flex:1;min-width:160px;margin:0;accent-color:var(--hr)}
+.tlc output{min-width:84px;font-weight:700}
+.tlc button{border-color:var(--paper);color:var(--paper);margin:0}
+.tlnote{flex-basis:100%;margin:0;opacity:.85}
+.chipsrow{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chipsrow button{margin:0;text-align:left;border-radius:12px}

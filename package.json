@@ -1,0 +1,11 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "description": "Sriram Kolli's portfolio: a static page and a small Cloudflare Worker.",
+  "scripts": {
+    "start": "python -m http.server 3200 --bind 127.0.0.1",
+    "test": "node --test \"tests/*.test.js\"",
+    "check": "node tools/check.js",
+    "deploy": "npx wrangler deploy"
+  }
+}

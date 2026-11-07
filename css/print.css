@@ -1,0 +1,22 @@
+/* Black and white print layout. */
+@media print{
+ @page{margin:14mm}
+ *,*::before,*::after{color:#000!important;background:transparent!important;box-shadow:none!important;text-shadow:none!important;filter:none!important;outline:0!important;border-color:#000!important;animation:none!important;transition:none!important}
+ body{font-size:10.5pt;line-height:1.4}
+ .dock,.rail,#prog,.board canvas,.hint,.tlc,.cmd,.cform,#how,#live,.skimnote,.mini,#rhythm,.pf,#pfsum,#decisions,#lab,#negative,.match,.quant,.links,.slip,.top nav,.pulse,#cp,.sih,.more{display:none!important}
+ .board{height:auto!important;min-height:0!important}
+ .over{height:auto!important;padding-top:0!important}
+ .intro{margin:6mm 0!important}
+ .frac{font-size:60pt!important}
+ .frac i{background:#000!important;height:3pt!important}
+ .chips b,.lg b,.lang i{background:#000!important}
+ .tl i{border:1px solid #000!important}
+ .tl i.f{background:#000!important;color:#fff!important}
+ section{padding-top:7mm!important}
+ h2{font-size:17pt!important;margin-bottom:3mm!important}
+ .rc,.xp{break-inside:avoid}
+ .rc{border:1px solid #000!important;-webkit-mask:none!important;mask:none!important;transform:none!important;padding:3mm!important}
+ .rc .ld{border-bottom:1px dotted #000!important}
+ a{text-decoration:none}
+ footer{margin-top:6mm!important;padding:4mm 0!important}
+}

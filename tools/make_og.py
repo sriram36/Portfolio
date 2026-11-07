@@ -1,4 +1,4 @@
-"""Regenerates og-image.png (the link preview image) from the live counts in index.html.
+"""Regenerates og-image.png (the link preview image) from the live counts in js/data.js.
 
 Usage:  python tools/make_og.py
 Counts the projects and the live ones the same way the page does, draws the "8 over 28" card in
@@ -7,7 +7,7 @@ headless Chrome using the self-hosted font, and overwrites og-image.png. Run it 
 import os, re, subprocess, tempfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
-s = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
+s = open(os.path.join(ROOT, 'js', 'data.js'), encoding='utf-8').read()
 hide = re.search(r"const HIDE=\[([^\]]*)\]", s).group(1)
 rows = re.findall(r"^\['([^']+)','\d{4}-\d\d-\d\d','[^']*','(live|learned|killed|unsorted)'", s, re.M)
 rows = [r for r in rows if "'%s'" % r[0] not in hide]

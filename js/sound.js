@@ -1,0 +1,6 @@
+/* ---------- sound: synthesized, off until you press Sound ---------- */
+const SND={on:false,ctx:null,vol:.55};
+function snd(){if(!SND.on)return null;if(!SND.ctx){const A=window.AudioContext||window.webkitAudioContext;if(!A)return null;SND.ctx=new A()}if(SND.ctx.state==='suspended')SND.ctx.resume();return SND.ctx}
+function tone(f,d,type,v,when){const c=snd();if(!c)return;const t=c.currentTime+(when||0),o=c.createOscillator(),g=c.createGain();o.type=type||'sine';o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime((v||.08)*SND.vol,t+.005);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+d+.03)}
+const SFX={tick(){tone(900+Math.random()*700,.05,'triangle',.04)},land(b){const f=[523,392,196,330][b]||330;tone(f,.35,'sine',.11);tone(f/2,.45,'sine',.06)},click(){tone(660,.06,'triangle',.05)},chime(i){tone(440*Math.pow(1.122,i),.2,'sine',.07)},fail(){tone(165,.6,'sawtooth',.07);tone(155,.6,'sawtooth',.05,.02)},pop(){tone(784,.09,'sine',.06)},note(i){const sc=[0,2,4,7,9,12,14,16,19,21,24,26,28,31],f=262*Math.pow(2,sc[Math.min(i,sc.length-1)]/12);tone(f,.55,'sine',.05);tone(f*2,.4,'sine',.018,.02)},on(){tone(523,.12,'sine',.07);tone(784,.18,'sine',.07,.1)}};
+let lastTick=-1,lastLand=-1;

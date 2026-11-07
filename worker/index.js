@@ -15,12 +15,6 @@ const TARGETS = [
   ['School bus tracker', 'https://location-sharing-chi.vercel.app'],
   ['Wind forecast', 'https://x7z9p-yxu2.vercel.app'],
 ];
-const SECURITY = {
-  'x-content-type-options': 'nosniff',
-  'referrer-policy': 'strict-origin-when-cross-origin',
-  'permissions-policy': 'camera=(), microphone=(), geolocation=()',
-  'x-frame-options': 'DENY',
-};
 
 const json = (data, ttl, status = 200) =>
   new Response(JSON.stringify(data), {
@@ -95,9 +89,7 @@ export default {
     } catch (e) {
       return json({ error: 'upstream failure' }, 30, 502);
     }
-    const res = await env.ASSETS.fetch(req);
-    const out = new Response(res.body, res);
-    for (const [k, v] of Object.entries(SECURITY)) out.headers.set(k, v);
-    return out;
+    // Security headers for pages and files come from the _headers file.
+    return env.ASSETS.fetch(req);
   },
 };
