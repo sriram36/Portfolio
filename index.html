@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>try{if(localStorage.getItem("skim")==="1")document.documentElement.classList.add("skim")}catch(e){}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Sriram Kolli: the denominator">
@@ -185,6 +186,98 @@ html.js .sih:not(.go) i{opacity:0}
 #sim{height:150px;margin-top:14px;border-radius:8px;background:#ffffff14}
 @media(prefers-reduced-motion:reduce){.pulse{animation:none}}
 .cert-h{margin:44px 0 6px;font:800 clamp(22px,2.6vw,30px)/1.1 var(--f);letter-spacing:-.015em}
+
+/* ---- dock, legend, tip ---- */
+.dock{position:fixed;left:50%;bottom:max(12px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:9;display:flex;gap:2px;background:var(--paper);color:var(--ink);padding:4px;border-radius:99px;border:1.5px solid var(--ink);box-shadow:0 6px 28px #0a0f3355;max-width:96vw}
+.dock button{border:0;margin:0;padding:7px 13px;font-size:13px;white-space:nowrap}
+.dock button[aria-pressed=true]{background:var(--cobalt);color:#fff}
+@media(max-width:560px){.dock button{padding:7px 9px;font-size:12px}}
+footer .wrap{padding-bottom:70px}
+/* ---- skim ---- */
+.skimnote{display:none}
+html.skim .skimnote{display:block;color:var(--mut);margin:18px 0 0}
+html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.skim #about .lede + .lede,html.skim #about .key,html.skim .does,html.skim .tl,html.skim #experience .lede,html.skim .xp li:nth-child(n+2),html.skim .xp .tech,html.skim #rcs .rc:nth-child(n+4),html.skim #orig,html.skim #work .key,html.skim .say p:not(.role):not(.lead2):not(.try),html.skim .tlnote,html.skim .more{display:none}
+/* ---- time-lapse controls ---- */
+.tlc{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:0 0 30px;color:var(--paper)}
+.tlc input[type=range]{flex:1;min-width:160px;margin:0;accent-color:var(--hr)}
+.tlc output{min-width:84px;font-weight:700}
+.tlc button{border-color:var(--paper);color:var(--paper);margin:0}
+.tlnote{flex-basis:100%;margin:0;opacity:.85}
+/* ---- be the quant ---- */
+.quant{margin-top:38px}
+.quant h3{font:800 clamp(22px,2.6vw,30px)/1.1 var(--f);margin:0 0 8px}
+.quant p{max-width:62ch}
+#qc{height:260px;background:#ffffff0f;border-radius:10px;cursor:crosshair}
+#qres{min-height:3.4em;font-weight:600}
+.qb{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.qb button{border-color:#f3f5ff;color:#f3f5ff;margin:0}
+/* ---- how they work ---- */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.tabs button{margin:0}
+.flow{list-style:none;margin:22px 0 0;padding:0;display:flex;gap:0 26px}
+.flow li{position:relative;flex:1 1 0;min-width:0}
+.flow li button{display:block;width:100%;margin:0;text-align:left;border:1.5px solid var(--rule);border-radius:14px;padding:12px 12px;font:700 14px var(--f);color:var(--ink);transition:background .25s,color .25s,border-color .25s}
+.flow li button small{display:block;font-weight:500;color:var(--mut);margin-top:2px;transition:color .25s}
+.flow li.on button{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.flow li.on button small{color:#dfe4ff}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:-24px;top:50%;width:22px;border-top:2px dashed var(--rule)}
+.flow li.on:not(:last-child)::after{border-color:var(--cobalt)}
+.flow li button small{font-size:12px}
+@media(max-width:860px){.flow{flex-direction:column;gap:22px 0}.flow li:not(:last-child)::after{right:auto;left:28px;top:auto;bottom:-20px;width:0;height:18px;border-top:0;border-left:2px dashed var(--rule)}.flow li.on:not(:last-child)::after{border-left-color:var(--cobalt)}}
+.more{margin-top:26px}.more summary{font-weight:700;cursor:pointer;padding:8px 0}
+.fcap{font-size:clamp(17px,2vw,22px);font-weight:600;max-width:60ch;min-height:3.4em;margin:18px 0 0}
+/* ---- live wall ---- */
+.wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:20px 0}
+.wc{border:1.5px solid var(--rule);border-radius:14px;padding:14px 16px}
+.wc b{display:block}
+.wc .ms{font:800 30px/1.1 var(--f);font-variation-settings:"wdth" 80;letter-spacing:-.02em}
+.wc .st{font-size:13px;color:var(--mut)}
+.wc svg{display:block;width:100%;height:30px;margin-top:8px}
+.pl{list-style:none;padding:0;margin:10px 0 0}
+.pl li{padding:9px 0;border-top:1px solid var(--rule);display:flex;gap:6px 14px;flex-wrap:wrap}
+.pl li a{font-weight:700}
+.pl li span{color:var(--mut)}
+/* ---- command palette ---- */
+.cmd{position:fixed;inset:0;background:#060a2299;z-index:20;display:grid;place-items:start center;padding-top:12vh}
+.cmd[hidden]{display:none}
+.cmdbox{width:min(580px,92vw);background:var(--paper);color:var(--ink);border-radius:16px;box-shadow:0 20px 60px #0008;overflow:hidden}
+.cmdbox input{width:100%;border:0;border-bottom:1.5px solid var(--rule);padding:16px 18px;font:600 18px var(--f);background:none;color:inherit;outline:0;border-radius:0}
+.cmdbox ul{list-style:none;margin:0;padding:6px;max-height:50vh;overflow:auto}
+.cmdbox li{padding:10px 12px;border-radius:10px;cursor:pointer;display:flex;justify-content:space-between;gap:12px}
+.cmdbox li[aria-selected=true]{background:var(--cobalt);color:#fff}
+.cmdbox li small{opacity:.7;white-space:nowrap}
+/* ---- contact form ---- */
+.cform{margin:26px 0 8px;max-width:620px;border:0;padding:0;min-width:0}
+.cform legend{font:800 22px var(--f);padding:0 0 8px}
+.cch{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.cch button{border-color:var(--paper);color:var(--paper);margin:0}
+.cch button[aria-pressed=true]{background:var(--paper);color:var(--cobalt)}
+.cform input,.cform textarea{display:block;width:100%;font:500 16px var(--f);padding:12px 14px;border-radius:10px;border:1.5px solid #ffffff66;background:#ffffff14;color:#fff;margin:0 0 10px}
+.cform ::placeholder{color:#ffffffbb}
+.cform .sendb{background:var(--paper);color:var(--cobalt);border-color:var(--paper);margin:0}
+/* ---- print: black and white, resume style ---- */
+@media print{
+ @page{margin:14mm}
+ *,*::before,*::after{color:#000!important;background:transparent!important;box-shadow:none!important;text-shadow:none!important;filter:none!important;outline:0!important;border-color:#000!important;animation:none!important;transition:none!important}
+ body{font-size:10.5pt;line-height:1.4}
+ .dock,.rail,#prog,.board canvas,.hint,.tlc,.cmd,.cform,#how,#live,.skimnote,.sl,.quant,.slip,.top nav,.pulse,#cp,.sih,.more,#stopped .ph{display:none!important}
+ .board{height:auto!important;min-height:0!important}
+ .over{height:auto!important;padding-top:0!important}
+ .intro{margin:6mm 0!important}
+ .frac{font-size:60pt!important}
+ .frac i{background:#000!important;height:3pt!important}
+ .chips b,.lg b,.lang i{background:#000!important}
+ .tl i{border:1px solid #000!important}
+ .tl i.f{background:#000!important;color:#fff!important}
+ section{padding-top:7mm!important}
+ h2{font-size:17pt!important;margin-bottom:3mm!important}
+ .rc,.xp{break-inside:avoid}
+ .rc{border:1px solid #000!important;-webkit-mask:none!important;mask:none!important;transform:none!important;padding:3mm!important}
+ .rc .ld{border-bottom:1px dotted #000!important}
+ #stopped{padding-bottom:0!important;margin-top:0!important;clip-path:none!important;box-shadow:none!important}
+ a{text-decoration:none}
+ footer{margin-top:6mm!important;padding:4mm 0!important}
+}
 </style>
 </head>
 <body>
@@ -194,7 +287,7 @@ html.js .sih:not(.go) i{opacity:0}
  <canvas id="b" tabindex="0" role="img" aria-label="Plinko board: every project I started is a ball that falls into one of four bins, live, learned, killed or not yet sorted. Use the left and right arrow keys to move between projects. The numbers are summarised further down."></canvas>
  <div class="over wrap">
   <div class="top"><span id="now"><b class="pulse"></b><span id="nowt"></span></span>
-  <nav aria-label="Sections"><a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a><a href="Sriram_Kolli_Resume.pdf">Resume</a></nav></div>
+  <nav aria-label="Sections"><a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#how">How</a><a href="#live">Live</a><a href="#skills">Skills</a><a href="#contact">Contact</a><a href="Sriram_Kolli_Resume.pdf">Resume</a></nav></div>
   <div class="intro">
    <div class="frac" aria-hidden="true"><span id="num">0</span><i></i><span id="den">0</span></div>
    <div class="say">
@@ -210,10 +303,12 @@ html.js .sih:not(.go) i{opacity:0}
 <div class="wrap">
  <div class="slip" id="panel" aria-live="polite"></div>
  <p class="hint">Tap a ball, or focus the board and use the arrow keys. <button id="again" type="button">Drop them again</button></p>
+ <div class="tlc" id="tlc"><button id="tl-play" type="button">Play the timeline</button><input id="tl-range" type="range" min="0" max="1000" value="1000" aria-label="Scrub through time, April 2025 to November 2026"><output id="tl-date" aria-live="polite">Now</output><button id="tl-now" type="button" hidden>Back to now</button><p class="fine tlnote">A project is open until its last push, then it lands in its bin. The fraction counts what had started by that date.</p></div>
 </div>
 </header>
 
 <main class="wrap">
+<p class="skimnote">Skim view: the 30-second version. Press Skim in the bar below to see everything.</p>
 <section id="about">
 <h2>What I do</h2>
 <p class="lede">I build backend systems that actually ship: production code handling real users and real edge cases. I've gone from schema design to Docker deployment, usually as the only backend person on the team, so I make decisions fast and own the consequences.</p>
@@ -250,6 +345,17 @@ html.js .sih:not(.go) i{opacity:0}
 <h2>Selected work, with receipts</h2>
 <p class="key">“Check it” links to something you can verify. “My word” you can't, so weigh it that way. Test counts are functions I counted in the repo; I'm not claiming they pass. These are the projects I'd point you to; the rest are in the numbers above.</p>
 <div class="rcs" id="rcs"></div>
+<section id="how" class="deep"><h2>How they work</h2>
+<p class="lede">Pick a project and watch one request move through it. Click any step to stop on it.</p>
+<div class="tabs" id="ftabs" role="group" aria-label="Project"></div>
+<ol class="flow" id="flow"></ol>
+<p class="fcap" id="fcap" aria-live="polite"></p>
+</section>
+<section id="live" class="deep"><h2>Live right now</h2>
+<p class="lede">Each card pings the real deployment from your browser and keeps the last ten results. Free hosts go to sleep, so the first ping can be slow.</p>
+<div class="wall" id="wall"></div>
+<h3 class="cert-h">Latest public pushes</h3>
+<ul class="pl" id="pulse"><li>Loading…</li></ul>
 </section>
 <section id="stopped">
 <h2>The one I stopped</h2>
@@ -266,6 +372,11 @@ html.js .sih:not(.go) i{opacity:0}
  <p id="mx" aria-live="polite"></p>
  <canvas id="sim" aria-label="Histogram of results from strategies with no skill. The best one is highlighted and always lands well above zero."></canvas>
 </div>
+<div class="quant" id="quant"><h3>Be the quant</h3>
+<p id="qp">Forty strategies, all pure noise. Click the curve you would bet on, then see what happens next.</p>
+<canvas id="qc" aria-label="Forty random strategy curves. Click one to pick it and reveal what happened after the cut."></canvas>
+<p id="qres" aria-live="polite"></p>
+<div class="qb"><button id="q-best" type="button">Pick the best for me</button><button id="q-new" type="button">New run</button></div></div>
 </section>
 <section id="numbers" style="padding-top:clamp(40px,6vw,70px)">
 <h2>The numbers, because the full list is too long</h2>
@@ -307,11 +418,18 @@ html.js .sih:not(.go) i{opacity:0}
 <h2>That's the denominator.</h2>
 <p style="max-width:52ch">The numerator is whatever we build next. I'm looking for software engineering internships and entry-level roles.</p>
 <p><a id="em" href="mailto:kollisriram6@gmail.com">kollisriram6@gmail.com</a><button id="cp" type="button">Copy</button></p>
+<form class="cform" id="cform"><fieldset style="border:0;padding:0;margin:0;min-width:0"><legend>Write to me</legend>
+<div class="cch" id="cch" role="group" aria-label="What is this about?"></div>
+<input id="cname" placeholder="Your name" autocomplete="name" aria-label="Your name">
+<textarea id="cmsg" rows="3" placeholder="A line about what you have in mind" aria-label="Message"></textarea>
+<button class="sendb" type="submit">Open in my email app</button></fieldset></form>
 <div class="links"><a href="https://github.com/sriram36">GitHub</a><a href="https://www.linkedin.com/in/sriram-kolli-979723219/">LinkedIn</a><a href="Sriram_Kolli_Resume.pdf">Resume (PDF)</a></div>
 <p class="fine">Based in Bengaluru, India. Open to on-site, hybrid and remote roles.</p>
 <p class="fine" id="last"></p>
 </div></footer>
 
+<nav class="dock" aria-label="Page controls"><button id="d-skim" type="button" aria-pressed="false" title="The 30-second version">Skim</button><button id="d-sound" type="button" aria-pressed="false" title="Sound effects, off by default">Sound</button><button id="d-cmd" type="button" title="Search. Press / or Ctrl+K">Search</button><button id="d-print" type="button" title="Print or save as PDF">Print</button></nav>
+<div class="cmd" id="cmd" role="dialog" aria-modal="true" aria-label="Search" hidden><div class="cmdbox"><input id="cmdi" placeholder="Search sections, projects, skills and actions" aria-label="Search" autocomplete="off"><ul id="cmdl" role="listbox"></ul></div></div>
 <aside class="rail" id="rail" aria-hidden="true"><div class="cap" id="rcap"></div><div class="rd" id="rd"></div></aside>
 <script>
 document.documentElement.classList.add('js');
@@ -355,13 +473,21 @@ const PENDING=0; /* private repos not yet labelled. Set to 0 once they are added
 const FEAT=new Set(['LeaveFlow','FinSight','knowledge-shift-rag','stock-ai','pharma-mlr-compliance','Location-Sharing','x7z9p','RefillCare','ClaimLens','wirematch','geomeasure-api']);
 /* Flip a name into FEAT to show it. RefillCare and ClaimLens are strong but are company assessments: add them only after checking each brief. */
 const METRICS={commits:608,loc:87800,tests:477,months:19};
+const START={'LeaveFlow':'2025-12-09','RefillCare':'2026-11-02','FinSight':'2026-10-24','GradeSync':'2026-08-26','knowledge-shift-rag':'2026-08-09','FrameSense':'2026-08-28','attendance-tracker':'2025-07-22','ClaimLens':'2026-10-19','Location-Sharing':'2025-09-29','SignLanguage':'2026-01-21','leaddesk-mini':'2026-07-24','Scout':'2026-09-12','elevatebox-voice-agent':'2026-08-23','wirematch':'2026-10-12','EduBridge':'2025-04-06','x7z9p':'2026-10-24','geomeasure-api':'2026-10-07','Orbit':'2025-11-30','Portfolio':'2026-06-26','hiver-takehome-agent':'2026-09-09','Private project 2':'2025-08-12','composio-task':'2026-07-10','pharma-mlr-compliance':'2026-08-04','ML-Housing-Analytics':'2026-01-23','livo-pronunciation-app':'2026-07-10','stock-ai':'2026-07-19','Private project 3':'2025-08-01','Sriram_Kolli-binance-bot':'2025-08-09'};
 const ORI={solo:'Solo',assess:'Assessment',college:'College group',intern:'Internship','':'Unclear'};
 const B=['live','learned','killed','unsorted'],NAMES={live:'Live',learned:'Learned',killed:'Killed',unsorted:'Not yet sorted'};
 const HC={live:'#6dffb0',learned:'#ffd23f',killed:'#ff5c7d',unsorted:'#a9b3ff'};
 const $=s=>document.querySelector(s),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
-let repos=P.filter(p=>!HIDE.includes(p[0])).map(p=>({n:p[0],d:p[1],l:p[2],s:p[3],o:p[4],u:p[5],note:p[6],priv:!!p[7],f:FEAT.has(p[0]),b:B.indexOf(p[3])}));
+let repos=P.filter(p=>!HIDE.includes(p[0])).map(p=>({n:p[0],d:p[1],l:p[2],s:p[3],o:p[4],u:p[5],note:p[6],priv:!!p[7],f:FEAT.has(p[0]),b:B.indexOf(p[3]),st:Date.parse(START[p[0]]||p[1]),en:Math.max(Date.parse(p[1]),Date.parse(START[p[0]]||p[1])+2592e5)}));
 repos.sort((a,b)=>b.d.localeCompare(a.d));
 const N=repos.length,LIVE=repos.filter(r=>r.s==='live').length;
+/* ---------- sound: synthesized, off until you press Sound ---------- */
+const SND={on:false,ctx:null,vol:.55};
+function snd(){if(!SND.on)return null;if(!SND.ctx){const A=window.AudioContext||window.webkitAudioContext;if(!A)return null;SND.ctx=new A()}if(SND.ctx.state==='suspended')SND.ctx.resume();return SND.ctx}
+function tone(f,d,type,v,when){const c=snd();if(!c)return;const t=c.currentTime+(when||0),o=c.createOscillator(),g=c.createGain();o.type=type||'sine';o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime((v||.08)*SND.vol,t+.005);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+d+.03)}
+const SFX={tick(){tone(900+Math.random()*700,.05,'triangle',.04)},land(b){const f=[523,392,196,330][b]||330;tone(f,.35,'sine',.11);tone(f/2,.45,'sine',.06)},click(){tone(660,.06,'triangle',.05)},chime(i){tone(440*Math.pow(1.122,i),.2,'sine',.07)},fail(){tone(165,.6,'sawtooth',.07);tone(155,.6,'sawtooth',.05,.02)},pop(){tone(784,.09,'sine',.06)},on(){tone(523,.12,'sine',.07);tone(784,.18,'sine',.07,.1)}};
+let lastTick=-1,lastLand=-1;
+const TLM={on:false,playing:false,ms:0,raf:0,last:0,moving:false};
 const WORDS=['None','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve'];
 
 /* ---------- physics board ---------- */
@@ -382,6 +508,7 @@ function setup(){
  balls=repos.map((r,i)=>({r,x:W/2+(rnd(i)-.5)*sp*.7,y:-20,vx:(rnd(i+50)-.5)*50,vy:0,delay:.35+i*.13,done:false}));
  T=0;landed=-1;if(rm)balls.forEach(b=>{b.x=b.r.fx;b.y=b.r.fy;b.done=true});
  count();
+ if(TLM.on&&typeof tlRestore==='function')tlRestore();
 }
 function step(dt){
  T+=dt;
@@ -393,29 +520,30 @@ function step(dt){
   else{b.vx+=((r.fx-b.x)*40-b.vx*7)*dt}
   b.x+=b.vx*dt;b.y+=b.vy*dt;
   if(!inBin){for(const pg of pegs){const px=pg[0],py=pg[1];const dx=b.x-px,dy=b.y-py,d=Math.hypot(dx,dy),m=R+PR;
-   if(d<m&&d>.01){const nx=dx/d,ny=dy/d;b.x=px+nx*m;b.y=py+ny*m;pg[2]=T;const vn=b.vx*nx+b.vy*ny;if(vn<0){b.vx-=1.45*vn*nx;b.vy-=1.45*vn*ny}}}}
+   if(d<m&&d>.01){const nx=dx/d,ny=dy/d;b.x=px+nx*m;b.y=py+ny*m;pg[2]=T;if(SND.on&&T-lastTick>.035){lastTick=T;SFX.tick()}const vn=b.vx*nx+b.vy*ny;if(vn<0){b.vx-=1.45*vn*nx;b.vy-=1.45*vn*ny}}}}
   const bl=r.b*W/4+R,br=(r.b+1)*W/4-R;
   if(b.y>binTop-4){if(b.x<bl){b.x=bl;b.vx*=-.3}if(b.x>br){b.x=br;b.vx*=-.3}}
   if(b.x<R){b.x=R;b.vx*=-.4}if(b.x>W-R){b.x=W-R;b.vx*=-.4}
   if(b.y>=r.fy&&b.y>binTop){b.y=r.fy;b.vy*=-.25;if(Math.abs(b.vy)<40)b.vy=0}
-  if(b.y>=r.fy-.5&&Math.abs(b.x-r.fx)<1.5&&b.vy===0){b.x=r.fx;b.y=r.fy;b.done=true}
+  if(b.y>=r.fy-.5&&Math.abs(b.x-r.fx)<1.5&&b.vy===0){b.x=r.fx;b.y=r.fy;b.done=true;if(SND.on&&T-lastLand>.07){lastLand=T;SFX.land(r.b)}}
  }
  if(T>10)balls.forEach(b=>{if(!b.done){b.x=b.r.fx;b.y=b.r.fy;b.done=true}});
 }
-function count(){const n=balls.filter(b=>b.done&&b.r.s==='live').length;if(n!==landed){landed=n;const e=$('#num');e.textContent=n;e.classList.add('b');setTimeout(()=>e.classList.remove('b'),160)}}
+function count(){if(TLM.on)return;const n=balls.filter(b=>b.done&&b.r.s==='live').length;if(n!==landed){landed=n;const e=$('#num');e.textContent=n;e.classList.add('b');setTimeout(()=>e.classList.remove('b'),160)}}
 let hov=null,mx=-999,my=-999;
+function binOf(x){return TLM.on?(x.hide?-1:x.tb):x.r.b}
 function draw(){
  cx.clearRect(0,0,W,H);
  for(const [x,y,t] of pegs){const a=Math.max(0,1-(T-t)/.35),nr=Math.max(0,1-Math.hypot(x-mx,y-my)/110),q=Math.max(a,nr*.8);cx.fillStyle=q>0?'rgba(255,255,255,'+(.38+.62*q)+')':'rgba(243,245,255,.38)';cx.beginPath();cx.arc(x,y,PR+2.4*q,0,7);cx.fill()}
  cx.strokeStyle='rgba(243,245,255,.5)';cx.lineWidth=1.5;cx.textAlign='center';cx.font='700 13px "Bricolage Grotesque",system-ui,sans-serif';
  const bw=W/4;
- B.forEach((k,b)=>{const n=balls.filter(x=>x.done&&x.r.b===b).length;if(n){cx.fillStyle=HC[k]+'22';cx.fillRect(b*bw,binTop,bw,H-binTop)}});
+ B.forEach((k,b)=>{const n=balls.filter(x=>x.done&&binOf(x)===b).length;if(n){cx.fillStyle=HC[k]+'22';cx.fillRect(b*bw,binTop,bw,H-binTop)}});
  for(let b=0;b<=4;b++){cx.beginPath();cx.moveTo(b*bw,binTop);cx.lineTo(b*bw,H);cx.stroke()}
- B.forEach((k,b)=>{cx.fillStyle=HC[k];cx.fillText((b===3?'Not sorted':NAMES[k])+' '+repos.filter(r=>r.b===b).length,b*bw+bw/2,H-6)});
- for(const b of balls){if(T<b.delay&&!b.done)continue;
-  cx.beginPath();cx.arc(b.x,b.y,R+(b.r===hov?3:0),0,7);cx.fillStyle=HC[b.r.s];cx.fill();
+ B.forEach((k,b)=>{cx.fillStyle=HC[k];cx.fillText((b===3?'Not sorted':NAMES[k])+' '+balls.filter(x=>binOf(x)===b).length,b*bw+bw/2,H-6)});
+ for(const b of balls){if(b.hide||(T<b.delay&&!b.done))continue;
+  cx.beginPath();cx.arc(b.x,b.y,R+(b.r===hov?3:0),0,7);cx.fillStyle=HC[TLM.on?B[b.tb]:b.r.s];cx.fill();
   if(b.r===sel){cx.lineWidth=3;cx.strokeStyle='#fff';cx.stroke();cx.lineWidth=1.5;cx.strokeStyle='rgba(243,245,255,.5)'}}
- const L=hov||sel;if(L){const b=balls.find(x=>x.r===L);if(b&&(b.done||T>=b.delay)){cx.fillStyle='#fff';cx.textAlign=b.x<W/2?'left':'right';cx.fillText(L.f?L.n:'not named',b.x+(b.x<W/2?-R:R),Math.max(14,b.y-R-8));cx.textAlign='center'}}
+ const L=hov||sel;if(L){const b=balls.find(x=>x.r===L);if(b&&!b.hide&&(b.done||T>=b.delay)){cx.fillStyle='#fff';cx.textAlign=b.x<W/2?'left':'right';cx.fillText(L.f?L.n:'not named',b.x+(b.x<W/2?-R:R),Math.max(14,b.y-R-8));cx.textAlign='center'}}
 }
 function frame(t){
  const dt=Math.min(.033,(t-last)/1000||.016);last=t;
@@ -432,7 +560,7 @@ function show(r){
 }
 function pick(e){
  const R0=cv.getBoundingClientRect(),x=e.clientX-R0.left,y=e.clientY-R0.top;
- let best=null,bd=18;for(const b of balls){if(T<b.delay&&!b.done)continue;const d=Math.hypot(b.x-x,b.y-y);if(d<bd){bd=d;best=b.r}}
+ let best=null,bd=18;for(const b of balls){if(b.hide||(T<b.delay&&!b.done))continue;const d=Math.hypot(b.x-x,b.y-y);if(d<bd){bd=d;best=b.r}}
  cv.style.cursor=best?'pointer':'default';
  if(best&&(e.type==='click'||e.pointerType==='mouse'&&sel!==best)){sel=best;show(sel)}
  if(e.pointerType==='mouse'){mx=x;my=y;hov=best;if(!run)draw()}else if(!run)draw();
@@ -471,7 +599,7 @@ function nn(){const n=+$('#nn').value;$('#nv').textContent=' '+n;$('#mx').textCo
 function phases(){
  const el=$('#ph'),fin=i=>i<10?'ok':i===10?'bad':'no';
  el.innerHTML=Array.from({length:20},(_,i)=>'<i class="'+(INST?fin(i):'pend')+'">'+(i+1)+'</i>').join('');
- if(!INST)onView(el,()=>{[...el.children].forEach((c,i)=>setTimeout(()=>{c.className=fin(i)},i<11?i*110:1500+(i-11)*45))},.6);
+ if(!INST)onView(el,()=>{[...el.children].forEach((c,i)=>setTimeout(()=>{c.className=fin(i);if(SND.on){if(i<10)SFX.chime(i);else if(i===10)SFX.fail()}},i<11?i*110:1500+(i-11)*45))},.6);
 }
 function nums(){
  const by=o=>repos.filter(r=>r.o===o).length,fm=(v,s)=>Math.round(v).toLocaleString('en-US')+s;
@@ -526,7 +654,7 @@ function rail(){
  const M={all:[()=>true,N+' projects'],stopped:[r=>r.s==='killed','1 stopped'],work:[r=>r.f,(WORDS[FEAT.size]||FEAT.size)+' named'],people:[()=>false,'3 companies'],me:[()=>false,'Me, not repos']};
  const dots=[...document.querySelectorAll('#rd i')];
  const set=k=>{const [f,t]=M[k];$('#rcap').textContent=t;dots.forEach(d=>d.classList.toggle('off',!f(by[d.dataset.n])))};
- const map=[['header.hero','all'],['#about','me'],['#experience','people'],['#work','work'],['#stopped','stopped'],['#numbers','all'],['#skills','me'],['#education','me']];
+ const map=[['header.hero','all'],['#about','me'],['#experience','people'],['#work','work'],['#how','work'],['#live','all'],['#stopped','stopped'],['#numbers','all'],['#skills','me'],['#education','me']];
  set('all');if(!('IntersectionObserver' in window))return;
  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)set(e.target.dataset.rail)}),{rootMargin:'-48% 0px -48% 0px'});
  map.forEach(([q,k])=>{const el=document.querySelector(q);if(el){el.dataset.rail=k;io.observe(el)}});
@@ -545,6 +673,183 @@ setup();draw();if(!rm)go();
 (async()=>{try{const c=new AbortController();setTimeout(()=>c.abort(),2500);
  const j=await(await fetch('https://api.github.com/users/sriram36/repos?per_page=100',{signal:c.signal})).json();
  if(Array.isArray(j)){j.forEach(g=>{const r=repos.find(x=>x.n===g.name);if(r)r.d=g.pushed_at.slice(0,10)});$('#last').textContent='Latest public push: '+repos.map(r=>r.d).sort().pop()+'. Outcomes are my labels; the dates come from GitHub.'}}catch(e){}})();
+</script>
+<script>
+(()=>{
+const html=document.documentElement;
+const store={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
+const press=(b,on)=>b.setAttribute('aria-pressed',String(!!on));
+const go=id=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:rm?'auto':'smooth',block:'start'})};
+const ago=iso=>{const m=Math.max(1,Math.round((Date.now()-new Date(iso))/6e4));if(m<60)return m+' min ago';const h=Math.round(m/60);if(h<48)return h+' hours ago';return Math.round(h/24)+' days ago'};
+
+/* ---- dock: skim, sound, search, print ---- */
+const bK=$('#d-skim'),bS=$('#d-sound'),bC=$('#d-cmd'),bP=$('#d-print');
+function skim(on){html.classList.toggle('skim',on);store.set('skim',on?'1':'0');press(bK,on)}
+function sound(on){SND.on=on;press(bS,on);if(on){snd();SFX.on()}}
+bK.onclick=()=>skim(!html.classList.contains('skim'));
+bS.onclick=()=>sound(!SND.on);
+bP.onclick=()=>print();
+press(bK,html.classList.contains('skim'));
+document.addEventListener('click',e=>{if(SND.on&&e.target.closest('.dock button,.tabs button,.flow button,.cch button,#sks button,.qb button,.tlc button'))SFX.click()});
+
+/* ---- time-lapse ---- */
+const T0=Math.min(...repos.map(r=>r.st)),T1=Math.max(...repos.map(r=>r.en));
+const rng=$('#tl-range'),tdate=$('#tl-date'),bpl=$('#tl-play'),bnow=$('#tl-now');
+const asOf=(r,ms)=>ms<r.st?-1:(ms<r.en?3:r.b);
+function slotXY(b,k,n){const bw=W/4,per=Math.max(1,Math.floor((bw-14)/(2*R+3))),col=k%per,row=Math.floor(k/per),cnt=Math.min(per,n-row*per);return[b*bw+bw/2+(col-(cnt-1)/2)*(2*R+3),H-32-row*(2*R+3)]}
+function tlLabel(){tdate.textContent=TLM.ms>=T1?'Now':new Date(TLM.ms).toLocaleDateString('en-GB',{month:'short',year:'numeric'})}
+function tlApply(d){
+ const by=[[],[],[],[]];
+ balls.forEach(b=>{b.tbOld=b.tb;b.tb=asOf(b.r,TLM.ms);if(b.tb>=0)by[b.tb].push(b)});
+ by.forEach((m,bi)=>m.forEach((b,k)=>{const q=slotXY(bi,k,m.length);b.tx=q[0];b.ty=q[1]}));
+ let moving=false,live=0,present=0;
+ balls.forEach(b=>{
+  if(b.tb<0){b.hide=true;return}
+  present++;if(b.tb===0)live++;
+  if(b.hide){b.hide=false;b.x=W/2+(rnd(b.idx||0)-.5)*sp*.7;b.y=-12;if(SND.on&&d>0)SFX.pop()}
+  else if(d>0&&b.tbOld!==b.tb&&b.tbOld>=0&&b.tb!==3&&SND.on)SFX.land(b.tb);
+  const k=(rm||d===0)?1:1-Math.exp(-7*d);
+  b.x+=(b.tx-b.x)*k;b.y+=(b.ty-b.y)*k;
+  if(Math.abs(b.tx-b.x)+Math.abs(b.ty-b.y)>.8)moving=true;
+ });
+ TLM.moving=moving;$('#num').textContent=live;$('#den').textContent=present;
+}
+function tlFrame(t){
+ const d=Math.min(.05,(t-TLM.last)/1000||.016);TLM.last=t;
+ if(TLM.playing){TLM.ms+=d*(T1-T0)/16;if(TLM.ms>=T1){TLM.ms=T1;TLM.playing=false;bpl.textContent='Play the timeline'}rng.value=Math.round((TLM.ms-T0)/(T1-T0)*1000)}
+ tlApply(d);tlLabel();draw();
+ if(TLM.playing||TLM.moving)TLM.raf=requestAnimationFrame(tlFrame);else TLM.raf=0;
+}
+function tlGo(){if(!TLM.raf){TLM.last=performance.now();TLM.raf=requestAnimationFrame(tlFrame)}}
+function tlEnter(){if(TLM.on)return;TLM.on=true;balls.forEach((b,i)=>{b.idx=i;b.done=true;b.hide=false;b.tb=b.r.b;b.x=b.r.fx;b.y=b.r.fy});bnow.hidden=false}
+function tlExit(){if(!TLM.on)return;TLM.playing=false;if(TLM.raf){cancelAnimationFrame(TLM.raf);TLM.raf=0}TLM.on=false;balls.forEach(b=>{b.x=b.r.fx;b.y=b.r.fy;b.hide=false;b.done=true});rng.value=1000;$('#num').textContent=LIVE;$('#den').textContent=N;landed=-1;count();bnow.hidden=true;bpl.textContent='Play the timeline';tdate.textContent='Now';draw()}
+window.tlRestore=()=>{balls.forEach((b,i)=>{b.idx=i;b.done=true;b.hide=false;b.tb=b.r.b});tlApply(0);draw()};
+rng.oninput=()=>{tlEnter();TLM.playing=false;bpl.textContent='Play the timeline';TLM.ms=T0+(rng.value/1000)*(T1-T0);tlGo()};
+bpl.onclick=()=>{if(TLM.playing){TLM.playing=false;bpl.textContent='Resume';return}tlEnter();if(!TLM.ms||TLM.ms>=T1){TLM.ms=T0}TLM.playing=true;bpl.textContent='Pause';tlGo()};
+bnow.onclick=tlExit;
+$('#again').addEventListener('click',tlExit,true);
+
+/* ---- be the quant ---- */
+const qc=$('#qc');let qrun=0,qs=null;
+function qgen(){const r=mulberry(777+qrun*31),K=40,L=160,S=100,cur=[];for(let i=0;i<K;i++){let v=0;const a=[0];for(let t=1;t<L;t++){const u=Math.max(r(),1e-9),w=r();v+=Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*w);a.push(v)}cur.push(a)}qs={cur,K,L,S,pick:-1,hover:-1}}
+function qgeo(){const w=qc.clientWidth,h=260,{cur,L}=qs;let lo=0,hi=0;cur.forEach(a=>a.forEach(v=>{lo=Math.min(lo,v);hi=Math.max(hi,v)}));const pad=20;return{w,h,pad,X:t=>pad+t/(L-1)*(w-2*pad),Y:v=>h-26-(v-lo)/(hi-lo)*(h-60)}}
+function qdraw(){
+ if(!qs||!qc.clientWidth)return;const dpr=devicePixelRatio||1,{w,h,pad,X,Y}=qgeo(),g=qc.getContext('2d'),{cur,L,S,pick,hover}=qs,reveal=pick>=0;
+ qc.width=w*dpr;qc.height=h*dpr;g.setTransform(dpr,0,0,dpr,0,0);g.clearRect(0,0,w,h);
+ g.strokeStyle='rgba(243,245,255,.5)';g.lineWidth=1;g.setLineDash([4,4]);g.beginPath();g.moveTo(X(S),12);g.lineTo(X(S),h-22);g.stroke();g.setLineDash([]);
+ g.font='700 12px "Bricolage Grotesque",system-ui,sans-serif';g.fillStyle='#fff';g.textAlign='right';g.fillText('what you can see',X(S)-6,h-6);g.textAlign='left';g.fillText(reveal?'what happened next':'hidden until you pick',X(S)+6,h-6);
+ g.strokeStyle='rgba(243,245,255,.25)';g.beginPath();g.moveTo(pad,Y(0));g.lineTo(w-pad,Y(0));g.stroke();
+ const end=reveal?L-1:S;
+ cur.forEach((a,i)=>{if(i===pick)return;g.beginPath();for(let t=0;t<=end;t++){const x=X(t),y=Y(a[t]);t?g.lineTo(x,y):g.moveTo(x,y)}const hv=i===hover&&!reveal;g.strokeStyle=hv?'#ffd23f':'rgba(243,245,255,'+(reveal?.22:.42)+')';g.lineWidth=hv?3:1.2;g.stroke()});
+ if(reveal){const a=cur[pick];g.beginPath();for(let t=0;t<=L-1;t++){const x=X(t),y=Y(a[t]);t?g.lineTo(x,y):g.moveTo(x,y)}g.strokeStyle='#ff5c7d';g.lineWidth=3.2;g.stroke()}
+}
+function qnear(e){const R0=qc.getBoundingClientRect(),x=e.clientX-R0.left,y=e.clientY-R0.top,{pad,X,Y,w}=qgeo(),{cur,L,S}=qs;const t=Math.max(0,Math.min(S,Math.round((x-pad)/(w-2*pad)*(L-1))));let bi=-1,bd=22;cur.forEach((a,i)=>{const d=Math.abs(Y(a[t])-y);if(d<bd){bd=d;bi=i}});return bi}
+const pc=v=>(v>=0?'+':'')+v.toFixed(1)+'%';
+function qreveal(i,auto){
+ qs.pick=i;const{cur,L,S}=qs,ins=cur[i][S],oos=cur[i][L-1]-cur[i][S];let bi=0;cur.forEach((a,k)=>{if(a[S]>cur[bi][S])bi=k});const avg=cur.reduce((s,a)=>s+a[L-1]-a[S],0)/cur.length;
+ $('#qres').textContent=(auto?'The best-looking curve at the cut':'The curve you picked')+' was '+pc(ins)+'. After the cut it moved '+pc(oos)+'. Across all 40, the average move after the cut was '+pc(avg)+'. None of them had any skill, so picking the winner only picked luck.';
+ qdraw();if(SND.on){oos<0?SFX.fail():SFX.chime(3)}
+}
+function qreset(){qgen();$('#qres').textContent='';qdraw()}
+qc.addEventListener('pointermove',e=>{if(!qs||qs.pick>=0)return;const h=qnear(e);if(h!==qs.hover){qs.hover=h;qc.style.cursor=h>=0?'pointer':'crosshair';qdraw()}});
+qc.addEventListener('click',e=>{if(!qs||qs.pick>=0)return;const h=qnear(e);if(h>=0)qreveal(h,false)});
+$('#q-best').onclick=()=>{if(qs.pick>=0)qreset();let bi=0;qs.cur.forEach((a,k)=>{if(a[qs.S]>qs.cur[bi][qs.S])bi=k});qreveal(bi,true)};
+$('#q-new').onclick=()=>{qrun++;qreset()};
+
+qreset();
+let rq;addEventListener('resize',()=>{clearTimeout(rq);rq=setTimeout(qdraw,160)});
+onView($('#quant'),()=>qdraw(),.1);
+
+/* ---- how they work ---- */
+const FL={
+ 'LeaveFlow':[['Employee on WhatsApp','asks for leave','An employee asks for leave in a WhatsApp message.'],['Webhook','checks the signature','WhatsApp calls the webhook, which checks the message signature when a secret is set.'],['FastAPI rules','roles and limits','Role-based rules decide who may do what, and rate limits protect the endpoints.'],['PostgreSQL','one transaction','The request and an audit-log entry are written together, so they cannot drift apart.'],['WebSocket','live update','A live update reaches the manager\u2019s open dashboard.'],['Manager approves','on the web','The manager decides on the dashboard, and the decision is saved and sent back.']],
+ 'FinSight':[['Statement import','CSV or JSON','Bank headers are detected and duplicate rows are dropped using SHA-256.'],['Deterministic math','plain Python','Totals, periods and daily pacing are computed in Python. The model never does arithmetic.'],['Protected categories','essentials stay safe','Categories like healthcare and housing are shielded from any suggested cut.'],['LLM drafts','must cite transactions','The model writes a recommendation and has to cite transaction IDs.'],['Claim verifier','every number checked','Each number in the text is checked against the cited transactions, within a 1.5% margin.'],['Shown with receipts','verified only','The verified recommendation reaches the user with its receipts.']],
+ 'Scout':[['n8n schedule','every few hours','A schedule triggers the discovery workflow.'],['Three job APIs','Himalayas, Arbeitnow, RemoteOK','The workflow fetches remote developer roles from three sources.'],['Normalize and dedupe','drop repeats','Roles are cleaned and duplicate URLs are dropped.'],['Supabase','saved','New jobs are saved to the database.'],['Auto-fill queue','from the dashboard','I press Auto-fill on a job and it joins a queue.'],['Playwright and Azure OpenAI','fills the form','A browser fills the form and the model drafts answers to custom questions.'],['I submit','by hand','The browser stays open. I review it and submit myself.']]
+};
+FL['Pharma compliance']=[['Brief','what the content must say','A marketing brief goes in. Medical, legal and regulatory rules decide what is allowed.'],['Staged drafting','LangGraph and Azure OpenAI','The model drafts the content in stages, orchestrated with LangGraph.'],['Rule grader','16 compliance rules','A deterministic grader checks the draft against 16 compliance rules.'],['Three-tier lookup','dictionary, cache, LLM','Answers come from a dictionary first, then a disk cache, then an LLM, so results repeat and nothing fails silently.'],['Dashboard','Streamlit','The grades and the reasons show in a dashboard a reviewer can read.']];
+FL['wirematch']=[['Bank statement','CSV import','A bank statement CSV is imported with validation. Duplicate rows are caught by a unique key.'],['Normalize','references and names','Payment references and investor names are cleaned so they can be compared.'],['Suggest matches','against open capital calls','Each credit is matched to open capital-call line items, with a reason shown for every suggestion.'],['Partner reviews','approve, reject, ignore','A general partner approves, rejects or ignores each suggestion on a dashboard.'],['Locked approval','fixed lock order','Approve locks the transaction, then the match, then the line item, always in that order. A repeat click gets a 409.'],['Database backstop','constraints','A database check stops over-funding and a unique index stops a second approval, even if the code is wrong.']];
+FL['RefillCare']=[['Patient reorders','or uploads a prescription','A patient reorders a medicine or uploads a prescription.'],['Prescription read','OCR and doctor check','The prescription is read and the doctor is checked.'],['Safety rules','Schedule H and H1','A pure rules engine applies the Schedule H and H1 regulations and decides what needs a pharmacist.'],['Pharmacist approves','verification queue','A pharmacist approves from a queue. The approval gate applies on every order path.'],['Nearest store','inventory routing','The order is routed to the nearest store that has the stock.'],['Dispatch','fulfilment','The store fulfils and dispatches, with stock transfers when needed.']];
+let fk='LeaveFlow',fi=0,fpause=0,fview=false;
+function fcap(){$('#fcap').textContent=FL[fk][fi][2]}
+function fmark(){document.querySelectorAll('#flow li').forEach((li,i)=>li.classList.toggle('on',i===fi));fcap()}
+function frender(){
+ $('#ftabs').innerHTML=Object.keys(FL).map(k=>'<button type="button" data-k="'+k+'" aria-pressed="'+(k===fk)+'">'+k+'</button>').join('');
+ $('#flow').innerHTML=FL[fk].map((s,i)=>'<li><button type="button" data-i="'+i+'">'+s[0]+'<small>'+s[1]+'</small></button></li>').join('');fmark();
+}
+$('#ftabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;fk=b.dataset.k;fi=0;fpause=Date.now()+6000;frender()};
+$('#flow').onclick=e=>{const b=e.target.closest('button');if(!b)return;fi=+b.dataset.i;fpause=Date.now()+7000;fmark()};
+setInterval(()=>{if(rm||!fview||Date.now()<fpause||document.hidden)return;fi=(fi+1)%FL[fk].length;fmark()},1700);
+if('IntersectionObserver' in window)new IntersectionObserver(es=>{fview=es[0].isIntersecting},{threshold:.2}).observe($('#how'));
+
+frender();
+
+/* ---- live wall + GitHub pulse ---- */
+const TG=[['LeaveFlow demo','https://leave-flow-cyan.vercel.app'],['FinSight app','https://finsight-wine-tau.vercel.app'],['FinSight API','https://finsight-api-d84z.onrender.com/docs'],['RefillCare app','https://refillcare.vercel.app'],['RefillCare API','https://refillcare.onrender.com/docs'],['School bus tracker','https://location-sharing-chi.vercel.app'],['Wind forecast','https://x7z9p-yxu2.vercel.app']];
+const hist={};
+$('#wall').innerHTML=TG.map(([n])=>'<div class="wc" id="wc-'+TG.findIndex(x=>x[0]===n)+'"><b>'+n+'</b><div class="ms">…</div><div class="st">waiting</div><svg viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"></svg></div>').join('');
+async function ping1(u){const c=new AbortController(),to=setTimeout(()=>c.abort(),12000),t=performance.now();try{await fetch(u,{mode:'no-cors',cache:'no-store',signal:c.signal});clearTimeout(to);return Math.round(performance.now()-t)}catch(e){clearTimeout(to);return -1}}
+function paint(i){
+ const h=hist[i],ms=h[h.length-1],el=$('#wc-'+i),good=ms>=0,slow=ms>1500;
+ el.querySelector('.ms').textContent=good?ms+' ms':'down';el.querySelector('.ms').style.color=good?(slow?'var(--learned)':'var(--live)'):'var(--killed)';
+ el.querySelector('.st').textContent=good?(slow?'reachable, slow (probably waking up)':'reachable'):'not reachable from your browser right now';
+ const ok=h.filter(v=>v>=0),mx=Math.max(1,...ok),n=h.length;
+ el.querySelector('svg').innerHTML=(ok.length>1?'<polyline fill="none" stroke="currentColor" stroke-width="1.6" vector-effect="non-scaling-stroke" points="'+h.map((v,k)=>v>=0?((n<2?0:k/(n-1))*100).toFixed(1)+','+(28-(v/mx)*24).toFixed(1):'').filter(Boolean).join(' ')+'"/>':'')+h.map((v,k)=>v<0?'<circle cx="'+((n<2?0:k/(n-1))*100).toFixed(1)+'" cy="26" r="2" fill="var(--killed)"/>':'').join('');
+}
+async function pingAll(){await Promise.all(TG.map(async([n,u],i)=>{const ms=await ping1(u);(hist[i]=hist[i]||[]).push(ms);if(hist[i].length>10)hist[i].shift();paint(i)}))}
+async function pulse(){
+ const el=$('#pulse');
+ try{let j=JSON.parse(sessionStorage.getItem('ev')||'null');
+  if(!j||Date.now()-j.t>6e5){const r=await fetch('https://api.github.com/users/sriram36/events/public?per_page=40');const d=await r.json();if(!Array.isArray(d))throw 0;j={t:Date.now(),d};sessionStorage.setItem('ev',JSON.stringify(j))}
+  const ev=j.d.filter(e=>e.type==='PushEvent').slice(0,6);
+  el.innerHTML=ev.length?ev.map(e=>'<li><a href="https://github.com/'+e.repo.name+'">'+e.repo.name.split('/')[1]+'</a><span>'+(e.payload.size||1)+' commit'+((e.payload.size||1)===1?'':'s')+', '+ago(e.created_at)+'</span></li>').join(''):"<li>No public pushes in GitHub's recent feed.</li>";
+ }catch(x){el.innerHTML="<li>GitHub's public feed is unreachable right now.</li>"}
+}
+let wallOn=false,wallStarted=false;
+if('IntersectionObserver' in window)new IntersectionObserver(es=>{wallOn=es[0].isIntersecting;if(wallOn&&!wallStarted){wallStarted=true;pingAll();pulse()}},{rootMargin:'300px'}).observe($('#live'));
+else{wallStarted=true;pingAll();pulse()}
+setInterval(()=>{if(wallOn&&!document.hidden)pingAll()},30000);
+
+/* ---- command palette ---- */
+const cmd=$('#cmd'),ci=$('#cmdi'),cl=$('#cmdl');let items=[],act=0,opener=null;
+const SEC=[['about','What I do'],['experience','Experience'],['work','Selected work'],['how','How they work'],['live','Live right now'],['stopped','The one I stopped'],['numbers','The numbers'],['skills','Skills'],['education','Education and certificates'],['contact','Contact']];
+const WID={'pharma-mlr-compliance':'w-pharma-mlr-compliance'};
+function allItems(){
+ const a=SEC.map(([id,l])=>({t:l,s:'Section',run:()=>go(id)}));
+ repos.filter(r=>r.f).forEach(r=>a.push({t:r.n,s:'Project',run:()=>{const el=document.getElementById(WID[r.n]||'w-'+r.n);if(el){const dt=el.closest('details');if(dt)dt.open=true;location.hash=el.id}else go('stopped')}}));
+ SK.forEach(([g,l])=>l.forEach(x=>a.push({t:x,s:'Skill',run:()=>{go('skills');const b=document.querySelector('#sks button[data-s="'+x.replace(/"/g,'')+'"]');if(b&&b.getAttribute('aria-pressed')!=='true')b.click()}})));
+ a.push({t:'Toggle skim view',s:'Action',run:()=>bK.click()},{t:'Toggle sound',s:'Action',run:()=>bS.click()},{t:'Play the timeline',s:'Action',run:()=>{go('board');bpl.click()}},{t:'Drop the balls again',s:'Action',run:()=>{go('board');$('#again').click()}},{t:'Copy my email',s:'Action',run:()=>$('#cp').click()},{t:'Open my resume',s:'Link',run:()=>{location.href='Sriram_Kolli_Resume.pdf'}},{t:'Open GitHub',s:'Link',run:()=>{location.href='https://github.com/sriram36'}},{t:'Open LinkedIn',s:'Link',run:()=>{location.href='https://www.linkedin.com/in/sriram-kolli-979723219/'}},{t:'Print this page',s:'Action',run:()=>print()});
+ return a;
+}
+function cshow(){
+ const q=ci.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+ items=allItems().filter(it=>q.every(w=>(it.t+' '+it.s).toLowerCase().includes(w))).slice(0,10);act=Math.min(act,Math.max(0,items.length-1));
+ cl.innerHTML=items.length?items.map((it,i)=>'<li role="option" aria-selected="'+(i===act)+'" data-i="'+i+'"><span>'+it.t+'</span><small>'+it.s+'</small></li>').join(''):'<li>Nothing matches. Try a skill, a project or a section.</li>';
+}
+function copen(){opener=document.activeElement;cmd.hidden=false;ci.value='';act=0;cshow();ci.focus();if(SND.on)SFX.click()}
+function cclose(){cmd.hidden=true;if(opener&&opener.focus)opener.focus()}
+function crun(i){const it=items[i];if(!it)return;cclose();setTimeout(it.run,30)}
+bC.onclick=copen;
+ci.oninput=()=>{act=0;cshow()};
+cl.onclick=e=>{const li=e.target.closest('li[data-i]');if(li)crun(+li.dataset.i)};
+cmd.addEventListener('pointerdown',e=>{if(e.target===cmd)cclose()});
+document.addEventListener('keydown',e=>{
+ const typing=/^(INPUT|TEXTAREA|SELECT)$/.test((e.target.tagName||''));
+ if(cmd.hidden){if((e.key==='/'&&!typing)||((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k')){e.preventDefault();copen()}return}
+ if(e.key==='Escape'){e.preventDefault();cclose()}
+ else if(e.key==='ArrowDown'){e.preventDefault();act=Math.min(items.length-1,act+1);cshow()}
+ else if(e.key==='ArrowUp'){e.preventDefault();act=Math.max(0,act-1);cshow()}
+ else if(e.key==='Enter'){e.preventDefault();crun(act)}
+});
+
+/* ---- contact form ---- */
+$('#cch').innerHTML=['Internship','Full-time role','A project','Just saying hi'].map(c=>'<button type="button" aria-pressed="false">'+c+'</button>').join('');
+$('#cch').onclick=e=>{const b=e.target.closest('button');if(b)press(b,b.getAttribute('aria-pressed')!=='true')};
+$('#cform').onsubmit=e=>{e.preventDefault();const on=[...document.querySelectorAll('#cch [aria-pressed=true]')].map(b=>b.textContent),nm=$('#cname').value.trim(),m=$('#cmsg').value.trim();
+ location.href='mailto:kollisriram6@gmail.com?subject='+encodeURIComponent('Hello from your portfolio'+(on.length?': '+on.join(', '):''))+'&body='+encodeURIComponent((m||'Hi Sriram,')+(nm?'\n\n'+nm:''))};
+
+/* ---- print ---- */
+addEventListener('beforeprint',()=>{tlExit();document.querySelectorAll('#tl i[data-f="1"]').forEach(e=>e.classList.add('f'));$('#tn').textContent=document.querySelectorAll('#tl i[data-f="1"]').length;document.querySelectorAll('#nums b').forEach(b=>{b.textContent=Math.round(+b.dataset.v).toLocaleString('en-US')+b.dataset.s});$('#rcs').classList.add('go');$('#lang').classList.add('in');$('#sih').classList.add('go');balls.forEach(b=>{b.x=b.r.fx;b.y=b.r.fy;b.done=true;b.hide=false});landed=-1;count()});
+})();
 </script>
 </body>
 </html>
