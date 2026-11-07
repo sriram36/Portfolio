@@ -196,13 +196,15 @@ footer .wrap{padding-bottom:70px}
 /* ---- skim ---- */
 .skimnote{display:none}
 html.skim .skimnote{display:block;color:var(--mut);margin:18px 0 0}
-html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.skim #about .lede + .lede,html.skim #about .key,html.skim .does,html.skim .tl,html.skim #experience .lede,html.skim .xp li:nth-child(n+2),html.skim .xp .tech,html.skim #rcs .rc:nth-child(n+4),html.skim #orig,html.skim #work .key,html.skim .say p:not(.role):not(.lead2):not(.try),html.skim .tlnote,html.skim .more{display:none}
+html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.skim #about .lede + .lede,html.skim #about .key,html.skim .does,html.skim .tl,html.skim #experience .lede,html.skim .xp li:nth-child(n+2),html.skim .xp .tech,html.skim #rcs .rc:nth-child(n+4),html.skim #orig,html.skim #work .key,html.skim .say p:not(.role):not(.lead2):not(.try),html.skim .tlnote,html.skim .more,html.skim .match{display:none}
 /* ---- time-lapse controls ---- */
 .tlc{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:0 0 30px;color:var(--paper)}
 .tlc input[type=range]{flex:1;min-width:160px;margin:0;accent-color:var(--hr)}
 .tlc output{min-width:84px;font-weight:700}
 .tlc button{border-color:var(--paper);color:var(--paper);margin:0}
 .tlnote{flex-basis:100%;margin:0;opacity:.85}
+/* ---- hero links ---- */
+.try{margin:12px 0 0!important;font-weight:600}
 /* ---- be the quant ---- */
 .quant{margin-top:38px}
 .quant h3{font:800 clamp(22px,2.6vw,30px)/1.1 var(--f);margin:0 0 8px}
@@ -255,12 +257,67 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
 .cform input,.cform textarea{display:block;width:100%;font:500 16px var(--f);padding:12px 14px;border-radius:10px;border:1.5px solid #ffffff66;background:#ffffff14;color:#fff;margin:0 0 10px}
 .cform ::placeholder{color:#ffffffbb}
 .cform .sendb{background:var(--paper);color:var(--cobalt);border-color:var(--paper);margin:0}
+/* ---- demos ---- */
+.demo{border:1.5px solid var(--rule);border-radius:18px;padding:clamp(16px,3vw,26px);margin-top:26px}
+.demo h3{margin:0 0 8px;font:800 clamp(22px,2.6vw,30px)/1.1 var(--f)}
+.demo p{max-width:64ch}
+.demo .qb button{border-color:var(--ink);color:var(--ink)}
+.chipsrow{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chipsrow button{margin:0;text-align:left;border-radius:12px}
+/* ---- grader inspector ---- */
+.pipe{display:flex;gap:0 26px;margin:16px 0}
+.pn{flex:1 1 0;min-width:0;position:relative;border:1.5px solid var(--rule);border-radius:14px;padding:10px 12px;font:700 14px var(--f);transition:opacity .3s,border-color .3s}
+.pn:not(:last-child)::after{content:"";position:absolute;right:-24px;top:50%;width:22px;border-top:2px dashed var(--rule)}
+.pn small{display:block;font-weight:500;color:var(--mut);font-size:12px;min-height:1.3em;overflow-wrap:anywhere}
+.pn .bd{display:inline-block;margin-top:6px;padding:2px 9px;border-radius:99px;font-size:12px;font-weight:800}
+.pn.on{border-color:var(--cobalt)}
+.pn.hit .bd{background:var(--live);color:#fff}
+.pn.miss .bd{background:var(--learned);color:#fff}
+.pn.bad .bd{background:var(--killed);color:#fff}
+.pn.skip{opacity:.45}
+.pn .bd:empty{display:none}
+.verdict{font-weight:700;min-height:2.8em}
+@media(max-width:860px){.pipe{flex-direction:column;gap:18px 0}.pn:not(:last-child)::after{right:auto;left:28px;top:auto;bottom:-18px;width:0;height:16px;border-top:0;border-left:2px dashed var(--rule)}}
+/* ---- concurrency sandbox ---- */
+.lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:16px 0}
+.lane{border:1.5px solid var(--rule);border-radius:14px;padding:12px 14px}
+.lane h4{margin:0 0 6px;font:800 16px var(--f)}
+.lane .fund{font:800 26px/1.1 var(--f);font-variation-settings:"wdth" 80;letter-spacing:-.02em;margin:4px 0 8px}
+.lane .fund.bad{color:var(--killed)}
+.evs{list-style:none;margin:0;padding:0;min-height:9em;font-size:14px}
+.evs li{display:flex;gap:8px;margin:6px 0;animation:dp .35s both}
+.evs li b{flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:12px;color:#fff}
+.evs li b.A{background:var(--cobalt)}.evs li b.B{background:var(--learned)}
+.lane .res{margin-top:8px;padding:6px 10px;border-radius:10px;font-weight:700;font-size:14px;min-height:2.7em}
+.lane .res.good{background:var(--live);color:#fff}.lane .res.warn{background:var(--learned);color:#fff}.lane .res.bad{background:var(--killed);color:#fff}
+@media(max-width:860px){.lanes{grid-template-columns:1fr}}
+/* ---- stack match ---- */
+.match{margin:14px 0 18px}
+.mq{margin:0 0 4px;font-weight:700}
+.mres{font-weight:600;min-height:3.2em;max-width:70ch}
+.rc.nm{display:none}
+/* ---- negative results ---- */
+.neg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:22px}
+.ng{border:1.5px solid var(--rule);border-radius:18px;padding:18px 20px}
+.ng h3{margin:0;font:800 20px/1.15 var(--f)}
+.ng .sub{margin:2px 0 12px;color:var(--mut);font-size:15px}
+.ng p{max-width:44ch}
+.bar{display:grid;grid-template-columns:104px 1fr 40px;gap:8px;align-items:center;margin:7px 0;font-size:14px}
+.bar i{display:block;height:14px;border-radius:7px;background:var(--rule);width:0;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.bar.lead i{background:var(--cobalt)}
+.bar b{text-align:right;font-variant-numeric:tabular-nums}
+.ng.in .bar i{width:var(--w)}
+.big{display:flex;gap:18px;flex-wrap:wrap;margin:8px 0 12px}
+.big div{font:800 34px/1 var(--f);font-variation-settings:"wdth" 78;letter-spacing:-.02em}
+.big small{display:block;font:500 13px var(--f);color:var(--mut);letter-spacing:0;margin-top:4px}
+.ng .tag{font-weight:700;font-size:14px}
+.ng .tag.w{color:var(--mut);font-style:italic;font-weight:400}
 /* ---- print: black and white, resume style ---- */
 @media print{
  @page{margin:14mm}
  *,*::before,*::after{color:#000!important;background:transparent!important;box-shadow:none!important;text-shadow:none!important;filter:none!important;outline:0!important;border-color:#000!important;animation:none!important;transition:none!important}
  body{font-size:10.5pt;line-height:1.4}
- .dock,.rail,#prog,.board canvas,.hint,.tlc,.cmd,.cform,#how,#live,.skimnote,.sl,.quant,.slip,.top nav,.pulse,#cp,.sih,.more,#stopped .ph{display:none!important}
+ .dock,.rail,#prog,.board canvas,.hint,.tlc,.cmd,.cform,#how,#live,.skimnote,#lab,#negative,.match,.sl,.quant,.slip,.top nav,.pulse,#cp,.sih,.more,#stopped .ph{display:none!important}
  .board{height:auto!important;min-height:0!important}
  .over{height:auto!important;padding-top:0!important}
  .intro{margin:6mm 0!important}
@@ -296,6 +353,7 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
     <p class="lead2" id="h1"></p>
     <p>Most portfolios show you the survivors, so I start with the denominator. Every ball is a project I started, public or private, in the bin it landed in.</p>
     <div class="chips" id="chips"></div>
+    <p class="try">Try one live: <a href="https://leave-flow-cyan.vercel.app">LeaveFlow</a>, <a href="https://finsight-wine-tau.vercel.app">FinSight</a> or <a href="https://refillcare.vercel.app">RefillCare</a>.</p>
    </div>
   </div>
  </div>
@@ -343,13 +401,36 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
 </section>
 <section id="work">
 <h2>Selected work, with receipts</h2>
-<p class="key">“Check it” links to something you can verify. “My word” you can't, so weigh it that way. Test counts are functions I counted in the repo; I'm not claiming they pass. These are the projects I'd point you to; the rest are in the numbers above.</p>
+<p class="key">“Check it” links to something you can verify. “My word” you can't, so weigh it that way. Test counts are functions I counted in the repo; I'm not claiming they pass. These six were picked for the idea, not for how finished they are. The stock-ai story is just below.</p>
+<div class="match" id="match"><p class="mq">Looking for a stack? Pick what you need.</p>
+<div class="chipsrow" id="mpills" role="group" aria-label="Stack filter"></div>
+<p class="mres" id="mres" aria-live="polite"></p></div>
 <div class="rcs" id="rcs"></div>
+<details class="more" id="moreD"><summary id="moreS"></summary><div class="rcs" id="rcsMore"></div></details>
+</section>
 <section id="how" class="deep"><h2>How they work</h2>
 <p class="lede">Pick a project and watch one request move through it. Click any step to stop on it.</p>
 <div class="tabs" id="ftabs" role="group" aria-label="Project"></div>
 <ol class="flow" id="flow"></ol>
 <p class="fcap" id="fcap" aria-live="polite"></p>
+</section>
+<section id="lab" class="deep"><h2>Poke at it</h2>
+<p class="lede">Small simulations of ideas from my projects. They are simplified models, not the real code, so the phrases and numbers in them are made up.</p>
+<div class="demo" id="insp"><h3>Inspect the grader</h3>
+<p>My Accenture grader looks an answer up in three tiers before it trusts one: a dictionary, then a disk cache, then an LLM. Pick a phrase and watch it go down the tiers.</p>
+<div class="chipsrow" id="ipre"></div>
+<div class="pipe" id="ipipe"></div>
+<p class="verdict" id="iver" aria-live="polite"></p>
+<div class="qb"><button id="i-run" type="button">Run it again</button><button id="i-reset" type="button">Clear the cache</button></div>
+<p class="fine">A simplified model of the lookup order. The real grader has 16 rules, and these phrases and rules are invented.</p>
+</div>
+<div class="demo" id="sbx"><h3>Fire two requests at once</h3>
+<p>In wirematch a partner approves a bank payment against a capital call. Here two approvals arrive together. Pick a case, then fire them at three versions of the code.</p>
+<div class="tabs" id="stabs" role="group" aria-label="Case"></div>
+<div class="lanes" id="lanes"></div>
+<div class="qb"><button id="s-fire" type="button">Fire both requests</button></div>
+<p class="fine">A simulation of the behaviour described in the repo's notes: approve locks the transaction, then the match, then the line item, and a database check is the last backstop. It is not the live code.</p>
+</div>
 </section>
 <section id="live" class="deep"><h2>Live right now</h2>
 <p class="lede">Each card pings the real deployment from your browser and keeps the last ten results. Free hosts go to sleep, so the first ping can be slow.</p>
@@ -377,6 +458,10 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
 <canvas id="qc" aria-label="Forty random strategy curves. Click one to pick it and reveal what happened after the cut."></canvas>
 <p id="qres" aria-live="polite"></p>
 <div class="qb"><button id="q-best" type="button">Pick the best for me</button><button id="q-new" type="button">New run</button></div></div>
+</section>
+<section id="negative" class="deep"><h2>What did not work, in numbers</h2>
+<p class="lede">Three results that went the wrong way, and what I took from each.</p>
+<div class="neg" id="neg"></div>
 </section>
 <section id="numbers" style="padding-top:clamp(40px,6vw,70px)">
 <h2>The numbers, because the full list is too long</h2>
@@ -444,7 +529,7 @@ const P=[
 ['ClaimLens','2026-10-19','Python','learned','assess','','The dev-set gain (F1 0.987 to 1.000) is the size of run-to-run variance. Lesson: that is calibration, not generalization. 56 test functions.'],
 ['wirematch','2026-10-12','Python','learned','assess','','Idempotent approvals need a lock order, with database constraints as the backstop. 64 test functions, not deployed.'],
 ['geomeasure-api','2026-10-07','Python','learned','assess','','Upload a Shapefile or KML, get area and length. Areas land within 0.3% of an independent geodesic calculation. 52 test functions, CI, not deployed.'],
-['pharma-mlr-compliance','2026-09-18','Python','learned','intern','','Compliance grader for pharma marketing content: 16 rules, 31 test functions. One rule can call an LLM and skips itself without a client. My own test against manual review gave 78% agreement; that test is not in the repo.'],
+['pharma-mlr-compliance','2026-09-18','Python','learned','intern','','Compliance grader for pharma marketing content: 16 rules, 31 test functions. One rule can call an LLM and skips itself without a client. My own test against manual review gave 78% agreement; see docs/eval_report.md.'],
 ['Scout','2026-09-14','JavaScript','unsorted','','','The job-discovery and application pipeline (n8n, Supabase, local Playwright, a human review gate). The hosted dashboard is down (404) and it runs locally, so I cannot show it live. 14 commits in three days.'],
 ['hiver-takehome-agent','2026-09-10','Python','learned','assess','','F1 of 0.69, and my own report says the number is misleading: the labels were partly assigned by a script.'],
 ['LeaveFlow','2026-09-06','Python','live','solo','https://leave-flow-cyan.vercel.app','Leave management for teams. 162 commits since December 2025 and 29 backend test functions. Rate limiting and database migrations are in the code.'],
@@ -470,7 +555,7 @@ const P=[
 ['Private project 3','2025-08-01','Python','learned','intern','','A document-summarizer backend from an internship exercise. 2 commits in one day, no tests, and the README claims more than the code does.',true]
 ];
 const PENDING=0; /* private repos not yet labelled. Set to 0 once they are added above. */
-const FEAT=new Set(['LeaveFlow','FinSight','knowledge-shift-rag','stock-ai','pharma-mlr-compliance','Location-Sharing','x7z9p','RefillCare','ClaimLens','wirematch','geomeasure-api']);
+const FEAT=new Set(['LeaveFlow','FinSight','knowledge-shift-rag','stock-ai','pharma-mlr-compliance','Location-Sharing','x7z9p','RefillCare','ClaimLens','wirematch','geomeasure-api','Scout']);
 /* Flip a name into FEAT to show it. RefillCare and ClaimLens are strong but are company assessments: add them only after checking each brief. */
 const METRICS={commits:608,loc:87800,tests:477,months:19};
 const START={'LeaveFlow':'2025-12-09','RefillCare':'2026-11-02','FinSight':'2026-10-24','GradeSync':'2026-08-26','knowledge-shift-rag':'2026-08-09','FrameSense':'2026-08-28','attendance-tracker':'2025-07-22','ClaimLens':'2026-10-19','Location-Sharing':'2025-09-29','SignLanguage':'2026-01-21','leaddesk-mini':'2026-07-24','Scout':'2026-09-12','elevatebox-voice-agent':'2026-08-23','wirematch':'2026-10-12','EduBridge':'2025-04-06','x7z9p':'2026-10-24','geomeasure-api':'2026-10-07','Orbit':'2025-11-30','Portfolio':'2026-06-26','hiver-takehome-agent':'2026-09-09','Private project 2':'2025-08-12','composio-task':'2026-07-10','pharma-mlr-compliance':'2026-08-04','ML-Housing-Analytics':'2026-01-23','livo-pronunciation-app':'2026-07-10','stock-ai':'2026-07-19','Private project 3':'2025-08-01','Sriram_Kolli-binance-bot':'2025-08-09'};
@@ -530,7 +615,7 @@ function step(dt){
  if(T>10)balls.forEach(b=>{if(!b.done){b.x=b.r.fx;b.y=b.r.fy;b.done=true}});
 }
 function count(){if(TLM.on)return;const n=balls.filter(b=>b.done&&b.r.s==='live').length;if(n!==landed){landed=n;const e=$('#num');e.textContent=n;e.classList.add('b');setTimeout(()=>e.classList.remove('b'),160)}}
-let hov=null,mx=-999,my=-999;
+let hov=null,mx=-999,my=-999,HL=null;
 function binOf(x){return TLM.on?(x.hide?-1:x.tb):x.r.b}
 function draw(){
  cx.clearRect(0,0,W,H);
@@ -541,7 +626,9 @@ function draw(){
  for(let b=0;b<=4;b++){cx.beginPath();cx.moveTo(b*bw,binTop);cx.lineTo(b*bw,H);cx.stroke()}
  B.forEach((k,b)=>{cx.fillStyle=HC[k];cx.fillText((b===3?'Not sorted':NAMES[k])+' '+balls.filter(x=>binOf(x)===b).length,b*bw+bw/2,H-6)});
  for(const b of balls){if(b.hide||(T<b.delay&&!b.done))continue;
-  cx.beginPath();cx.arc(b.x,b.y,R+(b.r===hov?3:0),0,7);cx.fillStyle=HC[TLM.on?B[b.tb]:b.r.s];cx.fill();
+  const dim=HL&&!HL.has(b.r.n);if(dim)cx.globalAlpha=.22;
+  cx.beginPath();cx.arc(b.x,b.y,R+(b.r===hov?3:0),0,7);cx.fillStyle=HC[TLM.on?B[b.tb]:b.r.s];cx.fill();cx.globalAlpha=1;
+  if(HL&&!dim){cx.lineWidth=2.5;cx.strokeStyle='#fff';cx.stroke();cx.lineWidth=1.5;cx.strokeStyle='rgba(243,245,255,.5)'}
   if(b.r===sel){cx.lineWidth=3;cx.strokeStyle='#fff';cx.stroke();cx.lineWidth=1.5;cx.strokeStyle='rgba(243,245,255,.5)'}}
  const L=hov||sel;if(L){const b=balls.find(x=>x.r===L);if(b&&!b.hide&&(b.done||T>=b.delay)){cx.fillStyle='#fff';cx.textAlign=b.x<W/2?'left':'right';cx.fillText(L.f?L.n:'not named',b.x+(b.x<W/2?-R:R),Math.max(14,b.y-R-8));cx.textAlign='center'}}
 }
@@ -612,17 +699,21 @@ function nums(){
 const RC=[
 ['LeaveFlow','Leave management for teams',[['Live demo','c','https://leave-flow-cyan.vercel.app'],['162 commits since December 2025','c','https://github.com/sriram36/LeaveFlow/commits'],['29 backend test functions','c','https://github.com/sriram36/LeaveFlow/tree/main/backend/tests'],['Rate limiting and Alembic migrations','c','https://github.com/sriram36/LeaveFlow/tree/main/backend']]],
 ['FinSight','Finance decision support',[['Live frontend','c','https://finsight-wine-tau.vercel.app'],['60 test functions','c','https://github.com/sriram36/FinSight'],['Deterministic math, claims checked against evidence','c','https://github.com/sriram36/FinSight']]],
-['RefillCare','Pharmacy-chain operations app, built to a company brief',[['Live frontend','c','https://refillcare.vercel.app'],['Live API docs','c','https://refillcare.onrender.com/docs'],['95 backend test functions','c','https://github.com/sriram36/RefillCare'],['130 commits in five days','c','https://github.com/sriram36/RefillCare/commits']]],
+['RefillCare','Pharmacy reordering with a safety gate, built to a company brief',[['Live frontend and API docs','c','https://refillcare.vercel.app'],['95 tests, including the pharmacist approval gate on every order path','c','https://github.com/sriram36/RefillCare/tree/main/backend/tests'],['Schedule H and H1 rules in one pure module','c','https://github.com/sriram36/RefillCare/blob/main/backend/rules.py'],['130 commits in five days','c','https://github.com/sriram36/RefillCare/commits']]],
 ['ClaimLens','A take-home with versioned evaluation runs',[['56 test functions','c','https://github.com/sriram36/ClaimLens'],['Dev-set F1 rose 0.987 to 1.000, about the size of run-to-run variance','c','https://github.com/sriram36/ClaimLens'],['Lesson: calibration, not generalization','w']]],
-['wirematch','A take-home on safe, repeatable approvals',[['64 test functions','c','https://github.com/sriram36/wirematch'],['Lesson: lock ordering for idempotent approvals, with database constraints as the backstop','c','https://github.com/sriram36/wirematch'],['Not deployed','c','https://github.com/sriram36/wirematch']]],
+['wirematch','Bank reconciliation for capital calls',[['Approve locks three rows in a fixed order, so a repeat click gets a 409','c','https://github.com/sriram36/wirematch/blob/main/ASSESSMENT_NOTES.md'],['A database check stops over-funding as a last backstop','c','https://github.com/sriram36/wirematch/blob/main/ASSESSMENT_NOTES.md'],['64 test functions','c','https://github.com/sriram36/wirematch']]],
 ['geomeasure-api','Shapefile or KML in, area and length out',[['52 test functions, with CI','c','https://github.com/sriram36/geomeasure-api'],['Areas within 0.3% of an independent geodesic calculation','c','https://github.com/sriram36/geomeasure-api'],['FastAPI and GeoPandas, no PostGIS needed','c','https://github.com/sriram36/geomeasure-api']]],
+['Scout','Job search with a person in the loop',[['n8n workflow: three job sources, duplicates dropped','c','https://github.com/sriram36/Scout/tree/main/n8n'],['Browser form-filler with an Azure OpenAI step; I submit by hand','c','https://github.com/sriram36/Scout/blob/main/server.js'],['Still in progress: the hosted dashboard is down','c','https://github.com/sriram36/Scout']]],
 ['knowledge-shift-rag','A negative result, kept',[['Repair did not beat plain RAG','c','https://github.com/sriram36/knowledge-shift-rag'],['Latency cost of 1.6 to 2 times','c','https://github.com/sriram36/knowledge-shift-rag']]],
 ['Location-Sharing','School bus tracker',[['Live app','c','https://location-sharing-chi.vercel.app'],['Driver, parent and admin views','c','https://github.com/sriram36/Location-Sharing'],['No tests yet','w']]],
 ['x7z9p','Wind-forecast app',[['Live app','c','https://x7z9p-yxu2.vercel.app'],['17 test functions','c','https://github.com/sriram36/x7z9p'],['README discloses Claude and Gemini assistance','c','https://github.com/sriram36/x7z9p']]],
-['Pharma compliance grader','Built during my Accenture internship, moved to my own repo afterwards',[['16 rules, 31 test functions','c','https://github.com/sriram36/pharma-mlr-compliance'],['Deterministic rule-based grader: 16 rules, one optional LLM-assisted rule','c','https://github.com/sriram36/pharma-mlr-compliance'],['78% agreement with manual review, my own test','w'],['Built with my mentor’s approval','w']]]
+['Pharma compliance grader','Built during my Accenture internship, moved to my own repo afterwards',[['16 rules, 31 test functions','c','https://github.com/sriram36/pharma-mlr-compliance'],['Deterministic rule-based grader: 16 rules, one optional LLM-assisted rule','c','https://github.com/sriram36/pharma-mlr-compliance'],['78% agreement with manual review, my own test','c','https://github.com/sriram36/pharma-mlr-compliance/blob/main/docs/eval_report.md'],['Built with my mentor’s approval','w']]]
 ];
 const RK={'Pharma compliance grader':'pharma-mlr-compliance'};
-function rcs(){$('#rcs').innerHTML=RC.map(([t,u,L],i)=>'<article class="rc" id="w-'+(RK[t]||t)+'" style="--i:'+i+'"><h3>'+t+'</h3><p class="sub">'+u+'</p><ul>'+L.map(([c,k,h])=>'<li><span>'+c+'</span><i class="ld"></i>'+(k==='c'?'<a class="k" href="'+h+'">Check it</a>':'<span class="k w">My word</span>')+'</li>').join('')+'</ul></article>').join('')}
+const TOPN=['LeaveFlow','FinSight','Scout','Pharma compliance grader','wirematch','RefillCare'];
+const TOPK=new Set(['LeaveFlow','FinSight','Scout','pharma-mlr-compliance','wirematch','RefillCare']);
+const card=([t,u,L],i)=>'<article class="rc" id="w-'+(RK[t]||t)+'" style="--i:'+i+'"><h3>'+t+'</h3><p class="sub">'+u+'</p><ul>'+L.map(([c,k,h])=>'<li><span>'+c+'</span><i class="ld"></i>'+(k==='c'?'<a class="k" href="'+h+'">Check it</a>':'<span class="k w">My word</span>')+'</li>').join('')+'</ul></article>';
+function rcs(){const top=TOPN.map(n=>RC.find(c=>c[0]===n)),more=RC.filter(c=>!TOPN.includes(c[0]));$('#rcs').innerHTML=top.map(card).join('');$('#rcsMore').innerHTML=more.map(card).join('');$('#moreS').textContent=more.length+" more I'm happy to share"}
 function hot(r,on){document.querySelectorAll('#tl i[data-r="'+r+'"]').forEach(e=>e.classList.toggle('hot',on));const x=$('#x-'+r);if(x)x.classList.toggle('hot',on)}
 function tl(){const Rg=[['P','PixelTests',0,5],['Z','Zennith AI',9,17],['A','Accenture',18,19],['Z','Zennith AI',20,23]],MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];let h='',n=0;
  for(let i=0;i<24;i++){const o=Rg.find(r=>i>=r[2]&&i<=r[3]);n+=o?1:0;h+='<i data-r="'+(o?o[0]:'')+'" data-f="'+(o?1:0)+'" class="'+(o&&INST?'f':'')+'" title="'+MN[(11+i)%12]+' '+(2024+Math.floor((11+i)/12))+(o?': '+o[1]:'')+'">'+(o?o[0]:'')+'</i>'}
@@ -651,7 +742,7 @@ function lang(){const c={};repos.forEach(r=>{c[r.l]=(c[r.l]||0)+1});const e=Obje
 function rail(){
  const by={};repos.forEach(r=>by[r.n]=r);
  $('#rd').innerHTML=repos.slice().sort((a,b)=>a.b-b.b).map(r=>'<i data-n="'+r.n+'" style="background:var(--'+r.s+')"></i>').join('');
- const M={all:[()=>true,N+' projects'],stopped:[r=>r.s==='killed','1 stopped'],work:[r=>r.f,(WORDS[FEAT.size]||FEAT.size)+' named'],people:[()=>false,'3 companies'],me:[()=>false,'Me, not repos']};
+ const M={all:[()=>true,N+' projects'],stopped:[r=>r.s==='killed','1 stopped'],work:[r=>TOPK.has(r.n),'Six ideas'],people:[()=>false,'3 companies'],me:[()=>false,'Me, not repos']};
  const dots=[...document.querySelectorAll('#rd i')];
  const set=k=>{const [f,t]=M[k];$('#rcap').textContent=t;dots.forEach(d=>d.classList.toggle('off',!f(by[d.dataset.n])))};
  const map=[['header.hero','all'],['#about','me'],['#experience','people'],['#work','work'],['#how','work'],['#live','all'],['#stopped','stopped'],['#numbers','all'],['#skills','me'],['#education','me']];
@@ -690,7 +781,7 @@ bK.onclick=()=>skim(!html.classList.contains('skim'));
 bS.onclick=()=>sound(!SND.on);
 bP.onclick=()=>print();
 press(bK,html.classList.contains('skim'));
-document.addEventListener('click',e=>{if(SND.on&&e.target.closest('.dock button,.tabs button,.flow button,.cch button,#sks button,.qb button,.tlc button'))SFX.click()});
+document.addEventListener('click',e=>{if(SND.on&&e.target.closest('.dock button,.tabs button,.flow button,.cch button,#sks button,.qb button,.demo button,#mpills button,.tlc button'))SFX.click()});
 
 /* ---- time-lapse ---- */
 const T0=Math.min(...repos.map(r=>r.st)),T1=Math.max(...repos.map(r=>r.en));
@@ -811,7 +902,7 @@ setInterval(()=>{if(wallOn&&!document.hidden)pingAll()},30000);
 
 /* ---- command palette ---- */
 const cmd=$('#cmd'),ci=$('#cmdi'),cl=$('#cmdl');let items=[],act=0,opener=null;
-const SEC=[['about','What I do'],['experience','Experience'],['work','Selected work'],['how','How they work'],['live','Live right now'],['stopped','The one I stopped'],['numbers','The numbers'],['skills','Skills'],['education','Education and certificates'],['contact','Contact']];
+const SEC=[['about','What I do'],['experience','Experience'],['work','Selected work'],['how','How they work'],['lab','Try the demos'],['live','Live right now'],['stopped','The one I stopped'],['negative','What did not work'],['numbers','The numbers'],['skills','Skills'],['education','Education and certificates'],['contact','Contact']];
 const WID={'pharma-mlr-compliance':'w-pharma-mlr-compliance'};
 function allItems(){
  const a=SEC.map(([id,l])=>({t:l,s:'Section',run:()=>go(id)}));
@@ -846,6 +937,85 @@ $('#cch').innerHTML=['Internship','Full-time role','A project','Just saying hi']
 $('#cch').onclick=e=>{const b=e.target.closest('button');if(b)press(b,b.getAttribute('aria-pressed')!=='true')};
 $('#cform').onsubmit=e=>{e.preventDefault();const on=[...document.querySelectorAll('#cch [aria-pressed=true]')].map(b=>b.textContent),nm=$('#cname').value.trim(),m=$('#cmsg').value.trim();
  location.href='mailto:kollisriram6@gmail.com?subject='+encodeURIComponent('Hello from your portfolio'+(on.length?': '+on.join(', '):''))+'&body='+encodeURIComponent((m||'Hi Sriram,')+(nm?'\n\n'+nm:''))};
+
+/* ---- grader inspector ---- */
+const IN=[{t:'Our product helps you feel better.',d:'pass',w:'a known safe phrase'},{t:'Clinically proven to cure joint pain in 7 days.',d:'fail',w:'an unsubstantiated cure claim'},{t:'Supports mobility for many adults.',d:null}];
+const dcache={};let llmCalls=0,ii=0,itimers=[];
+const NODES=['Phrase','Dictionary','Disk cache','LLM','Verdict'];
+function ipre(){$('#ipre').innerHTML=IN.map((x,i)=>'<button type="button" data-i="'+i+'" aria-pressed="'+(i===ii)+'">'+x.t+'</button>').join('')}
+function inode(){$('#ipipe').innerHTML=NODES.map((n,k)=>'<div class="pn" data-k="'+k+'">'+n+'<small></small><span class="bd"></span></div>').join('')}
+function iset(k,cls,txt,note){const n=document.querySelector('#ipipe .pn[data-k="'+k+'"]');n.className='pn '+cls;n.querySelector('.bd').textContent=txt||'';n.querySelector('small').textContent=note||''}
+function irun(){
+ itimers.forEach(clearTimeout);itimers=[];const x=IN[ii];inode();$('#iver').textContent='';
+ const at=(ms,fn)=>{if(rm)fn();else itimers.push(setTimeout(fn,ms))};
+ const hit=k=>{iset(k,'on hit','HIT');if(SND.on)SFX.chime(4)},miss=k=>{iset(k,'on miss','MISS');if(SND.on)SFX.pop()};
+ const verdict=(ok,why,tier)=>{iset(4,'on '+(ok?'hit':'bad'),ok?'PASS':'FAIL','');$('#iver').textContent=(ok?'Pass. ':'Fail. ')+why+'. Decided by the '+tier+'. LLM calls so far: '+llmCalls+'.';if(SND.on){ok?SFX.chime(2):SFX.fail()}};
+ iset(0,'on','',x.t);
+ at(500,()=>{
+  if(x.d){hit(1);iset(2,'skip','skipped');iset(3,'skip','skipped');at(500,()=>verdict(x.d==='pass','This is '+x.w,'dictionary'))}
+  else{miss(1);at(500,()=>{
+   if(dcache[ii]){hit(2);iset(3,'skip','skipped');at(500,()=>verdict(true,'Same answer as last time, read back from the cache','disk cache'))}
+   else{miss(2);at(500,()=>{llmCalls++;iset(3,'on hit','ASKED','one LLM call');dcache[ii]=true;at(600,()=>verdict(true,'Mild wording with no cure or guarantee language, and the answer is now cached','LLM tier'))})}
+  })}
+ });
+}
+$('#ipre').onclick=e=>{const b=e.target.closest('button');if(!b)return;ii=+b.dataset.i;ipre();irun()};
+$('#i-run').onclick=irun;
+$('#i-reset').onclick=()=>{for(const k in dcache)delete dcache[k];llmCalls=0;irun()};
+ipre();inode();onView($('#insp'),irun,.5);
+
+/* ---- concurrency sandbox ---- */
+const SCN=[
+ {name:'Same payment, double click',call:100,lanes:[
+  {t:'No protection',ev:[['A','reads the match: not approved yet',0],['B','reads the match: not approved yet',0],['A','adds 100 to the line item',100],['B','adds 100 to the line item',200]],out:['bad','Over-funded: 200 of 100 called']},
+  {t:'Database check only',ev:[['A','reads the match: not approved yet',0],['B','reads the match: not approved yet',0],['A','adds 100 to the line item',100],['B','tries to add 100: the database refuses',100]],out:['warn','Blocked, but B gets an error']},
+  {t:'Locks plus check',ev:[['A','locks the transaction row',0],['B','waits for that lock',0],['A','funds 100 and commits',100],['B','gets the lock and sees it is reconciled',100]],out:['good','B gets a clean 409. Funded 100 of 100']}]},
+ {name:'Two payments, one line item',call:100,lanes:[
+  {t:'No protection',ev:[['A','reads the remaining amount: 100',0],['B','reads the remaining amount: 100',0],['A','adds 60',60],['B','adds 60',120]],out:['bad','Over-funded: 120 of 100 called']},
+  {t:'Database check only',ev:[['A','reads the remaining amount: 100',0],['B','reads the remaining amount: 100',0],['A','adds 60',60],['B','tries to add 60: the database refuses',60]],out:['warn','Blocked, but B gets an error']},
+  {t:'Locks plus check',ev:[['A','locks the line item',0],['B','waits on the line item',0],['A','adds 60 and commits',60],['B','re-checks: only 40 left, so 409',60]],out:['good','B gets a clean 409. Funded 60 of 100']}]}
+];
+let sc=0,stm=[];
+function stabs(){$('#stabs').innerHTML=SCN.map((x,i)=>'<button type="button" data-i="'+i+'" aria-pressed="'+(i===sc)+'">'+x.name+'</button>').join('')}
+function lanes(){$('#lanes').innerHTML=SCN[sc].lanes.map((l,i)=>'<div class="lane" id="ln'+i+'"><h4>'+l.t+'</h4><div class="fund">Funded 0 of '+SCN[sc].call+'</div><ol class="evs"></ol><div class="res"></div></div>').join('')}
+function sfire(){
+ stm.forEach(clearTimeout);stm=[];lanes();const cal=SCN[sc].call;
+ SCN[sc].lanes.forEach((l,i)=>{
+  const el=$('#ln'+i),ev=el.querySelector('.evs'),fd=el.querySelector('.fund'),rs=el.querySelector('.res');
+  const at=(ms,fn)=>{if(rm)fn();else stm.push(setTimeout(fn,ms))};
+  l.ev.forEach((e,k)=>at(650*(k+1),()=>{ev.insertAdjacentHTML('beforeend','<li><b class="'+e[0]+'">'+e[0]+'</b><span>'+e[1]+'</span></li>');fd.textContent='Funded '+e[2]+' of '+cal;fd.classList.toggle("bad",e[2]>cal);if(SND.on&&i===0)SFX.tick()}));
+  at(650*(l.ev.length+1),()=>{rs.className='res '+l.out[0];rs.textContent=l.out[1];if(SND.on&&i===2){l.out[0]==='good'?SFX.chime(5):SFX.fail()}});
+ });
+}
+$('#stabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;sc=+b.dataset.i;stabs();sfire()};
+$('#s-fire').onclick=sfire;
+stabs();lanes();onView($('#sbx'),sfire,.4);
+
+/* ---- stack match ---- */
+const STK={'LeaveFlow':{t:['FastAPI','PostgreSQL','WebSockets','Python'],n:29,l:12026},'FinSight':{t:['FastAPI','Next.js','PostgreSQL','Python','TypeScript'],n:60,l:15411},'RefillCare':{t:['FastAPI','Next.js','PostgreSQL','Python','TypeScript'],n:95,l:11271},'wirematch':{t:['Django','PostgreSQL','React','Python'],n:64,l:3465},'pharma-mlr-compliance':{t:['FastAPI','LangGraph','Azure OpenAI','Streamlit','Python'],n:31,l:6224},'Scout':{t:['Next.js','n8n','Playwright','Supabase','Azure OpenAI','JavaScript'],n:0,l:864},'ClaimLens':{t:['Python','PostgreSQL'],n:56,l:2207},'geomeasure-api':{t:['FastAPI','GeoPandas','Python'],n:52,l:1613},'knowledge-shift-rag':{t:['Python'],n:30,l:4044},'Location-Sharing':{t:['TypeScript','Supabase'],n:0,l:4386},'x7z9p':{t:['Python'],n:17,l:1514},'stock-ai':{t:['Python','LightGBM'],n:0,l:1308}};
+const MP=['FastAPI','PostgreSQL','Next.js','LangGraph','Azure OpenAI','Python','TypeScript','50+ tests'],msel=new Set();
+const mhas=(k,x)=>x==='50+ tests'?STK[k].n>=50:STK[k].t.includes(x);
+function mpills(){$('#mpills').innerHTML=MP.map(x=>'<button type="button" aria-pressed="'+msel.has(x)+'" data-x="'+x+'">'+x+'</button>').join('')+(msel.size?'<button type="button" data-x="">Clear</button>':'')}
+function mrun(){
+ const names=Object.keys(STK).filter(k=>[...msel].every(x=>mhas(k,x))),on=msel.size>0;
+ document.querySelectorAll('#rcs .rc,#rcsMore .rc').forEach(c=>c.classList.toggle('nm',on&&!names.includes(c.id.slice(2))));
+ if(on&&document.querySelector('#rcsMore .rc:not(.nm)'))$('#moreD').open=true;
+ HL=on?new Set(names):null;if(typeof draw==='function')draw();
+ const t=names.reduce((a,k)=>a+STK[k].n,0),l=names.reduce((a,k)=>a+STK[k].l,0);
+ $('#mres').textContent=on?(names.length?names.length+' of '+Object.keys(STK).length+' named projects match: '+names.join(', ')+'. Together they have '+t+' test functions and '+l.toLocaleString('en-US')+' lines of source.':'No named project has all of those. Try removing one.'):'The cards, the board and these totals follow your picks.';
+ mpills();
+}
+$('#mpills').onclick=e=>{const b=e.target.closest('button');if(!b)return;const x=b.dataset.x;if(!x)msel.clear();else if(msel.has(x))msel.delete(x);else msel.add(x);mrun()};
+mrun();
+
+/* ---- negative results ---- */
+const bars=(rows,lead)=>rows.map((r,i)=>'<div class="bar'+(i===lead?' lead':'')+'"><span>'+r[0]+'</span><i style="--w:'+r[2]+'%"></i><b>'+r[1]+'</b></div>').join('');
+$('#neg').innerHTML=[
+ '<article class="ng"><h3>knowledge-shift-rag</h3><p class="sub">Accuracy on 100 questions</p>'+bars([['Plain RAG','76',76],['Self-critique','72',72],['Repair','72',72]],0)+'<p>The extra passes cost 1.6 to 2 times the latency and scored lower, so I kept the result and stopped.</p><a class="tag" href="https://github.com/sriram36/knowledge-shift-rag">Check it</a></article>',
+ '<article class="ng"><h3>stock-ai</h3><p class="sub">Phase 11 of 20</p><div class="big"><div>\u22122.06<small>raw Sharpe</small></div><div>0.0000<small>deflated Sharpe</small></div></div><p>The deflated check asks whether a result survives having tried many strategies. It did not, so live trading was never built.</p><span class="tag w">My word, not recorded in the repo</span></article>',
+ '<article class="ng"><h3>ClaimLens</h3><p class="sub">F1 on the dev set (axis starts at 0.98)</p>'+bars([['Before','0.987',35],['After','1.000',100]],1)+'<p>That gain is about the size of run-to-run variance, so it is calibration, not generalization.</p><a class="tag" href="https://github.com/sriram36/ClaimLens">Check it</a></article>'
+].join('');
+document.querySelectorAll('#neg .ng').forEach(n=>onView(n,()=>n.classList.add('in'),.4));
 
 /* ---- print ---- */
 addEventListener('beforeprint',()=>{tlExit();document.querySelectorAll('#tl i[data-f="1"]').forEach(e=>e.classList.add('f'));$('#tn').textContent=document.querySelectorAll('#tl i[data-f="1"]').length;document.querySelectorAll('#nums b').forEach(b=>{b.textContent=Math.round(+b.dataset.v).toLocaleString('en-US')+b.dataset.s});$('#rcs').classList.add('go');$('#lang').classList.add('in');$('#sih').classList.add('go');balls.forEach(b=>{b.x=b.r.fx;b.y=b.r.fy;b.done=true;b.hide=false});landed=-1;count()});
