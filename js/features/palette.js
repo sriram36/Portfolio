@@ -2,7 +2,7 @@
 (()=>{
 const bK=$('#d-skim'),bS=$('#d-sound'),bC=$('#d-cmd'),bpl=$('#tl-play');
 const cmd=$('#cmd'),ci=$('#cmdi'),cl=$('#cmdl');let items=[],act=0,opener=null;
-const SEC=[['about','What I do'],['experience','Experience'],['work','Selected work'],['how','How they work'],['decisions','Decisions'],['lab','Try the demos'],['live','Live right now'],['negative','What did not work'],['numbers','The numbers'],['rhythm','Commit rhythm'],['skills','Skills'],['education','Education and certificates'],['contact','Contact']];
+const SEC=[['about','What I do'],['experience','Experience'],['work','Selected work'],['how','How they work'],['decisions','Decisions'],['lab','Try the demos'],['negative','What did not work'],['numbers','The numbers'],['rhythm','Commit rhythm'],['skills','Skills'],['education','Education and certificates'],['contact','Contact']];
 const WID={'pharma-mlr-compliance':'w-pharma-mlr-compliance'};
 function allItems(){
  const a=SEC.map(([id,l])=>({t:l,s:'Section',run:()=>jump(id)}));

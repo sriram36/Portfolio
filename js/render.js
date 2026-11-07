@@ -43,7 +43,7 @@ function rail(){
  const M={all:[()=>true,N+' projects'],work:[r=>TOPK.has(r.n),'Six ideas'],people:[()=>false,'3 companies'],me:[()=>false,'Me, not repos']};
  const dots=[...document.querySelectorAll('#rd i')];
  const set=k=>{const [f,t]=M[k];$('#rcap').textContent=t;dots.forEach(d=>d.classList.toggle('off',!f(by[d.dataset.n])))};
- const map=[['header.hero','all'],['#about','me'],['#experience','people'],['#work','work'],['#how','work'],['#live','all'],['#numbers','all'],['#skills','me'],['#education','me']];
+ const map=[['header.hero','all'],['#about','me'],['#experience','people'],['#work','work'],['#how','work'],['#numbers','all'],['#skills','me'],['#education','me']];
  set('all');if(!('IntersectionObserver' in window))return;
  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)set(e.target.dataset.rail)}),{rootMargin:'-48% 0px -48% 0px'});
  map.forEach(([q,k])=>{const el=document.querySelector(q);if(el){el.dataset.rail=k;io.observe(el)}});

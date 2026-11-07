@@ -1,4 +1,4 @@
-/* Interactive features: control bar, skim view, demos, flows, live wall, search palette, forms, charts and the mini fraction. */
+/* Interactive features: control bar, skim view, demos, flows, search palette, forms, charts and the mini fraction. */
 input[type=range]{width:100%;margin:10px 0;accent-color:var(--hr);height:28px}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px}
 @media(min-width:1180px){
@@ -36,16 +36,6 @@ html.skim .deep,html.skim #skills,html.skim #education,html.skim #about .lede + 
 .more{margin-top:26px}
 .more summary{font-weight:700;cursor:pointer;padding:8px 0}
 .fcap{font-size:clamp(17px,2vw,22px);font-weight:600;max-width:60ch;min-height:3.4em;margin:18px 0 0}
-.wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:20px 0}
-.wc{border:1.5px solid var(--rule);border-radius:14px;padding:14px 16px}
-.wc b{display:block}
-.wc .ms{font:800 30px/1.1 var(--f);font-variation-settings:"wdth" 80;letter-spacing:-.02em}
-.wc .st{font-size:13px;color:var(--mut)}
-.wc svg{display:block;width:100%;height:30px;margin-top:8px}
-.pl{list-style:none;padding:0;margin:10px 0 0}
-.pl li{padding:9px 0;border-top:1px solid var(--rule);display:flex;gap:6px 14px;flex-wrap:wrap}
-.pl li a{font-weight:700}
-.pl li span{color:var(--mut)}
 .cmd{position:fixed;inset:0;background:#060a2299;z-index:20;display:grid;place-items:start center;padding-top:12vh}
 .cmd[hidden]{display:none}
 .cmdbox{width:min(580px,92vw);background:var(--paper);color:var(--ink);border-radius:16px;box-shadow:0 20px 60px #0008;overflow:hidden}
