@@ -7,7 +7,7 @@
 <meta property="og:title" content="Sriram Kolli: the denominator">
 <meta property="og:image" content="https://portfolio.kollisriram6.workers.dev/og-image.png">
 <title>Sriram Kolli: the denominator</title>
-<meta name="description" content="Every portfolio shows the survivors. This one shows every project I started and what happened to it.">
+<meta name="description" content="Sriram Kolli, backend-focused full-stack developer (FastAPI, Next.js, Python). Every portfolio shows the survivors; this one shows every project I started and what happened to it.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&display=swap" rel="stylesheet">
 <style>
@@ -141,20 +141,67 @@ footer button[aria-pressed=true]{background:var(--paper);color:var(--cobalt)}
  .rd i{width:10px;height:10px;border-radius:50%;transition:opacity .35s,transform .35s}
  .rd i.off{opacity:.16;transform:scale(.65)}
 }
+
+.say h1.nm{font-size:clamp(42px,7.4vw,96px);line-height:.94;letter-spacing:-.015em;font-weight:800;font-variation-settings:"wdth" 78;margin:0 0 10px}
+.role{font-size:clamp(18px,2.1vw,26px);font-weight:600;margin:0 0 14px!important;max-width:30ch;line-height:1.18}
+.lead2{font-size:clamp(17px,1.9vw,24px);font-weight:700;margin:0 0 8px!important;max-width:none!important}
+.does>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:8px 32px;padding:24px 0;border-top:1.5px solid var(--ink)}
+.does b{font:800 clamp(24px,3.4vw,40px)/1.02 var(--f);letter-spacing:-.025em;font-variation-settings:"wdth" 80}
+.does p{margin:0 0 8px;max-width:56ch}.does span{color:var(--cobalt);font-weight:600;font-size:15px}
+.xp{display:grid;grid-template-columns:170px minmax(0,1fr);gap:8px 28px;padding:24px 0;border-top:1.5px solid var(--rule)}
+.xp .when{font-weight:700;display:flex;align-items:flex-start;gap:10px;line-height:1.25}
+.xp .when i{flex:none;display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--cobalt);color:#fff;font:800 13px var(--f);font-style:normal}
+.xp h3{margin:0 0 6px;font:800 clamp(20px,2.4vw,26px)/1.1 var(--f);letter-spacing:-.015em}
+.xp ul{margin:8px 0 0;padding-left:18px;max-width:68ch}.xp li{margin:7px 0}.xp .tech{color:var(--mut);font-size:14px;margin:8px 0 0}
+.sk{display:grid;grid-template-columns:200px minmax(0,1fr);gap:6px 28px;padding:14px 0;border-top:1px solid var(--rule)}
+.sk b{font-weight:700}.sk span{max-width:64ch}
+@media(max-width:700px){.does>div,.xp,.sk{grid-template-columns:1fr}}
+
+#prog{position:fixed;left:0;top:0;height:4px;width:100%;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--hl),var(--hr));z-index:10;box-shadow:0 1px 4px #0a0f3366}
+.pulse{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--hl);margin-right:8px;box-shadow:0 0 0 0 #6dffb099;animation:pu 2s infinite}
+@keyframes pu{70%{box-shadow:0 0 0 9px #6dffb000}100%{box-shadow:0 0 0 0 #6dffb000}}
+html.js #rcs:not(.go) .rc{opacity:0}
+#rcs.go .rc{animation:pr .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*.13s)}
+@keyframes pr{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.lang{transform-origin:left center;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+html.js .lang:not(.in){transform:scaleX(0)}
+html.js .sih:not(.go) i{opacity:0}
+.sih.go i{animation:dp .45s calc(var(--i)*7ms) both}
+.sih.go .on{animation:dp .45s calc(var(--i)*7ms) both,pl 1.3s 1.3s 2}
+@keyframes dp{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}
+@keyframes pl{0%,100%{box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--cobalt)}50%{box-shadow:0 0 0 3px var(--paper),0 0 0 15px #2338ff30}}
+.ph i{transition:background .25s,color .25s,transform .25s,opacity .4s,border-color .25s}
+.ph i.pend{opacity:.28}
+.tl i{transition:transform .2s,background .3s}
+.tl i.hot{transform:scale(1.35);background:var(--hr)!important;border-color:var(--ink);color:var(--ink)}
+.xp{transition:background .25s}.xp.hot{background:#e4e9ff}
+.xp,.rc{scroll-margin-top:90px}
+.xp:target,.rc:target{animation:fl 1.8s}
+@keyframes fl{0%,60%{outline:4px solid var(--hr);outline-offset:6px}100%{outline:4px solid transparent;outline-offset:6px}}
+.sk span button{font:600 15px var(--f);border:1.5px solid var(--rule);border-radius:99px;padding:3px 13px;margin:3px 6px 3px 0;background:none;color:var(--ink);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.sk span button:hover{border-color:var(--ink)}
+.sk span button[aria-pressed=true]{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.res{min-height:1.6em}.res a{font-weight:700;margin-left:12px}
+#sim{height:150px;margin-top:14px;border-radius:8px;background:#ffffff14}
+@media(prefers-reduced-motion:reduce){.pulse{animation:none}}
+.cert-h{margin:44px 0 6px;font:800 clamp(22px,2.6vw,30px)/1.1 var(--f);letter-spacing:-.015em}
 </style>
 </head>
 <body>
+<div id="prog" aria-hidden="true"></div>
 <header class="hero">
 <div class="board" id="board">
  <canvas id="b" tabindex="0" role="img" aria-label="Plinko board: every project I started is a ball that falls into one of four bins, live, learned, killed or not yet sorted. Use the left and right arrow keys to move between projects. The numbers are summarised further down."></canvas>
  <div class="over wrap">
-  <div class="top"><span>Sriram Kolli, backend-leaning full-stack developer, B.Tech CS 2027</span>
-  <nav aria-label="Sections"><a href="#stopped">The one I stopped</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#numbers">Numbers</a><a href="Sriram_Kolli_Resume.pdf">Resume</a></nav></div>
+  <div class="top"><span id="now"><b class="pulse"></b><span id="nowt"></span></span>
+  <nav aria-label="Sections"><a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a><a href="Sriram_Kolli_Resume.pdf">Resume</a></nav></div>
   <div class="intro">
    <div class="frac" aria-hidden="true"><span id="num">0</span><i></i><span id="den">0</span></div>
    <div class="say">
-    <h1 id="h1"></h1>
-    <p>Most portfolios show you the survivors. Every ball is a project I started, public or private, and the bin it actually landed in. Only a few have names, because a list of 29 says less than a handful done well. The rest still count in the numbers.</p>
+    <h1 class="nm">Sriram Kolli</h1>
+    <p class="role">Backend-focused full-stack engineer. Final-year B.Tech, interning at Zennith AI.</p>
+    <p class="lead2" id="h1"></p>
+    <p>Most portfolios show you the survivors, so I start with the denominator. Every ball is a project I started, public or private, in the bin it landed in.</p>
     <div class="chips" id="chips"></div>
    </div>
   </div>
@@ -167,14 +214,43 @@ footer button[aria-pressed=true]{background:var(--paper);color:var(--cobalt)}
 </header>
 
 <main class="wrap">
-
-<section id="numbers" style="padding-top:clamp(40px,6vw,70px)">
-<h2>The numbers, because 29 is too many to list</h2>
-<p class="lede"><span id="nf"></span> projects are named on this page. The rest still count here. Figures come from the git history of all 29 repos, public and private, leaving out my teammates&rsquo; commits and generated files.</p>
-<div class="nums" id="nums"></div>
-<p class="key" id="orig"></p>
+<section id="about">
+<h2>What I do</h2>
+<p class="lede">I build backend systems that actually ship: production code handling real users and real edge cases. I've gone from schema design to Docker deployment, usually as the only backend person on the team, so I make decisions fast and own the consequences.</p>
+<p class="lede">What I enjoy most is the problem-solving layer: working out why a system is slow, designing an API that won't break under pressure, or replacing a manual workflow with something that just runs. I care about code that's easy to hand off, not just code that works once.</p>
+<p class="key">Adapted from my LinkedIn About. It's my own account of my work, so weigh it that way.</p>
+<div class="does">
+<div><b>Backend and APIs</b><div><p>FastAPI and PostgreSQL, with REST and WebSocket interfaces, role-based access, rate limiting and database migrations.</p><span>Shown in: Zennith AI, LeaveFlow</span></div></div>
+<div><b>AI pipelines with guardrails</b><div><p>LangGraph and Azure OpenAI flows that draft content, then check it against rules, with a person reviewing before anything ships.</p><span>Shown in: Accenture, <a href="https://github.com/sriram36/Scout">Scout</a> (my job-search pipeline)</span></div></div>
+<div><b>Workflow automation</b><div><p>WhatsApp and Twilio state machines and n8n workflows that took repetitive support and review work off people.</p><span>Shown in: PixelTests, LeaveFlow</span></div></div>
+</div>
 </section>
-
+<section id="experience">
+<h2>Experience</h2>
+<p class="lede"><span id="tn"></span> of the last 24 months were spent working at a company: PixelTests, Zennith AI and Accenture. Each circle is a month, ending November 2026, and the gaps are real. This section comes from my resume; nothing in a public repo proves it.</p>
+<div class="tl" id="tl" aria-hidden="true"></div>
+<div class="xps">
+<article class="xp" id="x-Z" data-k="Z" data-r="Z"><div class="when"><i>Z</i>Sep 2025 to now</div><div><h3>Full Stack Developer Intern, Zennith AI</h3>
+<ul><li>Built a document-extraction pipeline with custom parsing across 10+ FastAPI endpoints, returning structured data in under 3 seconds, with sub-100 ms responses under concurrent load.</li>
+<li>Shipped 5+ Next.js components for upload flows and result views, and owned the frontend-to-backend integration on my own.</li></ul>
+<p class="tech">FastAPI, Next.js, Python. Paused for my Accenture internship (Jun to Jul 2026), then continued.</p></div></article>
+<article class="xp" id="x-A" data-k="A" data-r="A"><div class="when"><i>A</i>Jun to Jul 2026</div><div><h3>Associate Software Engineer Intern, Accenture</h3>
+<ul><li>Contributed to CI/CD pipelines and deployment workflows for enterprise-scale backend services, in a globally distributed team.</li>
+<li>Independently designed and delivered an agentic compliance-review system for pharma content in about two months, as a mentor-approved project, and demoed it live to my mentor.</li>
+<li>Built a deterministic rule-based grader (16 compliance rules, one of them optionally LLM-assisted) and checked it against manual review: 78% agreement in my own test.</li>
+<li>Added a fallback layer (dictionary, then disk cache, then LLM) so grading stopped giving different answers on the same input and stopped failing silently.</li></ul>
+<p class="tech">LangGraph, Azure OpenAI, FastAPI, PostgreSQL, Streamlit</p></div></article>
+<article class="xp" id="x-P" data-k="P" data-r="P"><div class="when"><i>P</i>Dec 2024 to May 2025</div><div><h3>Software Development Intern, PixelTests</h3>
+<ul><li>Built a WhatsApp support pipeline (FastAPI, Twilio, state-machine logic) that cut manual ticket volume by 80%, saving 15+ engineering hours a week.</li>
+<li>Maintained 3+ production FastAPI services.</li></ul>
+<p class="tech">FastAPI, Twilio, WhatsApp</p></div></article>
+</div>
+</section>
+<section id="work">
+<h2>Selected work, with receipts</h2>
+<p class="key">“Check it” links to something you can verify. “My word” you can't, so weigh it that way. Test counts are functions I counted in the repo; I'm not claiming they pass. These are the projects I'd point you to; the rest are in the numbers above.</p>
+<div class="rcs" id="rcs"></div>
+</section>
 <section id="stopped">
 <h2>The one I stopped</h2>
 <p class="lede">stock-ai was a 20-phase NIFTY 50 research pipeline (LightGBM, purged cross-validation). My account is that I killed it at phase 11, when the deflated Sharpe check showed no edge, so I never built live trading. Here is which parts of that you can check.</p>
@@ -188,38 +264,43 @@ footer button[aria-pressed=true]{background:var(--paper);color:var(--cobalt)}
  <p>Why deflate at all? Drag to see how good the best of N strategies looks when none of them has any real skill.</p>
  <label>Strategies tried: <output id="nv"></output><input id="nn" type="range" min="1" max="1000" value="50" aria-label="Number of strategies tried"></label>
  <p id="mx" aria-live="polite"></p>
+ <canvas id="sim" aria-label="Histogram of results from strategies with no skill. The best one is highlighted and always lands well above zero."></canvas>
 </div>
 </section>
-
-<section id="work">
-<h2>Selected work, with receipts</h2>
-<p class="key">“Check it” links to something you can verify. “My word” you can't, so weigh it that way. Test counts are functions I counted in the repo; I'm not claiming they pass. These are the projects I'd point you to; the rest are in the numbers above.</p>
-<div class="rcs" id="rcs"></div>
+<section id="numbers" style="padding-top:clamp(40px,6vw,70px)">
+<h2>The numbers, because the full list is too long</h2>
+<p class="lede"><span id="nf"></span> projects are named on this page. The rest still count here. Figures come from the git history of the repos counted here, public and private, leaving out my teammates&rsquo; commits and generated files.</p>
+<div class="nums" id="nums"></div>
+<p class="key" id="orig"></p>
 </section>
-
-<section id="experience">
-<h2>Experience</h2>
-<p class="lede"><span id="tn"></span> of the last 24 months were spent inside an internship. Each circle is a month, ending November 2026. The gaps are real. These come from my resume; nothing in a public repo proves them.</p>
-<div class="tl" id="tl" aria-hidden="true"></div>
-<dl>
-<dt>A. Associate Software Engineer intern, Accenture</dt><dd>June to July 2026. Contributed to CI/CD and deployment workflows, and built an agentic compliance-review system for pharma content as a mentor-approved project, shown in a live mentor demo.</dd>
-<dt>Z. Full Stack Developer intern, Zennith AI</dt><dd>September 2025 to May 2026. A document-extraction pipeline across 10+ FastAPI endpoints, structured results in under 3 seconds with sub-100 ms responses under concurrent load, and 5+ Next.js components for upload and results.</dd>
-<dt>P. Software Development intern, PixelTests</dt><dd>December 2024 to May 2025. WhatsApp and Twilio automation that cut support tickets by 80%.</dd>
-</dl>
-<h2 style="margin-top:56px;font-size:clamp(24px,4vw,40px)">Education and recognition</h2>
-<p class="lede">B.Tech Computer Science &amp; Information Technology, SRKR Engineering College, Bhimavaram. Class of 2027, CGPA 8.9.</p>
-<p class="lede">Smart India Hackathon 2024: first among 150+ teams. Each dot is a team and one is mine. It was SRKR's internal round, not the national final, and I'm saying so before you have to ask.</p>
-<p class="lede">Innoverse Startup Pitch Event: 3rd prize for a recycling-focused product concept.</p>
-<div class="sih" id="sih" role="img" aria-label="One highlighted dot among 150 team dots"></div>
-</section>
-
-<section id="stack">
-<h2>Stack, as measured</h2>
+<section id="skills">
+<h2>Skills</h2>
+<p class="key">Tap a skill to see where it shows up.</p>
+<div class="sks" id="sks"></div>
+<p class="lede res" id="skres" aria-live="polite"></p>
+<p class="lede" style="margin-top:26px">That list is what I claim. This is what the repos show: the primary language of each of my projects.</p>
 <div class="lang" id="lang" role="img" aria-label="Primary language by number of projects"></div>
 <div class="lg" id="lg"></div>
-<p class="lede" style="margin-top:14px">Counted from the primary language of each project, not self-rated. Frameworks I keep reaching for: FastAPI, Next.js, PostgreSQL, Docker, LangGraph and n8n.</p>
 </section>
-
+<section id="education">
+<h2>Education, recognition and certificates</h2>
+<div class="sks">
+<div class="sk"><b>2023 to 2027</b><span>B.Tech in Computer Science and Information Technology, SRKR Engineering College, Bhimavaram. CGPA 8.9 out of 10.</span></div>
+<div class="sk"><b>Smart India Hackathon 2024</b><span>Ranked 1st among 150+ teams. It was SRKR's internal selection round, not the national final, and I'm saying so before you have to ask.</span></div>
+<div class="sk"><b>Innoverse Startup Pitch</b><span>3rd prize for a recycling-focused product concept.</span></div>
+<div class="sk"><b>GDSC Solution Challenge 2025</b><span>Submitted EduBridge, a free, mobile-friendly platform teaching digital skills in the learner's own language (SDG 4). A submission, not a placement.</span></div>
+</div>
+<div class="sih" id="sih" role="img" aria-label="One highlighted dot among 150 team dots"></div>
+<h3 class="cert-h">Certificates</h3>
+<div class="sks">
+<div class="sk"><b>Agentic AI Fluency</b><span>Udacity, June 2026</span></div>
+<div class="sk"><b>Generative AI Fluency</b><span>Udacity, June 2026</span></div>
+<div class="sk"><b>E-Business</b><span>NPTEL, IIT Kharagpur, November 2025. Elite certificate and Topper badge: top 1% of 9,703 candidates in a 12-week course.</span></div>
+<div class="sk"><b>AWS Educate Machine Learning Foundations</b><span>Amazon Web Services, June 2025</span></div>
+<div class="sk"><b>Introducing Generative AI with AWS</b><span>Udacity, June 2025</span></div>
+<div class="sk"><b>Java Full Stack Developer Virtual Internship</b><span>EduSkills Foundation, December 2024</span></div>
+</div>
+</section>
 </main>
 
 <footer id="contact"><div class="wrap">
@@ -227,23 +308,25 @@ footer button[aria-pressed=true]{background:var(--paper);color:var(--cobalt)}
 <p style="max-width:52ch">The numerator is whatever we build next. I'm looking for software engineering internships and entry-level roles.</p>
 <p><a id="em" href="mailto:kollisriram6@gmail.com">kollisriram6@gmail.com</a><button id="cp" type="button">Copy</button></p>
 <div class="links"><a href="https://github.com/sriram36">GitHub</a><a href="https://www.linkedin.com/in/sriram-kolli-979723219/">LinkedIn</a><a href="Sriram_Kolli_Resume.pdf">Resume (PDF)</a></div>
+<p class="fine">Based in Bengaluru, India. Open to on-site, hybrid and remote roles.</p>
 <p class="fine" id="last"></p>
 </div></footer>
 
 <aside class="rail" id="rail" aria-hidden="true"><div class="cap" id="rcap"></div><div class="rd" id="rd"></div></aside>
 <script>
+document.documentElement.classList.add('js');
 /* EDIT HERE. One row per public project:
    [name, last push, language, outcome(live|learned|killed|unsorted), origin(solo|assess|college|intern|''), live url, note]
    Add hide:true names to HIDE to take a project off the page entirely. */
-const HIDE=[];
+const HIDE=['Private project 1'];
 const P=[
-['RefillCare','2026-11-06','TypeScript','live','assess','https://refillcare.vercel.app','Pharmacy-chain operations app. 82 commits in three days and 95 backend test functions. Frontend and API both answered.'],
+['RefillCare','2026-11-06','TypeScript','live','assess','https://refillcare.vercel.app','Pharmacy-chain operations app built to a company brief. 130 commits in five days and 95 backend test functions. Frontend and API both answered.'],
 ['FinSight','2026-10-28','TypeScript','live','solo','https://finsight-wine-tau.vercel.app','Finance decision support with deterministic math and claim checking. 49 commits in three days, 60 test functions, frontend and API both answered.'],
 ['x7z9p','2026-10-24','Python','live','','https://x7z9p-yxu2.vercel.app','Wind-forecast app on static January 2026 data. 9 commits, 17 test functions. The README says Claude and Gemini helped.'],
 ['ClaimLens','2026-10-19','Python','learned','assess','','The dev-set gain (F1 0.987 to 1.000) is the size of run-to-run variance. Lesson: that is calibration, not generalization. 56 test functions.'],
 ['wirematch','2026-10-12','Python','learned','assess','','Idempotent approvals need a lock order, with database constraints as the backstop. 64 test functions, not deployed.'],
 ['geomeasure-api','2026-10-07','Python','learned','assess','','Upload a Shapefile or KML, get area and length. Areas land within 0.3% of an independent geodesic calculation. 52 test functions, CI, not deployed.'],
-['pharma-mlr-compliance','2026-09-18','Python','learned','intern','','Compliance grader for pharma marketing content: 16 rules, 31 test functions. One rule calls an LLM and skips itself without a client. It has not been measured against human reviewers yet.'],
+['pharma-mlr-compliance','2026-09-18','Python','learned','intern','','Compliance grader for pharma marketing content: 16 rules, 31 test functions. One rule can call an LLM and skips itself without a client. My own test against manual review gave 78% agreement; that test is not in the repo.'],
 ['Scout','2026-09-14','JavaScript','unsorted','','','The job-discovery and application pipeline (n8n, Supabase, local Playwright, a human review gate). The hosted dashboard is down (404) and it runs locally, so I cannot show it live. 14 commits in three days.'],
 ['hiver-takehome-agent','2026-09-10','Python','learned','assess','','F1 of 0.69, and my own report says the number is misleading: the labels were partly assigned by a script.'],
 ['LeaveFlow','2026-09-06','Python','live','solo','https://leave-flow-cyan.vercel.app','Leave management for teams. 162 commits since December 2025 and 29 backend test functions. Rate limiting and database migrations are in the code.'],
@@ -269,9 +352,9 @@ const P=[
 ['Private project 3','2025-08-01','Python','learned','intern','','A document-summarizer backend from an internship exercise. 2 commits in one day, no tests, and the README claims more than the code does.',true]
 ];
 const PENDING=0; /* private repos not yet labelled. Set to 0 once they are added above. */
-const FEAT=new Set(['LeaveFlow','FinSight','knowledge-shift-rag','stock-ai','pharma-mlr-compliance','Location-Sharing','x7z9p']);
+const FEAT=new Set(['LeaveFlow','FinSight','knowledge-shift-rag','stock-ai','pharma-mlr-compliance','Location-Sharing','x7z9p','RefillCare','ClaimLens','wirematch','geomeasure-api']);
 /* Flip a name into FEAT to show it. RefillCare and ClaimLens are strong but are company assessments: add them only after checking each brief. */
-const METRICS={commits:615,loc:89000,tests:477,months:19};
+const METRICS={commits:608,loc:87800,tests:477,months:19};
 const ORI={solo:'Solo',assess:'Assessment',college:'College group',intern:'Internship','':'Unclear'};
 const B=['live','learned','killed','unsorted'],NAMES={live:'Live',learned:'Learned',killed:'Killed',unsorted:'Not yet sorted'};
 const HC={live:'#6dffb0',learned:'#ffd23f',killed:'#ff5c7d',unsorted:'#a9b3ff'};
@@ -320,18 +403,19 @@ function step(dt){
  if(T>10)balls.forEach(b=>{if(!b.done){b.x=b.r.fx;b.y=b.r.fy;b.done=true}});
 }
 function count(){const n=balls.filter(b=>b.done&&b.r.s==='live').length;if(n!==landed){landed=n;const e=$('#num');e.textContent=n;e.classList.add('b');setTimeout(()=>e.classList.remove('b'),160)}}
+let hov=null,mx=-999,my=-999;
 function draw(){
  cx.clearRect(0,0,W,H);
- for(const [x,y,t] of pegs){const a=Math.max(0,1-(T-t)/.35);cx.fillStyle=a>0?'rgba(255,255,255,'+(.38+.62*a)+')':'rgba(243,245,255,.38)';cx.beginPath();cx.arc(x,y,PR+2*a,0,7);cx.fill()}
+ for(const [x,y,t] of pegs){const a=Math.max(0,1-(T-t)/.35),nr=Math.max(0,1-Math.hypot(x-mx,y-my)/110),q=Math.max(a,nr*.8);cx.fillStyle=q>0?'rgba(255,255,255,'+(.38+.62*q)+')':'rgba(243,245,255,.38)';cx.beginPath();cx.arc(x,y,PR+2.4*q,0,7);cx.fill()}
  cx.strokeStyle='rgba(243,245,255,.5)';cx.lineWidth=1.5;cx.textAlign='center';cx.font='700 13px "Bricolage Grotesque",system-ui,sans-serif';
  const bw=W/4;
  B.forEach((k,b)=>{const n=balls.filter(x=>x.done&&x.r.b===b).length;if(n){cx.fillStyle=HC[k]+'22';cx.fillRect(b*bw,binTop,bw,H-binTop)}});
  for(let b=0;b<=4;b++){cx.beginPath();cx.moveTo(b*bw,binTop);cx.lineTo(b*bw,H);cx.stroke()}
  B.forEach((k,b)=>{cx.fillStyle=HC[k];cx.fillText((b===3?'Not sorted':NAMES[k])+' '+repos.filter(r=>r.b===b).length,b*bw+bw/2,H-6)});
  for(const b of balls){if(T<b.delay&&!b.done)continue;
-  cx.beginPath();cx.arc(b.x,b.y,R,0,7);cx.fillStyle=HC[b.r.s];cx.fill();
+  cx.beginPath();cx.arc(b.x,b.y,R+(b.r===hov?3:0),0,7);cx.fillStyle=HC[b.r.s];cx.fill();
   if(b.r===sel){cx.lineWidth=3;cx.strokeStyle='#fff';cx.stroke();cx.lineWidth=1.5;cx.strokeStyle='rgba(243,245,255,.5)'}}
- if(sel){const b=balls.find(x=>x.r===sel);if(b&&(b.done||T>=b.delay)){cx.fillStyle='#fff';cx.textAlign=b.x<W/2?'left':'right';cx.fillText(sel.f?sel.n:'not named',b.x+(b.x<W/2?-R:R),Math.max(14,b.y-R-8));cx.textAlign='center'}}
+ const L=hov||sel;if(L){const b=balls.find(x=>x.r===L);if(b&&(b.done||T>=b.delay)){cx.fillStyle='#fff';cx.textAlign=b.x<W/2?'left':'right';cx.fillText(L.f?L.n:'not named',b.x+(b.x<W/2?-R:R),Math.max(14,b.y-R-8));cx.textAlign='center'}}
 }
 function frame(t){
  const dt=Math.min(.033,(t-last)/1000||.016);last=t;
@@ -350,9 +434,10 @@ function pick(e){
  const R0=cv.getBoundingClientRect(),x=e.clientX-R0.left,y=e.clientY-R0.top;
  let best=null,bd=18;for(const b of balls){if(T<b.delay&&!b.done)continue;const d=Math.hypot(b.x-x,b.y-y);if(d<bd){bd=d;best=b.r}}
  cv.style.cursor=best?'pointer':'default';
- if(best&&(e.type==='click'||e.pointerType==='mouse'&&sel!==best)){sel=best;show(sel);if(!run)draw()}
+ if(best&&(e.type==='click'||e.pointerType==='mouse'&&sel!==best)){sel=best;show(sel)}
+ if(e.pointerType==='mouse'){mx=x;my=y;hov=best;if(!run)draw()}else if(!run)draw();
 }
-cv.addEventListener('pointermove',pick);cv.addEventListener('click',pick);
+cv.addEventListener('pointermove',pick);cv.addEventListener('click',pick);cv.addEventListener('pointerleave',()=>{mx=my=-999;hov=null;if(!run)draw()});
 cv.addEventListener('keydown',e=>{
  if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;e.preventDefault();
  const i=repos.indexOf(sel),j=(i+(e.key==='ArrowRight'?1:-1)+N)%N;sel=repos[j];show(sel);if(!run)draw();
@@ -368,37 +453,80 @@ function chips(){
 }
 const phi=p=>{const x=2*p-1,l=Math.log(1-x*x),t=4.33+l/2;return Math.SQRT2*Math.sign(x)*Math.sqrt(Math.sqrt(t*t-l/.147)-t)};
 const emax=n=>n<2?0:.4228*phi(1-1/n)+.5772*phi(1-1/(n*Math.E));
-function nn(){const n=+$('#nn').value;$('#nv').textContent=' '+n;$('#mx').textContent='Best of '+n+' strategies with no real skill: it still looks about '+emax(n).toFixed(2)+' standard errors above zero.'}
-function phases(){$('#ph').innerHTML=Array.from({length:20},(_,i)=>'<i class="'+(i<10?'ok':i===10?'bad':'no')+'">'+(i+1)+'</i>').join('')}
+function onView(el,fn,th){if(!el)return;if(rm||!('IntersectionObserver' in window)){fn(true);return}const o=new IntersectionObserver(es=>{if(es[0].isIntersecting){o.disconnect();fn(false)}},{threshold:th||.3});o.observe(el)}
+const INST=rm||!('IntersectionObserver' in window);
+function mulberry(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const SAM=(()=>{const r=mulberry(20260612),a=[];for(let i=0;i<1000;i++){const u=Math.max(r(),1e-9),v=r();a.push(Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v))}return a})();
+function sim(){
+ const c=$('#sim'),dpr=devicePixelRatio||1,w=c.clientWidth,h=150;if(!w)return;c.width=w*dpr;c.height=h*dpr;const g=c.getContext('2d');g.setTransform(dpr,0,0,dpr,0,0);g.clearRect(0,0,w,h);
+ const n=+$('#nn').value,xs=SAM.slice(0,n),bins=44,lo=-4,hi=4,cnt=Array(bins).fill(0);
+ let best=-9,bi=0;xs.forEach(v=>{const k=Math.min(bins-1,Math.max(0,Math.floor((v-lo)/(hi-lo)*bins)));cnt[k]++;if(v>best){best=v;bi=k}});
+ const mxc=Math.max(...cnt),bw=w/bins,zx=(0-lo)/(hi-lo)*w;
+ cnt.forEach((q,k)=>{const bh=q/mxc*(h-44);g.fillStyle=k===bi?'#ff5c7d':'rgba(243,245,255,.55)';g.fillRect(k*bw+1,h-18-bh,bw-2,Math.max(q?2:0,bh))});
+ g.fillStyle='rgba(243,245,255,.7)';g.fillRect(zx-.5,24,1,h-42);
+ g.font='700 12px "Bricolage Grotesque",system-ui,sans-serif';g.fillStyle='#fff';g.textAlign='center';g.fillText('0 = no skill',zx,h-3);
+ g.fillStyle='#ff9db5';const bx=(best-lo)/(hi-lo)*w;g.textAlign=bx>w-90?'right':'center';g.fillText('this draw, best of '+n+': '+best.toFixed(2),Math.min(bx,w-4),16);
+}
+function nn(){const n=+$('#nn').value;$('#nv').textContent=' '+n;$('#mx').textContent='Best of '+n+' strategies with no real skill: it still looks about '+emax(n).toFixed(2)+' standard errors above zero.';sim()}
+function phases(){
+ const el=$('#ph'),fin=i=>i<10?'ok':i===10?'bad':'no';
+ el.innerHTML=Array.from({length:20},(_,i)=>'<i class="'+(INST?fin(i):'pend')+'">'+(i+1)+'</i>').join('');
+ if(!INST)onView(el,()=>{[...el.children].forEach((c,i)=>setTimeout(()=>{c.className=fin(i)},i<11?i*110:1500+(i-11)*45))},.6);
+}
 function nums(){
- const f=n=>n.toLocaleString('en-US'),by=o=>repos.filter(r=>r.o===o).length;
+ const by=o=>repos.filter(r=>r.o===o).length,fm=(v,s)=>Math.round(v).toLocaleString('en-US')+s;
  $('#nf').textContent=WORDS[FEAT.size]||FEAT.size;
- $('#nums').innerHTML=[[N,'projects started'],[f(METRICS.commits),'commits of my own'],[Math.round(METRICS.loc/1000)+'k','lines of source, rounded, generated files excluded'],[f(METRICS.tests),'test functions counted, not run'],[LIVE,'live and reachable'],[METRICS.months,'months, April 2025 to November 2026']].map(([a,b])=>'<div><b>'+a+'</b><span>'+b+'</span></div>').join('');
+ const it=[[N,'','projects started'],[METRICS.commits,'','commits of my own'],[Math.round(METRICS.loc/1000),'k','lines of source, rounded, generated files excluded'],[METRICS.tests,'','test functions counted, not run'],[LIVE,'','live and reachable'],[METRICS.months,'','months, April 2025 to November 2026']];
+ $('#nums').innerHTML=it.map(([v,s,l])=>'<div><b data-v="'+v+'" data-s="'+s+'">'+fm(INST?v:0,s)+'</b><span>'+l+'</span></div>').join('');
  $('#orig').textContent='How they started: '+by('solo')+' on my own, '+by('assess')+' as company hiring assessments, '+by('intern')+' from internships, '+by('college')+' from college, '+by('')+' unclear.';
+ if(!INST)onView($('#nums'),()=>{const t0=performance.now(),bs=[...document.querySelectorAll('#nums b')],f=t=>{const k=Math.min(1,(t-t0)/1100),e=1-Math.pow(1-k,3);bs.forEach(b=>b.textContent=fm(+b.dataset.v*e,b.dataset.s));if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)},.5);
 }
 const RC=[
 ['LeaveFlow','Leave management for teams',[['Live demo','c','https://leave-flow-cyan.vercel.app'],['162 commits since December 2025','c','https://github.com/sriram36/LeaveFlow/commits'],['29 backend test functions','c','https://github.com/sriram36/LeaveFlow/tree/main/backend/tests'],['Rate limiting and Alembic migrations','c','https://github.com/sriram36/LeaveFlow/tree/main/backend']]],
 ['FinSight','Finance decision support',[['Live frontend','c','https://finsight-wine-tau.vercel.app'],['60 test functions','c','https://github.com/sriram36/FinSight'],['Deterministic math, claims checked against evidence','c','https://github.com/sriram36/FinSight']]],
+['RefillCare','Pharmacy-chain operations app, built to a company brief',[['Live frontend','c','https://refillcare.vercel.app'],['Live API docs','c','https://refillcare.onrender.com/docs'],['95 backend test functions','c','https://github.com/sriram36/RefillCare'],['130 commits in five days','c','https://github.com/sriram36/RefillCare/commits']]],
+['ClaimLens','A take-home with versioned evaluation runs',[['56 test functions','c','https://github.com/sriram36/ClaimLens'],['Dev-set F1 rose 0.987 to 1.000, about the size of run-to-run variance','c','https://github.com/sriram36/ClaimLens'],['Lesson: calibration, not generalization','w']]],
+['wirematch','A take-home on safe, repeatable approvals',[['64 test functions','c','https://github.com/sriram36/wirematch'],['Lesson: lock ordering for idempotent approvals, with database constraints as the backstop','c','https://github.com/sriram36/wirematch'],['Not deployed','c','https://github.com/sriram36/wirematch']]],
+['geomeasure-api','Shapefile or KML in, area and length out',[['52 test functions, with CI','c','https://github.com/sriram36/geomeasure-api'],['Areas within 0.3% of an independent geodesic calculation','c','https://github.com/sriram36/geomeasure-api'],['FastAPI and GeoPandas, no PostGIS needed','c','https://github.com/sriram36/geomeasure-api']]],
 ['knowledge-shift-rag','A negative result, kept',[['Repair did not beat plain RAG','c','https://github.com/sriram36/knowledge-shift-rag'],['Latency cost of 1.6 to 2 times','c','https://github.com/sriram36/knowledge-shift-rag']]],
 ['Location-Sharing','School bus tracker',[['Live app','c','https://location-sharing-chi.vercel.app'],['Driver, parent and admin views','c','https://github.com/sriram36/Location-Sharing'],['No tests yet','w']]],
 ['x7z9p','Wind-forecast app',[['Live app','c','https://x7z9p-yxu2.vercel.app'],['17 test functions','c','https://github.com/sriram36/x7z9p'],['README discloses Claude and Gemini assistance','c','https://github.com/sriram36/x7z9p']]],
-['Pharma compliance grader','Built during my Accenture internship',[['16 rules, 31 test functions','c','https://github.com/sriram36/pharma-mlr-compliance'],['Built with my mentor’s approval','w'],['Accuracy against human review','w']]]
+['Pharma compliance grader','Built during my Accenture internship, moved to my own repo afterwards',[['16 rules, 31 test functions','c','https://github.com/sriram36/pharma-mlr-compliance'],['Deterministic rule-based grader: 16 rules, one optional LLM-assisted rule','c','https://github.com/sriram36/pharma-mlr-compliance'],['78% agreement with manual review, my own test','w'],['Built with my mentor’s approval','w']]]
 ];
-function rcs(){$('#rcs').innerHTML=RC.map(([t,u,L])=>'<article class="rc"><h3>'+t+'</h3><p class="sub">'+u+'</p><ul>'+L.map(([c,k,h])=>'<li><span>'+c+'</span><i class="ld"></i>'+(k==='c'?'<a class="k" href="'+h+'">Check it</a>':'<span class="k w">My word</span>')+'</li>').join('')+'</ul></article>').join('')}
-function tl(){const Rg=[['P','PixelTests',0,5],['Z','Zennith AI',9,17],['A','Accenture',18,19]],MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];let h='',n=0;
- for(let i=0;i<24;i++){const o=Rg.find(r=>i>=r[2]&&i<=r[3]);n+=o?1:0;h+='<i class="'+(o?'f':'')+'" title="'+MN[(11+i)%12]+' '+(2024+Math.floor((11+i)/12))+(o?': '+o[1]:'')+'">'+(o?o[0]:'')+'</i>'}
- $('#tl').innerHTML=h;$('#tn').textContent=n}
-function sih(){$('#sih').innerHTML=Array.from({length:150},(_,i)=>'<i'+(i===87?' class="on"':'')+'></i>').join('')}
+const RK={'Pharma compliance grader':'pharma-mlr-compliance'};
+function rcs(){$('#rcs').innerHTML=RC.map(([t,u,L],i)=>'<article class="rc" id="w-'+(RK[t]||t)+'" style="--i:'+i+'"><h3>'+t+'</h3><p class="sub">'+u+'</p><ul>'+L.map(([c,k,h])=>'<li><span>'+c+'</span><i class="ld"></i>'+(k==='c'?'<a class="k" href="'+h+'">Check it</a>':'<span class="k w">My word</span>')+'</li>').join('')+'</ul></article>').join('')}
+function hot(r,on){document.querySelectorAll('#tl i[data-r="'+r+'"]').forEach(e=>e.classList.toggle('hot',on));const x=$('#x-'+r);if(x)x.classList.toggle('hot',on)}
+function tl(){const Rg=[['P','PixelTests',0,5],['Z','Zennith AI',9,17],['A','Accenture',18,19],['Z','Zennith AI',20,23]],MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];let h='',n=0;
+ for(let i=0;i<24;i++){const o=Rg.find(r=>i>=r[2]&&i<=r[3]);n+=o?1:0;h+='<i data-r="'+(o?o[0]:'')+'" data-f="'+(o?1:0)+'" class="'+(o&&INST?'f':'')+'" title="'+MN[(11+i)%12]+' '+(2024+Math.floor((11+i)/12))+(o?': '+o[1]:'')+'">'+(o?o[0]:'')+'</i>'}
+ $('#tl').innerHTML=h;$('#tn').textContent=INST?n:0;
+ if(!INST)onView($('#tl'),()=>{let c=0;[...$('#tl').children].forEach((el,i)=>setTimeout(()=>{if(el.dataset.f==='1'){el.classList.add('f');$('#tn').textContent=++c}},i*70))},.6);
+ $('#tl').onpointerover=e=>{const i=e.target.closest('i');if(i&&i.dataset.r)hot(i.dataset.r,true)};
+ $('#tl').onpointerout=e=>{const i=e.target.closest('i');if(i&&i.dataset.r)hot(i.dataset.r,false)};
+ document.querySelectorAll('.xp').forEach(x=>{x.onpointerenter=()=>hot(x.dataset.r,true);x.onpointerleave=()=>hot(x.dataset.r,false)});
+}
+function sih(){$('#sih').innerHTML=Array.from({length:150},(_,i)=>'<i style="--i:'+i+'"'+(i===87?' class="on"':'')+'></i>').join('')}
+const SK=[['Languages',['Python','JavaScript','TypeScript','Java']],['Backend',['FastAPI','Node.js','Express.js','Alembic','WebSockets','REST APIs','CI/CD']],['Frontend',['Next.js','React.js','Tailwind CSS','Streamlit']],['Databases',['PostgreSQL','Supabase','MongoDB']],['AI and LLM',['LangGraph','Azure OpenAI','Prompt engineering']],['Automation and tools',['n8n','Playwright','BeautifulSoup','Twilio','Docker','Git','Linux CLI','Postman']]];
+const USES={'Python':['A','Z','P','LeaveFlow','FinSight','x7z9p','ClaimLens','wirematch','geomeasure-api','knowledge-shift-rag','pharma-mlr-compliance'],'TypeScript':['FinSight','Location-Sharing','RefillCare'],'FastAPI':['A','Z','P','LeaveFlow','FinSight','geomeasure-api'],'REST APIs':['A','Z','P','LeaveFlow'],'WebSockets':['LeaveFlow'],'Alembic':['LeaveFlow'],'CI/CD':['A'],'Next.js':['Z','LeaveFlow'],'React.js':['LeaveFlow'],'Streamlit':['A','pharma-mlr-compliance'],'PostgreSQL':['A','LeaveFlow'],'LangGraph':['A','pharma-mlr-compliance'],'Azure OpenAI':['A','pharma-mlr-compliance'],'Twilio':['P']};
+const KN={A:'Accenture',Z:'Zennith AI',P:'PixelTests'};
+function skills(){
+ $('#sks').innerHTML=SK.map(([g,l])=>'<div class="sk"><b>'+g+'</b><span>'+l.map(x=>'<button type="button" aria-pressed="false" data-s="'+x+'">'+x+'</button>').join('')+'</span></div>').join('');
+ $('#sks').onclick=e=>{const b=e.target.closest('button');if(!b)return;const on=b.getAttribute('aria-pressed')!=='true';
+  document.querySelectorAll('#sks button').forEach(x=>x.setAttribute('aria-pressed','false'));
+  const r=$('#skres');if(!on){r.innerHTML='';return}
+  b.setAttribute('aria-pressed','true');const u=USES[b.dataset.s]||[];
+  r.innerHTML=u.length?'<b>'+b.dataset.s+'</b> shows up in:'+u.map(k=>'<a href="#'+(KN[k]?'x-':'w-')+k+'">'+(KN[k]||k)+'</a>').join(''):'<b>'+b.dataset.s+'</b> is in work I don’t name on this page.'}
+}
+function clock(){const t=new Intl.DateTimeFormat('en-IN',{timeZone:'Asia/Kolkata',hour:'numeric',minute:'2-digit',hour12:true}).format(new Date());$('#nowt').textContent='It is '+t+' in Bengaluru. Open to internships and entry-level roles.'}
 function lang(){const c={};repos.forEach(r=>{c[r.l]=(c[r.l]||0)+1});const e=Object.entries(c).sort((a,b)=>b[1]-a[1]),op=i=>[1,.72,.52,.38,.26][i]||.18;
  $('#lang').innerHTML=e.map(([l,n],i)=>'<i style="flex:'+n+';opacity:'+op(i)+'"></i>').join('');
  $('#lg').innerHTML=e.map(([l,n],i)=>'<span><b style="opacity:'+op(i)+'"></b>'+l+' '+n+'</span>').join('')}
 function rail(){
  const by={};repos.forEach(r=>by[r.n]=r);
  $('#rd').innerHTML=repos.slice().sort((a,b)=>a.b-b.b).map(r=>'<i data-n="'+r.n+'" style="background:var(--'+r.s+')"></i>').join('');
- const M={all:[()=>true,N+' projects'],stopped:[r=>r.s==='killed','1 stopped'],work:[r=>r.f,(WORDS[FEAT.size]||FEAT.size)+' named'],people:[()=>false,'3 internships']};
+ const M={all:[()=>true,N+' projects'],stopped:[r=>r.s==='killed','1 stopped'],work:[r=>r.f,(WORDS[FEAT.size]||FEAT.size)+' named'],people:[()=>false,'3 companies'],me:[()=>false,'Me, not repos']};
  const dots=[...document.querySelectorAll('#rd i')];
  const set=k=>{const [f,t]=M[k];$('#rcap').textContent=t;dots.forEach(d=>d.classList.toggle('off',!f(by[d.dataset.n])))};
- const map=[['header.hero','all'],['#numbers','all'],['#stopped','stopped'],['#work','work'],['#experience','people'],['#stack','all']];
+ const map=[['header.hero','all'],['#about','me'],['#experience','people'],['#work','work'],['#stopped','stopped'],['#numbers','all'],['#skills','me'],['#education','me']];
  set('all');if(!('IntersectionObserver' in window))return;
  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)set(e.target.dataset.rail)}),{rootMargin:'-48% 0px -48% 0px'});
  map.forEach(([q,k])=>{const el=document.querySelector(q);if(el){el.dataset.rail=k;io.observe(el)}});
@@ -406,9 +534,11 @@ function rail(){
 $('#again').onclick=()=>{setup();if(rm)draw();else go()};
 $('#nn').oninput=nn;
 $('#cp').onclick=async()=>{try{await navigator.clipboard.writeText('kollisriram6@gmail.com');$('#cp').textContent='Copied'}catch(e){$('#cp').textContent='Copy it from the link'}};
-let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{const keep=T;setup();T=rm?T:keep;balls.forEach(b=>{if(T>b.delay+4||rm){b.x=b.r.fx;b.y=b.r.fy;b.done=true}});count();draw()},150)});
+let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{const keep=T;setup();T=rm?T:keep;balls.forEach(b=>{if(T>b.delay+4||rm){b.x=b.r.fx;b.y=b.r.fy;b.done=true}});count();draw();sim()},150)});
 
-chips();phases();nn();rcs();tl();sih();lang();nums();rail();
+chips();phases();nn();rcs();tl();sih();lang();nums();rail();skills();clock();setInterval(clock,30000);
+onView($('#rcs'),()=>$('#rcs').classList.add('go'),.12);onView($('#lang'),()=>$('#lang').classList.add('in'),.5);onView($('#sih'),()=>$('#sih').classList.add('go'),.4);
+addEventListener('scroll',()=>{const h=document.documentElement,m=h.scrollHeight-innerHeight;$('#prog').style.transform='scaleX('+(m>0?Math.min(1,scrollY/m):0)+')'},{passive:true});
 $('#last').textContent='Latest public push: '+repos[0].d+'. Outcomes are my labels; the dates come from GitHub.';
 sel=repos.find(r=>r.n==='stock-ai')||repos[0];show(sel);
 setup();draw();if(!rm)go();
