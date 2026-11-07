@@ -196,7 +196,7 @@ footer .wrap{padding-bottom:70px}
 /* ---- skim ---- */
 .skimnote{display:none}
 html.skim .skimnote{display:block;color:var(--mut);margin:18px 0 0}
-html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.skim #about .lede + .lede,html.skim #about .key,html.skim .does,html.skim .tl,html.skim #experience .lede,html.skim .xp li:nth-child(n+2),html.skim .xp .tech,html.skim #rcs .rc:nth-child(n+4),html.skim #orig,html.skim #work .key,html.skim .say p:not(.role):not(.lead2):not(.try),html.skim .tlnote,html.skim .more,html.skim .match{display:none}
+html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.skim #about .lede + .lede,html.skim #about .key,html.skim .does,html.skim .tl,html.skim #experience .lede,html.skim .xp li:nth-child(n+2),html.skim .xp .tech,html.skim #rcs .rc:nth-child(n+4),html.skim #work .key,html.skim .say p:not(.role):not(.lead2):not(.try),html.skim #pfsum,html.skim .tlnote,html.skim .more,html.skim .match{display:none}
 /* ---- time-lapse controls ---- */
 .tlc{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:0 0 30px;color:var(--paper)}
 .tlc input[type=range]{flex:1;min-width:160px;margin:0;accent-color:var(--hr)}
@@ -257,6 +257,25 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
 .cform input,.cform textarea{display:block;width:100%;font:500 16px var(--f);padding:12px 14px;border-radius:10px;border:1.5px solid #ffffff66;background:#ffffff14;color:#fff;margin:0 0 10px}
 .cform ::placeholder{color:#ffffffbb}
 .cform .sendb{background:var(--paper);color:var(--cobalt);border-color:var(--paper);margin:0}
+/* ---- decision log ---- */
+.dl{border:1.5px solid var(--rule);border-radius:16px;margin:12px 0;transition:border-color .25s}
+.dl[open]{border-color:var(--cobalt)}
+.dl summary{padding:16px 20px;font:800 clamp(18px,2.2vw,22px)/1.2 var(--f);letter-spacing:-.01em;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.dl summary::-webkit-details-marker{display:none}
+.dl summary::after{content:"+";font-weight:400;font-size:26px;line-height:1;transition:transform .25s}
+.dl[open] summary::after{transform:rotate(45deg)}
+.dlb{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 28px;padding:0 20px 18px}
+.dlb h4{margin:0 0 4px;font:700 15px var(--f);color:var(--mut)}
+.dlb p{margin:0;max-width:34ch}
+.dlb .src{grid-column:1/-1;margin-top:6px;font-weight:700}
+@media(max-width:760px){.dlb{grid-template-columns:1fr}}
+/* ---- proof tags ---- */
+.pf{display:inline-block;margin-left:8px;padding:1px 9px;border-radius:99px;font-size:12px;font-weight:700;white-space:nowrap;text-decoration:none;border:1.5px solid var(--live);color:var(--live)}
+.pf.w{border-color:var(--rule);color:var(--mut);font-style:italic;font-weight:400}
+.rc.glow{outline:3px solid var(--hr);outline-offset:6px}
+/* ---- commit rhythm ---- */
+#rh{height:230px;cursor:crosshair}
+.rhl{margin:10px 0 6px;color:var(--ink)}
 /* ---- demos ---- */
 .demo{border:1.5px solid var(--rule);border-radius:18px;padding:clamp(16px,3vw,26px);margin-top:26px}
 .demo h3{margin:0 0 8px;font:800 clamp(22px,2.6vw,30px)/1.1 var(--f)}
@@ -317,7 +336,7 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
  @page{margin:14mm}
  *,*::before,*::after{color:#000!important;background:transparent!important;box-shadow:none!important;text-shadow:none!important;filter:none!important;outline:0!important;border-color:#000!important;animation:none!important;transition:none!important}
  body{font-size:10.5pt;line-height:1.4}
- .dock,.rail,#prog,.board canvas,.hint,.tlc,.cmd,.cform,#how,#live,.skimnote,#lab,#negative,.match,.sl,.quant,.slip,.top nav,.pulse,#cp,.sih,.more,#stopped .ph{display:none!important}
+ .dock,.rail,#prog,.board canvas,.hint,.tlc,.cmd,.cform,#how,#live,.skimnote,#rhythm,.pf,#pfsum,#decisions,#lab,#negative,.match,.sl,.quant,.slip,.top nav,.pulse,#cp,.sih,.more,#stopped .ph{display:none!important}
  .board{height:auto!important;min-height:0!important}
  .over{height:auto!important;padding-top:0!important}
  .intro{margin:6mm 0!important}
@@ -382,6 +401,7 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
 <h2>Experience</h2>
 <p class="lede"><span id="tn"></span> of the last 24 months were spent working at a company: PixelTests, Zennith AI and Accenture. Each circle is a month, ending November 2026, and the gaps are real. This section comes from my resume; nothing in a public repo proves it.</p>
 <div class="tl" id="tl" aria-hidden="true"></div>
+<p class="key" id="pfsum"></p>
 <div class="xps">
 <article class="xp" id="x-Z" data-k="Z" data-r="Z"><div class="when"><i>Z</i>Sep 2025 to now</div><div><h3>Full Stack Developer Intern, Zennith AI</h3>
 <ul><li>Built a document-extraction pipeline with custom parsing across 10+ FastAPI endpoints, returning structured data in under 3 seconds, with sub-100 ms responses under concurrent load.</li>
@@ -413,6 +433,11 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
 <div class="tabs" id="ftabs" role="group" aria-label="Project"></div>
 <ol class="flow" id="flow"></ol>
 <p class="fcap" id="fcap" aria-live="polite"></p>
+</section>
+<section id="decisions" class="deep"><h2>Decisions I would defend</h2>
+<p class="lede">Three trade-offs per project, taken from each repo's own design notes. Open one to see what I chose, what I passed on, and what it cost.</p>
+<div class="tabs" id="dtabs" role="group" aria-label="Project"></div>
+<div id="dlist"></div>
 </section>
 <section id="lab" class="deep"><h2>Poke at it</h2>
 <p class="lede">Small simulations of ideas from my projects. They are simplified models, not the real code, so the phrases and numbers in them are made up.</p>
@@ -467,7 +492,12 @@ html.skim .deep,html.skim #stopped,html.skim #skills,html.skim #education,html.s
 <h2>The numbers, because the full list is too long</h2>
 <p class="lede"><span id="nf"></span> projects are named on this page. The rest still count here. Figures come from the git history of the repos counted here, public and private, leaving out my teammates&rsquo; commits and generated files.</p>
 <div class="nums" id="nums"></div>
-<p class="key" id="orig"></p>
+</section>
+<section id="rhythm" class="deep"><h2>My commit rhythm</h2>
+<p class="lede" id="rhs"></p>
+<canvas id="rh" role="img" aria-label="Bar chart of my commits per week from March 2025 to November 2026, coloured by what happened to each project."></canvas>
+<div class="chips rhl" id="rhl"></div>
+<p class="key" id="rht" aria-live="polite"></p>
 </section>
 <section id="skills">
 <h2>Skills</h2>
@@ -557,7 +587,7 @@ const P=[
 const PENDING=0; /* private repos not yet labelled. Set to 0 once they are added above. */
 const FEAT=new Set(['LeaveFlow','FinSight','knowledge-shift-rag','stock-ai','pharma-mlr-compliance','Location-Sharing','x7z9p','RefillCare','ClaimLens','wirematch','geomeasure-api','Scout']);
 /* Flip a name into FEAT to show it. RefillCare and ClaimLens are strong but are company assessments: add them only after checking each brief. */
-const METRICS={commits:608,loc:87800,tests:477,months:19};
+const METRICS={commits:610,loc:87800,tests:477,months:19};
 const START={'LeaveFlow':'2025-12-09','RefillCare':'2026-11-02','FinSight':'2026-10-24','GradeSync':'2026-08-26','knowledge-shift-rag':'2026-08-09','FrameSense':'2026-08-28','attendance-tracker':'2025-07-22','ClaimLens':'2026-10-19','Location-Sharing':'2025-09-29','SignLanguage':'2026-01-21','leaddesk-mini':'2026-07-24','Scout':'2026-09-12','elevatebox-voice-agent':'2026-08-23','wirematch':'2026-10-12','EduBridge':'2025-04-06','x7z9p':'2026-10-24','geomeasure-api':'2026-10-07','Orbit':'2025-11-30','Portfolio':'2026-06-26','hiver-takehome-agent':'2026-09-09','Private project 2':'2025-08-12','composio-task':'2026-07-10','pharma-mlr-compliance':'2026-08-04','ML-Housing-Analytics':'2026-01-23','livo-pronunciation-app':'2026-07-10','stock-ai':'2026-07-19','Private project 3':'2025-08-01','Sriram_Kolli-binance-bot':'2025-08-09'};
 const ORI={solo:'Solo',assess:'Assessment',college:'College group',intern:'Internship','':'Unclear'};
 const B=['live','learned','killed','unsorted'],NAMES={live:'Live',learned:'Learned',killed:'Killed',unsorted:'Not yet sorted'};
@@ -689,11 +719,10 @@ function phases(){
  if(!INST)onView(el,()=>{[...el.children].forEach((c,i)=>setTimeout(()=>{c.className=fin(i);if(SND.on){if(i<10)SFX.chime(i);else if(i===10)SFX.fail()}},i<11?i*110:1500+(i-11)*45))},.6);
 }
 function nums(){
- const by=o=>repos.filter(r=>r.o===o).length,fm=(v,s)=>Math.round(v).toLocaleString('en-US')+s;
+ const fm=(v,s)=>Math.round(v).toLocaleString('en-US')+s;
  $('#nf').textContent=WORDS[FEAT.size]||FEAT.size;
  const it=[[N,'','projects started'],[METRICS.commits,'','commits of my own'],[Math.round(METRICS.loc/1000),'k','lines of source, rounded, generated files excluded'],[METRICS.tests,'','test functions counted, not run'],[LIVE,'','live and reachable'],[METRICS.months,'','months, April 2025 to November 2026']];
  $('#nums').innerHTML=it.map(([v,s,l])=>'<div><b data-v="'+v+'" data-s="'+s+'">'+fm(INST?v:0,s)+'</b><span>'+l+'</span></div>').join('');
- $('#orig').textContent='How they started: '+by('solo')+' on my own, '+by('assess')+' as company hiring assessments, '+by('intern')+' from internships, '+by('college')+' from college, '+by('')+' unclear.';
  if(!INST)onView($('#nums'),()=>{const t0=performance.now(),bs=[...document.querySelectorAll('#nums b')],f=t=>{const k=Math.min(1,(t-t0)/1100),e=1-Math.pow(1-k,3);bs.forEach(b=>b.textContent=fm(+b.dataset.v*e,b.dataset.s));if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)},.5);
 }
 const RC=[
@@ -781,7 +810,7 @@ bK.onclick=()=>skim(!html.classList.contains('skim'));
 bS.onclick=()=>sound(!SND.on);
 bP.onclick=()=>print();
 press(bK,html.classList.contains('skim'));
-document.addEventListener('click',e=>{if(SND.on&&e.target.closest('.dock button,.tabs button,.flow button,.cch button,#sks button,.qb button,.demo button,#mpills button,.tlc button'))SFX.click()});
+document.addEventListener('click',e=>{if(SND.on&&e.target.closest('.dock button,.tabs button,.flow button,.cch button,#sks button,.qb button,.demo button,#mpills button,#dtabs button,.tlc button'))SFX.click()});
 
 /* ---- time-lapse ---- */
 const T0=Math.min(...repos.map(r=>r.st)),T1=Math.max(...repos.map(r=>r.en));
@@ -854,7 +883,7 @@ onView($('#quant'),()=>qdraw(),.1);
 /* ---- how they work ---- */
 const FL={
  'LeaveFlow':[['Employee on WhatsApp','asks for leave','An employee asks for leave in a WhatsApp message.'],['Webhook','checks the signature','WhatsApp calls the webhook, which checks the message signature when a secret is set.'],['FastAPI rules','roles and limits','Role-based rules decide who may do what, and rate limits protect the endpoints.'],['PostgreSQL','one transaction','The request and an audit-log entry are written together, so they cannot drift apart.'],['WebSocket','live update','A live update reaches the manager\u2019s open dashboard.'],['Manager approves','on the web','The manager decides on the dashboard, and the decision is saved and sent back.']],
- 'FinSight':[['Statement import','CSV or JSON','Bank headers are detected and duplicate rows are dropped using SHA-256.'],['Deterministic math','plain Python','Totals, periods and daily pacing are computed in Python. The model never does arithmetic.'],['Protected categories','essentials stay safe','Categories like healthcare and housing are shielded from any suggested cut.'],['LLM drafts','must cite transactions','The model writes a recommendation and has to cite transaction IDs.'],['Claim verifier','every number checked','Each number in the text is checked against the cited transactions, within a 1.5% margin.'],['Shown with receipts','verified only','The verified recommendation reaches the user with its receipts.']],
+ 'FinSight':[['Statement import','CSV or JSON','Bank headers are detected and duplicate rows are dropped using SHA-256.'],['Deterministic math','plain Python','Totals, periods and daily pacing are computed in Python. The model never does arithmetic.'],['Protected categories','essentials stay safe','Categories like healthcare and housing are shielded from any suggested cut.'],['LLM drafts','must cite transactions','The model writes a recommendation and has to cite transaction IDs.'],['Claim verifier','every number checked','Each number in the text is checked against the cited transactions, within a 1% margin.'],['Shown with receipts','verified only','The verified recommendation reaches the user with its receipts.']],
  'Scout':[['n8n schedule','every few hours','A schedule triggers the discovery workflow.'],['Three job APIs','Himalayas, Arbeitnow, RemoteOK','The workflow fetches remote developer roles from three sources.'],['Normalize and dedupe','drop repeats','Roles are cleaned and duplicate URLs are dropped.'],['Supabase','saved','New jobs are saved to the database.'],['Auto-fill queue','from the dashboard','I press Auto-fill on a job and it joins a queue.'],['Playwright and Azure OpenAI','fills the form','A browser fills the form and the model drafts answers to custom questions.'],['I submit','by hand','The browser stays open. I review it and submit myself.']]
 };
 FL['Pharma compliance']=[['Brief','what the content must say','A marketing brief goes in. Medical, legal and regulatory rules decide what is allowed.'],['Staged drafting','LangGraph and Azure OpenAI','The model drafts the content in stages, orchestrated with LangGraph.'],['Rule grader','16 compliance rules','A deterministic grader checks the draft against 16 compliance rules.'],['Three-tier lookup','dictionary, cache, LLM','Answers come from a dictionary first, then a disk cache, then an LLM, so results repeat and nothing fails silently.'],['Dashboard','Streamlit','The grades and the reasons show in a dashboard a reviewer can read.']];
@@ -902,7 +931,7 @@ setInterval(()=>{if(wallOn&&!document.hidden)pingAll()},30000);
 
 /* ---- command palette ---- */
 const cmd=$('#cmd'),ci=$('#cmdi'),cl=$('#cmdl');let items=[],act=0,opener=null;
-const SEC=[['about','What I do'],['experience','Experience'],['work','Selected work'],['how','How they work'],['lab','Try the demos'],['live','Live right now'],['stopped','The one I stopped'],['negative','What did not work'],['numbers','The numbers'],['skills','Skills'],['education','Education and certificates'],['contact','Contact']];
+const SEC=[['about','What I do'],['experience','Experience'],['work','Selected work'],['how','How they work'],['decisions','Decisions'],['lab','Try the demos'],['live','Live right now'],['stopped','The one I stopped'],['negative','What did not work'],['numbers','The numbers'],['rhythm','Commit rhythm'],['skills','Skills'],['education','Education and certificates'],['contact','Contact']];
 const WID={'pharma-mlr-compliance':'w-pharma-mlr-compliance'};
 function allItems(){
  const a=SEC.map(([id,l])=>({t:l,s:'Section',run:()=>go(id)}));
@@ -1016,6 +1045,77 @@ $('#neg').innerHTML=[
  '<article class="ng"><h3>ClaimLens</h3><p class="sub">F1 on the dev set (axis starts at 0.98)</p>'+bars([['Before','0.987',35],['After','1.000',100]],1)+'<p>That gain is about the size of run-to-run variance, so it is calibration, not generalization.</p><a class="tag" href="https://github.com/sriram36/ClaimLens">Check it</a></article>'
 ].join('');
 document.querySelectorAll('#neg .ng').forEach(n=>onView(n,()=>n.classList.add('in'),.4));
+
+/* ---- decision log ---- */
+const DEC={
+ 'LeaveFlow':{src:'https://github.com/sriram36/LeaveFlow/blob/main/SYSTEM_DESIGN.md',d:[
+  ['Push updates over WebSockets','The dashboard polling the database every five seconds.','Managers see a sick-leave request the moment it lands, and nothing is wasted when nothing changes. The backend sends an event only when state changes.','More moving parts than a plain request: a connection manager, and a token check on the socket.'],
+  ['PostgreSQL with async SQLAlchemy','A synchronous ORM that blocks on every query.','Leave balances, requests and reporting lines are relational, and HR data needs ACID. Async sessions keep the event loop free under webhook load.','Async SQLAlchemy is harder to set up. The design notes say the scalability is worth it.'],
+  ['Keep the message parser apart from the webhook','Parsing inside the WhatsApp handler.','The parser takes raw text and returns a structured command. Swapping a regex for an LLM later does not touch the webhook or the database.','An extra layer, and a command format to keep stable.']]},
+ 'FinSight':{src:'https://github.com/sriram36/FinSight/blob/main/docs/ARCHITECTURE.md',d:[
+  ['The model never does arithmetic','Letting the language model add up the numbers.','Models write fluent sentences and miss sums. Totals, periods and daily pace are computed in Python, and the model only puts the result into words.','Every number has to be computed first, so the model cannot improvise a new one.'],
+  ['Compare daily pace, not raw totals','Comparing a 30-day window with a 60-day window as they are.','Unequal windows create fake anomalies. Normalizing to a daily rate first makes the comparison fair.','Extra rules for edge cases, such as a zero baseline.'],
+  ['Treat the advice as untrusted text','Showing whatever the model wrote.','A verifier pulls every number out of the text and matches it to a real transaction within 1%. Years and window lengths are ignored. A number with no match flags the advice.','It can be strict about rounding, so the tolerance matters.']]}
+};
+let dk='LeaveFlow';
+function dlog(){
+ $('#dtabs').innerHTML=Object.keys(DEC).map(k=>'<button type="button" data-k="'+k+'" aria-pressed="'+(k===dk)+'">'+k+'</button>').join('');
+ $('#dlist').innerHTML=DEC[dk].d.map((x,i)=>'<details class="dl"'+(i===0?' open':'')+'><summary>'+x[0]+'</summary><div class="dlb"><div><h4>Instead of</h4><p>'+x[1]+'</p></div><div><h4>Why</h4><p>'+x[2]+'</p></div><div><h4>What it cost</h4><p>'+x[3]+'</p></div>'+(i===0?'':'')+'<a class="src" href="'+DEC[dk].src+'">Check it in the design notes</a></div></details>').join('');
+}
+$('#dtabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;dk=b.dataset.k;dlog()};
+dlog();
+
+/* ---- resume to proof ---- */
+const PF={A:[0,'#w-pharma-mlr-compliance','#w-pharma-mlr-compliance','#w-pharma-mlr-compliance'],Z:[0,0],P:[0,0]};
+let pfn=0,pft=0;
+document.querySelectorAll('.xp').forEach(x=>{const m=PF[x.dataset.r]||[];x.querySelectorAll('li').forEach((li,i)=>{
+ pft++;const h=m[i];
+ if(h){pfn++;li.insertAdjacentHTML('beforeend','<a class="pf" href="'+h+'">See the receipt</a>');
+  const card=()=>document.querySelector(h);li.addEventListener('pointerenter',()=>{const c=card();if(c)c.classList.add('glow')});li.addEventListener('pointerleave',()=>{const c=card();if(c)c.classList.remove('glow')})}
+ else li.insertAdjacentHTML('beforeend','<span class="pf w">My word</span>');
+})});
+$('#pfsum').textContent=pfn+' of '+pft+' bullets have a receipt below. The rest describe private employer work, so they are my word.';
+
+/* ---- commit rhythm ---- */
+const RH={start:'2025-03-31',w:[[0,11,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,19],[0,2,0,0],[0,1,0,0],[0,7,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,1],[0,0,0,0],[0,0,0,0],[0,0,0,0],[2,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,1],[0,0,0,2],[61,0,0,0],[10,0,0,0],[0,0,0,0],[0,0,0,2],[0,0,0,0],[0,0,0,0],[0,7,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[7,0,0,0],[6,0,0,5],[0,0,0,0],[0,0,0,0],[0,0,0,0],[2,0,0,0],[0,0,0,0],[0,0,0,8],[11,0,1,0],[72,0,1,0],[0,0,0,0],[0,19,0,0],[0,9,0,0],[5,12,0,0],[35,23,0,0],[17,0,0,0],[0,7,0,12],[0,1,0,2],[0,0,0,0],[0,0,0,0],[0,8,0,0],[0,11,0,0],[48,20,0,0],[12,0,0,0],[130,0,0,0]]};
+const RHC=['#0a8f5a','#a87000','#c0123f','#5f6aa6'],RHN=['live','learned','killed','not yet sorted'];
+const RHS=RH.w.map(a=>a[0]+a[1]+a[2]+a[3]);
+const rhd=i=>{const t=new Date(RH.start+'T00:00:00');t.setDate(t.getDate()+7*i);return t};
+const RHHINT='Hover a bar to see its week. Bar height is the square root of the count, so quiet weeks stay visible.';
+let rhp=0,rhx=-1;
+function rhdraw(){
+ const c=$('#rh'),dpr=devicePixelRatio||1,w=c.clientWidth,h=230;if(!w)return;
+ c.width=w*dpr;c.height=h*dpr;const g=c.getContext('2d');g.setTransform(dpr,0,0,dpr,0,0);g.clearRect(0,0,w,h);
+ const n=RH.w.length,pad=8,bw=(w-pad*2)/n,top=18,base=h-26,mx=Math.sqrt(Math.max(...RHS));
+ g.font='600 11px "Bricolage Grotesque",system-ui,sans-serif';g.textAlign='left';
+ let lastM=-1,lastI=-9;
+ RH.w.forEach((a,i)=>{
+  const x=pad+i*bw,dt=rhd(i),m=dt.getMonth();
+  if(m!==lastM&&i-lastI>=3){lastM=m;lastI=i;g.fillStyle='#4a5385';g.fillText(dt.toLocaleDateString('en-GB',{month:'short'})+(m===0||i===0?' '+String(dt.getFullYear()).slice(2):''),x,h-8)}
+  const tot=RHS[i];if(!tot)return;
+  const H=(Math.sqrt(tot)/mx)*(base-top)*rhp;let y=base;
+  a.forEach((v,b)=>{if(!v)return;const hh=H*v/tot;y-=hh;g.fillStyle=RHC[b];g.globalAlpha=rhx===-1||rhx===i?1:.55;g.fillRect(x+1,y,Math.max(2,bw-2),hh)});
+  g.globalAlpha=1;
+  if(rhx===i){g.fillStyle='#0a0f33';g.fillRect(x+1,base+3,Math.max(2,bw-2),3)}
+ });
+ g.strokeStyle='#c9cffa';g.lineWidth=1;g.beginPath();g.moveTo(pad,base+.5);g.lineTo(w-pad,base+.5);g.stroke();
+}
+(()=>{
+ const tot=RHS.reduce((a,b)=>a+b,0),act=RHS.filter(x=>x>0).length,n=RHS.length,mx=Math.max(...RHS);
+ $('#rhs').textContent=tot+' of my commits over '+n+' weeks. '+act+' weeks had commits and '+(n-act)+' were quiet. The busiest week had '+mx+'. Colours are what happened to each project.';
+ const by=[0,0,0,0];RH.w.forEach(a=>a.forEach((v,b)=>by[b]+=v));
+ $('#rhl').innerHTML=RHN.map((k,b)=>'<span><b style="background:'+RHC[b]+'"></b>'+k+' '+by[b]+'</span>').join('');
+ $('#rht').textContent=RHHINT;
+})();
+$('#rh').addEventListener('pointermove',e=>{
+ const c=$('#rh'),r=c.getBoundingClientRect(),n=RH.w.length,pad=8,bw=(r.width-pad*2)/n,i=Math.max(0,Math.min(n-1,Math.floor((e.clientX-r.left-pad)/bw)));
+ if(i===rhx)return;rhx=i;const a=RH.w[i],parts=a.map((v,b)=>v?v+' '+RHN[b]:'').filter(Boolean);
+ $('#rht').textContent='Week of '+rhd(i).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})+': '+(RHS[i]?RHS[i]+' commit'+(RHS[i]===1?'':'s')+' ('+parts.join(', ')+')':'no commits')+'.';
+ rhdraw();
+});
+$('#rh').addEventListener('pointerleave',()=>{rhx=-1;$('#rht').textContent=RHHINT;rhdraw()});
+onView($('#rh'),()=>{if(rm){rhp=1;rhdraw();return}const t0=performance.now(),f=t=>{const k=Math.min(1,(t-t0)/900);rhp=1-Math.pow(1-k,3);rhdraw();if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)},.3);
+let rhr;addEventListener('resize',()=>{clearTimeout(rhr);rhr=setTimeout(rhdraw,160)});
 
 /* ---- print ---- */
 addEventListener('beforeprint',()=>{tlExit();document.querySelectorAll('#tl i[data-f="1"]').forEach(e=>e.classList.add('f'));$('#tn').textContent=document.querySelectorAll('#tl i[data-f="1"]').length;document.querySelectorAll('#nums b').forEach(b=>{b.textContent=Math.round(+b.dataset.v).toLocaleString('en-US')+b.dataset.s});$('#rcs').classList.add('go');$('#lang').classList.add('in');$('#sih').classList.add('go');balls.forEach(b=>{b.x=b.r.fx;b.y=b.r.fy;b.done=true;b.hide=false});landed=-1;count()});
