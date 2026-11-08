@@ -9,7 +9,7 @@ function chips(){
 function nums(){
  const fm=(v,s)=>Math.round(v).toLocaleString('en-US')+s;
  $('#nf').textContent=WORDS[FEAT.size]||FEAT.size;
- const it=[[N,'','projects started'],[METRICS.commits,'','commits of my own'],[Math.round(METRICS.loc/1000),'k','lines of source, rounded, generated files excluded'],[METRICS.tests,'','test functions counted, not run'],[LIVE,'','live and reachable'],[METRICS.months,'','months, April 2025 to November 2026']];
+ const it=[[N,'','projects started'],[METRICS.commits,'','commits of my own'],[Math.round(METRICS.loc/1000),'k','lines of source, rounded, generated files excluded'],[METRICS.tests,'','tests counted, not re-run here'],[LIVE,'','live and reachable'],[METRICS.months,'','months, April 2025 to November 2026']];
  $('#nums').innerHTML=it.map(([v,s,l])=>'<div><b data-v="'+v+'" data-s="'+s+'">'+fm(INST?v:0,s)+'</b><span>'+l+'</span></div>').join('');
  if(!INST)onView($('#nums'),()=>{const t0=performance.now(),bs=[...document.querySelectorAll('#nums b')],f=t=>{const k=Math.min(1,(t-t0)/1100),e=1-Math.pow(1-k,3);bs.forEach(b=>b.textContent=fm(+b.dataset.v*e,b.dataset.s));if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)},.5);
 }
